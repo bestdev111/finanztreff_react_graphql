@@ -1,0 +1,8 @@
+query getInstrumentsCount($searchString: String!) {
+    search(criteria: { searchString: $searchString }, first: 0) {
+        assetGroups {
+            assetGroup
+            count
+        }
+    }
+}

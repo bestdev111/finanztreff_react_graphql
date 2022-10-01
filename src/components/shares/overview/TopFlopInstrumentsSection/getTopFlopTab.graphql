@@ -1,0 +1,25 @@
+query getTopFlopInstrumentsCustom {
+    list(id: "topflop_instruments") {
+        id
+        content {
+            id
+            name
+            group {
+                id
+                name
+                seoTag
+                assetGroup
+                analysisReport {
+                    positiveCount
+                    neutralCount
+                    negativeCount
+                }
+            }
+            exchange {
+                id
+                name
+                code
+            }
+        }
+    }
+}

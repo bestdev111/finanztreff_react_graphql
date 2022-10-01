@@ -1,0 +1,292 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.modal{
+    &#analysenKurszieleModal {
+        .content-wrapper {
+            .chart-wrapper {
+                padding-top: 0;
+
+                figure {
+                    .chart-container {
+                        height: 310px;
+                    }
+                }
+            }
+
+            .chart-legend-wrapper {
+                display: flex;
+                justify-content: flex-end;
+                padding-right: 80px;
+                padding-top: 35px;
+                padding-bottom: 30px;
+
+                > .progress {
+                    width: 610px;
+                    height: 16px;
+                    overflow: visible;
+                    position: relative;
+
+                    .progress-pointer {
+                        position: absolute;
+                        bottom: -4px;
+                        display: inline-block;
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 0 7px 12.1px 7px;
+                        border-color: transparent transparent #383838 transparent;
+                        -webkit-background-clip: padding-box;
+                    }
+
+                    > .progress-bar {
+                        overflow: visible;
+
+                        + .progress-bar {
+                            border-left: 2px solid white;
+                        }
+
+                        > span {
+                            position: relative;
+                            top: -20px;
+                            font-size: 15px;
+                            color: var(--main-text);
+                            z-index: 1;
+                            line-height: 1;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            .big-card {
+                background: transparent linear-gradient(180deg, #ffffff 0%, #ffffff 1%, #fefefe 38%, #f1f1f1 100%) 0% 0%
+                    no-repeat;
+                box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+                border: 1px solid rgba(0, 0, 0, 0.06);
+
+                &.put-card {
+                    .top {
+                        background-color: var(--pink);
+                    }
+                }
+
+                &.seitwarts-card {
+                    .top {
+                        background-color: var(--yellow);
+                    }
+                }
+
+                &.call-card {
+                    .top {
+                        background-color: var(--green);
+                    }
+                }
+
+                .top {
+                    padding: 5px 0;
+                    font-weight: bold;
+                    text-align: center;
+                    font-size: 14px;
+                    color: white;
+                }
+
+                .data-row {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 18px;
+                    padding: 0 22px;
+
+                    &:nth-child(2) {
+                        padding-left: 48px;
+                    }
+
+                    &:nth-child(3) {
+                        margin: 0;
+                        padding: 10px 22px 0;
+                        margin-top: 9px;
+                    }
+
+                    .wkn {
+                        font-size: 17px;
+                        font-weight: bold;
+                    }
+                }
+
+                .bottom-row {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    margin-top: 10px;
+                    padding: 10px 15px;
+                    border-top: 1px solid white;
+                }
+            }
+
+            .filters-holder {
+                .dropdown.dropdown-filter {
+                    .dropdown-menu {
+                        min-width: 340px;
+
+                        .drop-body .body-row {
+                            padding-left: 0;
+                            padding-right: 0;
+                            border: 0;
+
+                            &:first-child {
+                                border-bottom: 2px solid var(--border-gray);
+                            }
+
+                            > button {
+                                margin-bottom: 10px;
+                                margin-right: 8px;
+                                color: var(--blue);
+
+                                &.active-filter {
+                                    color: #fff;
+                                    background-color: var(--primary);
+                                    border-color: var(--primary);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .pagination-mobile-only {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+            .content-wrapper {
+                .chart-legend-wrapper {
+                    padding-right: 0;
+                    justify-content: center;
+                }
+
+                .big-card {
+                    .data-row {
+                        padding: 0 10px;
+                        flex-wrap: wrap;
+
+                        &:nth-child(2) {
+                            padding: 0 30px;
+                        }
+
+                        > div.d-flex {
+                            &:nth-child(3) {
+                                text-align: center;
+                                flex-basis: 100%;
+                                padding-top: 8px;
+                            }
+                        }
+                    }
+
+                    .bottom-row {
+                        padding: 10px 0;
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+            .content-wrapper {
+                h3 {
+                    padding: 0 8px;
+                }
+
+                .content {
+                    padding: 0 8px;
+                }
+
+                .chart-legend-wrapper {
+                    padding-bottom: 55px;
+
+                    > .progress {
+                        > .progress-bar {
+                            &.bg-yellow {
+                                > span {
+                                    bottom: -28px;
+                                    top: auto;
+                                }
+                            }
+
+                            > span {
+                                font-size: 12px;
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                }
+
+                .big-card-wrapper {
+                    overflow-x: scroll;
+                    display: flex;
+                    flex-wrap: nowrap;
+                    padding-bottom: 25px;
+
+                    > .col {
+                        width: 230px;
+                        min-width: 230px;
+                    }
+                }
+
+                .pagination-mobile-only {
+                    display: block;
+                    padding-bottom: 15px;
+
+                    > ul {
+                        margin: 0;
+                    }
+                }
+
+                .analyse-stock-box {
+                    margin-bottom: 8px;
+                }
+
+                .filters-holder-mobile {
+                    padding-top: 0;
+                    padding-bottom: 18px;
+
+                    .filter-selector {
+                        .drop-body {
+                            padding-bottom: 0;
+                            margin-bottom: 0;
+
+                            .body-row {
+                                padding-left: 0;
+                                padding-right: 0;
+                                padding-bottom: 8px;
+                                border: 0;
+                                border-bottom: 2px solid var(--border-gray);
+
+                                > button {
+                                    margin-bottom: 10px;
+                                    margin-right: 8px;
+                                    color: var(--blue);
+
+                                    &.active-filter {
+                                        color: #fff;
+                                        background-color: var(--primary);
+                                        border-color: var(--primary);
+                                    }
+                                }
+                            }
+                        }
+
+                        .drop-footer {
+                            padding-top: 0;
+
+                            button {
+                                padding-right: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

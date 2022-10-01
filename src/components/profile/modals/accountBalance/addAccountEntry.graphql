@@ -1,0 +1,18 @@
+mutation AddAccountEntry($portfolioId: Long!, $entry: AccountEntryInput!) {
+    addAccountEntry(portfolioId: $portfolioId, entry: $entry) { 
+        id
+        accountTypeId
+        accountTypeDescriptionEn
+        instrumentId
+        portfolioEntryId
+        instrument {
+            id
+            name
+        }
+        amount
+        quantity
+        memo
+        securityDescription
+        entryTime
+    }
+}

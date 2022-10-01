@@ -1,0 +1,40 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+[monte-carlo] {
+    .custom-control.big-checkbox {
+        label {
+            &::before {
+                top: 4px;
+            }
+        }
+    }
+
+    @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+        .section-left-part {
+            padding-right: 8px !important;
+            max-width: 500px !important;
+        }
+
+        .section-right-part {
+            padding-left: 8px !important;
+            max-width: none;
+            flex: 1;
+
+            .big-card {
+                .data-row {
+                    flex-direction: column;
+                    text-align: center;
+                }
+
+                .data-section {
+                    .data-row {
+                        &:first-child {
+                            flex-direction: column-reverse;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

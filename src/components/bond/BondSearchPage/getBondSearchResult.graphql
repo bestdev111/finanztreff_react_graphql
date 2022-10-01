@@ -1,0 +1,123 @@
+query getBondSearchResult($criterion: SearchBondCriterion, $sort:[SearchBondSort!] = [], $first: Int, $after: ID) {
+    searchBond(criterion: $criterion, sort: $sort, first: $first, after: $after) {
+        edges {
+            node {
+                id
+                isin
+                wkn
+                main
+                name
+                group {
+                    id
+                    name
+                    assetGroup
+                    assetClass {
+                        name
+                    }
+                    seoTag
+                    bond {
+                        name
+                        isin
+                        status {
+                            id
+                            name
+                        }
+                        type {
+                            id
+                            name
+                        }
+                        issueSize
+                        issueDate
+                        firstTradingDate
+                        maturityDate
+                        minTradableLot
+                        interestLoan
+                        minTradableLot
+                        minAmountTradableLot
+                        fiatIssuance
+                        subordinatedDebt
+                        nominalValue
+                        nominalCurrency {
+                            id
+                            alphaCode
+                            name
+                            displayCode
+                        }
+                        tradingCurrency {
+                            id
+                            alphaCode
+                            displayCode
+                            name
+                        }
+                        settlementCurrency {
+                            id
+                            alphaCode
+                            displayCode
+                            name
+                        }
+                        priceAttribute {
+                            id
+                            name
+                        }
+                        issuer {
+                            id
+                            id
+                            lei
+                            legalName
+                            name
+                            isin
+                            group {
+                                id
+                                name
+                                assetClass {
+                                    id
+                                    name
+                                }
+                                assetGroup
+                            }
+                        }
+                    }
+                }
+                currency {
+                    displayCode
+                    sign
+                }
+                exchange {
+                    id
+                    name
+                    code
+                }
+                snapQuote {
+                    lastChange
+                    instrumentId
+                    quotes {
+                        type
+                        value
+                        when
+                    }
+                }
+                performance(period:[WEEK52]) {
+                    period
+                    performance
+                    deltaAveragePrice
+                }
+                derivativeKeyFigures {
+                    dirtyPrice
+                    ismaYield
+                    accruedInterest
+                    duration
+                    modifiedDuration
+                    spread
+                    spreadRelative
+                }
+            }
+        }
+        count
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+    }
+}

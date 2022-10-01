@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="de" style='scroll-behavior: smooth'>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6PN9B2KGKM"></script>
+    <script>
+        if (window.location.host === "www.finanztreff.de") {
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+            gtag('config', 'G-6PN9B2KGKM');
+        }
+    </script>
+
+    <!-- Advertising space scripts initialization -->
+    <script type="text/javascript" src="https://storage.googleapis.com/ba_utils/fit.js"></script>
+    <script type="text/javascript" src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    <!-- BA Variables -->
+    <script>
+        var Ads_BA_ADIDsite = "finanztreff.de";
+        var Ads_BA_ADIDsection = "startseite";
+        var Ads_BA_keyword = "";
+    </script>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png"/>
+    <!--    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">-->
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json"/>
+    <!--
+      test
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Finanztreff website</title>
+
+
+    <!-- /IVW: Anonyme Messung -->
+
+
+    <!-- IVW: Zensus  -->
+    <link rel="preload" href="//data-fc6e3104c2.finanztreff.de/iomm/latest/manager/base/es6/bundle.js" as="script"
+          id="IOMmBundle">
+    <link rel="preload" href="//data-fc6e3104c2.finanztreff.de/iomm/latest/bootstrap/loader.js" as="script">
+    <script type="text/javascript" src="//data-fc6e3104c2.finanztreff.de/iomm/latest/bootstrap/loader.js"></script>
+    <!-- /IVW: Zensus -->
+
+
+</head>
+<body>
+<noscript>You need to enable JavaScript to run this app.</noscript>
+
+<script>
+    function infonlineCounter(ivw_code) {
+        console.log(ivw_code);
+        if(!ivw_code || ivw_code === undefined) return;
+
+        try {
+            <!-- /IVW: Anonym -->
+
+            <!-- IVW: Zensus -->
+            IOMm('configure', {
+                st: 'gatfitr',
+                dn: 'data-fc6e3104c2.finanztreff.de',
+                mh: 5
+            });
+            IOMm('pageview', {
+                cp: ivw_code
+            });
+            <!-- /IVW: Zensus -->
+
+            <!-- IVW: QDS (BFE) Modul - agof daily digital facts -->
+            IOMm('3p', 'qds', 'in');
+            <!-- /IVW: QDS (BFE) Modul -->
+        }
+        catch (e) {
+            console.error(e)
+        }
+
+    }
+</script>
+
+
+<!--    &lt;!&ndash; IVW: Anonym &ndash;&gt;-->
+<!--    <script>-->
+<!--      ima('init', {-->
+<!--        st: 'gatfitr',-->
+<!--        cp: '003_00_00_Homepage',-->
+<!--        dn: 'data-fc6e3104c2.finanztreff.de',-->
+<!--      });-->
+<!--      ima('count');-->
+<!--    </script>-->
+<!--    &lt;!&ndash; /IVW: Anonym &ndash;&gt;-->
+
+<!--    &lt;!&ndash; IVW: Zensus &ndash;&gt;-->
+<!--    <script type="text/javascript">-->
+<!--      IOMm('configure', {-->
+<!--        st: 'gatfitr',-->
+<!--        dn: 'data-fc6e3104c2.finanztreff.de',-->
+<!--        mh: 5-->
+<!--      });-->
+<!--    </script>-->
+<!--    <script type="text/javascript">-->
+<!--      IOMm('pageview', {-->
+<!--        cp: '003_00_00_Homepage'-->
+<!--      });-->
+<!--    </script>-->
+<!--    &lt;!&ndash; /IVW: Zensus &ndash;&gt;-->
+
+<!--    &lt;!&ndash; IVW: QDS (BFE) Modul - agof daily digital facts &ndash;&gt;-->
+<!--    <script type="text/javascript">-->
+<!--      IOMm('3p', 'qds', 'in');-->
+<!--    </script>-->
+<!--    &lt;!&ndash; /IVW: QDS (BFE) Modul &ndash;&gt;-->
+
+
+<div id="root"></div>
+<!--
+  This HTML file is a template.
+  If you open it directly in the browser, you will see an empty page.
+
+  You can add webfonts, meta tags, or analytics to this file.
+  The build step will place the bundled scripts into the <body> tag.
+
+  To begin the development, run `npm start` or `yarn start`.
+  To create a production bundle, use `npm run build` or `yarn build`.
+-->
+</body>
+</html>

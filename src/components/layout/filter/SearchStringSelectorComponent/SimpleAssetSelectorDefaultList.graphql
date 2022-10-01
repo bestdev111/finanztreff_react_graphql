@@ -1,0 +1,15 @@
+query getSimpleAssetSelectorDefaultList {
+    list(id: "hot_instruments") {
+        id
+        content {
+            group {
+                id
+                name
+                isin
+                wkn
+                seoTag
+                assetGroup
+            }
+        }
+    }
+}

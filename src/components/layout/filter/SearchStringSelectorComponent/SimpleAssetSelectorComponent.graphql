@@ -1,0 +1,22 @@
+query getSingleInstrumentSearch($assetGroup: [AssetGroup!], $searchString: String!, $first: Int!, $after: ID) {
+    search(criteria: { assetGroup: $assetGroup, searchString: $searchString }, first: $first, after: $after) {
+        edges {
+            cursor
+            node {
+                id
+                name
+                group {
+                    id
+                    name
+                    isin
+                    wkn
+                    assetGroup
+                }
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+        }
+    }
+}

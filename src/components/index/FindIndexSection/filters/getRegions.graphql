@@ -1,0 +1,10 @@
+query getRegions{
+    regions {
+        id
+        name
+        countries {
+            currencyId
+            name
+        }
+    }
+}

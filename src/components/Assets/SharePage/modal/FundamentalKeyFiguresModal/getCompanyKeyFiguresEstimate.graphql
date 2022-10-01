@@ -1,0 +1,23 @@
+query getCompanyKeyFiguresEstimates($groupId: Int!) {
+    group(id: $groupId) {
+        id
+        estimates {
+            current {
+                year
+                dividendYield
+                dividendPerShare
+                priceToCashFlowRatio
+                priceToEarningsRatio
+                priceToSalesRatio
+            }
+            next {
+                year
+                dividendYield
+                dividendPerShare
+                priceToCashFlowRatio
+                priceToEarningsRatio
+                priceToSalesRatio
+            }
+        }
+    }
+}

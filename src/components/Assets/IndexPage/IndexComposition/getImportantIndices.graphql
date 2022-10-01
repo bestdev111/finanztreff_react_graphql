@@ -1,0 +1,13 @@
+query getImportantIndices {
+    list(id:"important_indices") {
+        id
+        content {
+            group {
+                name
+                seoTag
+                assetGroup
+            }
+        }
+    }
+}
+

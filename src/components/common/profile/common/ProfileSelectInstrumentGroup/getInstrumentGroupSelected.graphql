@@ -1,0 +1,36 @@
+query getInstrumentGroupSelected($assetGroup: [AssetGroup!], $searchString: String!, $first: Int!, $after: ID) {
+    search(criteria: { assetGroup: $assetGroup, searchString: $searchString }, first: $first, after: $after) {
+        edges {
+            cursor
+            node {
+                id
+                name
+                wkn
+                group {
+                    id
+                    name
+                    assetGroup
+                    seoTag
+                }
+                snapQuote {
+                    lastChange
+                    instrumentId
+                    quotes {
+                        type
+                        value
+                        change
+                        when
+                    }
+                }
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+        }
+        assetGroups {
+            assetGroup
+            count
+        }
+    }
+}

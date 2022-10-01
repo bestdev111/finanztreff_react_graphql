@@ -1,0 +1,28 @@
+query getShareEstimates($groupId: Int!) {
+    group(id: $groupId) {
+        id
+        company {
+            currency {
+                displayCode
+            }
+        }
+        estimates {
+            current {
+                year
+                dividendYield
+                dividendPerShare
+                priceToCashFlowRatio
+                priceToEarningsRatio
+                priceToSalesRatio
+            }
+            next {
+                year
+                dividendYield
+                dividendPerShare
+                priceToCashFlowRatio
+                priceToEarningsRatio
+                priceToSalesRatio
+            }
+        }
+    }
+}

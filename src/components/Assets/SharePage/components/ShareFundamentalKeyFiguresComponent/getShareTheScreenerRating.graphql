@@ -1,0 +1,67 @@
+query getScreenerRating($groupId: Int!) {
+    group(id: $groupId) {
+        id
+        name
+        theScreenerRating {
+            currency {
+                name
+                sign
+                displayCode
+            }
+            rating
+            previousRating
+            marketCapitalisation
+            beta
+            correlation
+            earningsPerShareRevision
+            referenceIndexName
+            numberOfAnalysts
+            payout
+            performance2week
+            premium
+            date
+            valuationRating
+            dividend
+            globalPriceEarningsRatio
+            badNews {
+                factor
+                riskZone
+            }
+            earningsRevisionTrend {
+                value
+                price
+                date
+            }
+            globalEvaluation {
+                value
+                date
+            }
+            mediumTermTechnicalTrend {            
+                value
+                date
+            }
+            longTermGrowth{
+                year
+                value
+            }
+            longTermPriceEarnings
+            risk {
+                date
+                zone
+            }
+            technicalReverse {
+                value
+                min
+                max
+            }
+            valueAtRisk {
+                value
+                relative
+            }
+            bearMarket {
+                riskZone
+                factor
+            }
+        }
+    }
+}

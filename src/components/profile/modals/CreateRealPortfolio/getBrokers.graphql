@@ -1,0 +1,6 @@
+query getBrokers {
+    brokers {
+        id
+        name
+    }
+}

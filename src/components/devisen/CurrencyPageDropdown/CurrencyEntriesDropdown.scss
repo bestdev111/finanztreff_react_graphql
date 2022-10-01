@@ -1,0 +1,71 @@
+.btn-devisen-dropdown{
+    width: 142px !important;
+    height: 32px !important;
+    .toggle-icon{
+        color: #326EAC !important;
+        width: 20.5px !important;
+        height: 12.5px !important;
+        margin-top: 6px !important;
+    }
+    .img{
+        width: 100% !important;
+        height: 100% !important;
+    }
+    .text-truncate{
+        overflow: unset !important;
+    }
+    .description{
+        font-size: 24px !important;
+        font-weight: bold;
+        color: #326EAC !important;
+    }
+    @media only screen and (min-width: 1281px) {
+        .button-body{
+            overflow: unset !important;
+        }
+    }
+    @media only screen and (max-width: 767px){
+        .description{
+            overflow: hidden !important;
+        }
+        .button-body{
+            padding-left: unset !important;
+        }
+    }
+
+}
+.btn-fix-modal-dropdown{
+    width: 142px !important;
+    height: 32px !important;
+    .toggle-icon{
+        color: #326EAC !important;
+        width: 20.5px !important;
+        height: 12.5px !important;
+        margin-top: 6px !important;
+    }
+    .img{
+        width: 100% !important;
+        height: 100% !important;
+    }
+    .text-truncate{
+        overflow: unset !important;
+    }
+    .description{
+        font-size: 1.25rem !important;
+        font-weight: bold;
+        color: #326EAC !important;
+    }
+    @media only screen and (min-width: 1281px) {
+        .button-body{
+            overflow: unset !important;
+        }
+    }
+    @media only screen and (max-width: 767px){
+        .description{
+            overflow: hidden !important;
+        }
+        .button-body{
+            padding-left: unset !important;
+        }
+    }
+}

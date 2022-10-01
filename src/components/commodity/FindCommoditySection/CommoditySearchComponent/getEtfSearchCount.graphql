@@ -1,0 +1,5 @@
+query getEtfSearchCount($criterion: SearchEtfCriterion, $sort:[SearchEtfSort!] = []) {
+  searchEtf(criterion: $criterion, sort: $sort, first: 0) {
+    count
+  }
+}

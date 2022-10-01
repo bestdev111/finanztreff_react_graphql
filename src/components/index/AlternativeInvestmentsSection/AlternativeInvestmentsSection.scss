@@ -1,0 +1,30 @@
+.subtitle{
+    font-size: 15px !important;
+}
+.card-text{
+    font-size: 15px !important;
+}
+.card-text-color{
+    margin-bottom: 0 !important;
+}
+.product-text{
+    font-size: 24px !important;
+    color:#326EAC;
+    float: right;
+    line-height: 35px;
+    margin-bottom: 0 !important;
+}
+.alternative-investments-coming-soon{
+    width: 100% !important;
+    left: 0px !important;
+}
+.alternative-investments-coming-soon-text{
+    margin-top: 44% !important;
+    @media screen and (min-width: 767px){
+        margin-top: 14% !important;
+    }
+    @media screen and (min-width: 1279px){
+        margin-top: 9% !important
+    }
+    z-index: 10000 !important;
+}

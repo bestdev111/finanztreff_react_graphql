@@ -1,0 +1,36 @@
+query getAnalysisHistory($isin: String!, $institute: String!, $first: Int!, $after: ID) {
+    analysisSearch(criteria: {isin: [$isin], institutes: [$institute]}, first: $first, after: $after) {
+        edges {
+            node {
+                id
+                date
+                recommendation
+                recommendationPrevious
+                targetPrice
+                targetPricePrevious
+                updated
+                group {
+                    id
+                    name
+                    seoTag
+                    assetGroup
+                    main {
+                        id
+                        currency {
+                            displayCode
+                        }
+                        snapQuote {
+                            lastChange
+                            instrumentId
+                            quote(type:TRADE) {
+                                value
+                                change
+                                percentChange
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

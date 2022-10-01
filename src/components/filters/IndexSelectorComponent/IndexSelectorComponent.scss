@@ -1,0 +1,34 @@
+@import "src/styles/theme";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.btn-index-letter {
+  //font-size: 11px !important;
+}
+
+.alphabet-index {
+  width: 42px;
+}
+
+.index-items-wrapper {
+  @media screen and (min-width: map-get($grid-breakpoints,md) - 1) {
+    height: 532px !important;
+  }
+  @media screen and (max-width: map-get($grid-breakpoints,md) - 1) {
+    height: 572px !important;
+  }
+  @media screen and (max-width: map-get($grid-breakpoints,md) - 1) {
+    width: calc(100vw - 128px);
+  }
+
+
+  overflow-y: auto;
+  //width: 413px !important;
+}
+
+.input-filter {
+  background-color: #f1f1f1;
+  font-size: 15px;
+  border: none;
+  //max-width: 410px;
+}
+

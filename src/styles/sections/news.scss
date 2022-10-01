@@ -1,0 +1,126 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.media {
+    &.news-head,
+    &.big-news-single,
+    &.medium-news-single {
+        margin: 20px 0;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #f1f1f1;
+
+        .media-title {
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 1.1;
+            margin-bottom: 3px;
+        }
+
+        .media-keywords {
+            color: #383838;
+            font-weight: bold;
+        }
+
+        .keyword-links {
+            margin: 8px 0px 24px 0px !important;
+        }
+
+        .media-body {
+            p {
+                margin-top: 8px;
+                margin-bottom: 0;
+                font-size: 13px;
+                line-height: 17px;
+
+                .news-time-stamp {
+                    color: #38383880;
+                    display: inline-block;
+                    padding-right: 5px;
+                }
+            }
+        }
+    }
+
+    &.big-news-single {
+        margin-top: 5px;
+
+        &:last-child {
+            border: none;
+        }
+    }
+
+    &.medium-news-single {
+        margin-top: 5px;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+
+        &:last-child {
+            border: none;
+        }
+
+        .media-title {
+            font-size: 18px;
+        }
+    }
+}
+.keyword-links {
+    margin: 8px 0px 24px 0px !important;
+}
+.media-keywords {
+    color: #383838;
+    font-weight: bold;
+}
+.stock-info-small-row {
+    font-size: 13px;
+    font-weight: 200 !important;
+    .asset-link-white{
+        color:white;
+        cursor: pointer;
+    }
+
+    &.negative-movement {
+        .stock-movement-percentage {
+            color: var(--red);
+            font-weight: 200;
+        }
+    }
+
+    &.positive-movement {
+        .stock-movement-percentage {
+            color: var(--green);
+            font-weight: 200;
+        }
+    }
+
+    .stock-value {
+        padding: 0 7px;
+    }
+
+    .stock-movement-percentage {
+        padding-right: 5px;
+        font-weight: 200;
+    }
+}
+.small-news-row {
+    .news-wrapper {
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #f1f1f1;
+        .asset-name{
+            cursor: pointer;
+        }
+    }
+
+    @media screen and (min-width: map-get($grid-breakpoints, xl)) {
+        > .col {
+            &:nth-last-child(-n + 3) {
+                .news-wrapper {
+                    border-bottom: none;
+                    .asset-name{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

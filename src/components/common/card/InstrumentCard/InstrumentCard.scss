@@ -1,0 +1,104 @@
+@import "../../../../styles/variables";
+@import "../../../../styles/theme";
+
+
+.stock-graph-box {
+  transition: background-color 1s ease-out;
+  color: white;
+  &.transparent-bg{
+    background-color: #505050 !important;
+  }
+
+  @each $color, $value in $stock-move-colors {
+    &.bg-stock-#{$color} {
+      background-color: $value;
+    }
+  }
+
+  .top {
+    padding: 5px;
+  }
+
+  .value-info {
+    padding: 0 5px;
+    .currency {
+      font-size: 11px;
+    }
+  }
+
+  .asset-name {
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    line-height: 1;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    max-width: 130px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+
+    a {
+      color: white;
+      cursor: pointer;
+    }
+  }
+
+  .dropdown-toggle {
+    line-height: 1;
+
+    &::after {
+      display: none;
+    }
+
+    .svg-icon {
+      > img {
+        width: 20px;
+      }
+    }
+  }
+
+  .quote-value {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  }
+
+  .change-value {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    font-size: 15px;
+    font-weight: bolder;
+    margin-left: 8px;
+  }
+
+  .high-low-label {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    font-size: 11px;
+  }
+
+  .instrument-add-btn {
+    height: 21px;
+  }
+
+}
+
+.fs-11px{
+  font-size: 11px;
+}
+
+.borderless{
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: 0px 3px 6px #00000029;
+
+}
+
+.line-height-16px{
+  max-height: 32px !important;
+  word-wrap: break-word;
+  overflow: hidden;
+  line-height: 16px;
+}
+
+.max-width-260px{
+  max-width: 260px;
+}

@@ -1,0 +1,23 @@
+query getFundSearchMetadata {
+    fundCurrencies {
+        id
+        name
+    }
+    fundRegions {
+        id
+        name
+        countryIsoAlpha3
+    }
+    fundTopics {
+        id
+        name
+    }
+    fundStrategies {
+        id
+        name
+    }
+    fundTypes{
+        id
+        name
+    }
+}

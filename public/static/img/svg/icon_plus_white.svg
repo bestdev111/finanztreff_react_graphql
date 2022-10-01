@@ -1,0 +1,14 @@
+<svg width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="602" width="802" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g id="icon_add_24px">
+   <path fill="#ffffff" d="m14,4a10,10 0 1 1 -10,10a10,10 0 0 1 10,-10m0,-2a12,12 0 1 0 12,12l0,0a12,12 0 0 0 -12,-12z" id="Pfad_829"/>
+   <path fill="#ffffff" d="m18.53,12.78l-3.3,0l0,-3.3a1.23,1.23 0 0 0 -2.45,0l0,3.3l-3.3,0a1.22,1.22 0 0 0 0,2.44l3.3,0l0,3.3a1.23,1.23 0 1 0 2.45,0.07l0,-3.37l3.3,0a1.22,1.22 0 0 0 0,-2.44z" id="Pfad_830"/>
+  </g>
+ </g>
+</svg>

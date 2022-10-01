@@ -1,0 +1,59 @@
+@import 'src/styles/theme';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.timespan-selector {
+  .dropdown-menu {
+    width: auto;
+    .datepicker {
+      input {
+        text-align: right;
+        font: normal normal normal 15px/18px Roboto;
+        letter-spacing: 0;
+        color: #383838;
+        margin-right: 8px;
+        background: #f1f1f1 0 0 no-repeat padding-box;
+        border-radius: 3px;
+        padding: 3px 20px 3px 14px;
+        font-weight: 400;
+        width: 131px;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.other-selector-card {
+  @include media-breakpoint-up(xl) {
+    width: 433px;
+  }
+  .card-body-wrapper {
+    max-width: 433px;
+
+  }
+}
+#currency-font-size {
+  font-size: 13px !important;
+}
+
+.news-page-wrapper {
+  .news-page-heading {
+    font-size: 20px;
+  }
+  .news-page-stories-area {
+    padding: 8px 8px;
+
+    .news-page-item {
+      padding: 8px 8px;
+    }
+  }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+  .news-page-wrapper .news-page-stories-area {
+    padding: 8px 0;
+    .news-page-item {
+      padding: 8px 0;
+    }
+  }
+}

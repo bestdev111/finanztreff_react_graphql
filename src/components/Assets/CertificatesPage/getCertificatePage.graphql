@@ -1,0 +1,240 @@
+query getCertInfo($groupId: Int!) {
+  group(id: $groupId) {
+    id
+    name
+    assetGroup
+    assetClass {
+      id
+      name
+    }
+    issuer {
+      id
+      name
+    }
+    interestRateInformation {
+      interestRate
+      finalPaymentDate
+      lastPaymentDate
+      nextPaymentDate
+    }
+    derivative {
+      optionType
+      maturityDate
+      securedInstrument
+      nominalAmount
+      managementFee
+    }
+    main {
+      currency {
+        displayCode
+      }
+      derivativeKeyFigures {
+        gearing
+        premium
+        premiumAbsolute
+        premiumAnnual
+        implicitVolatility
+        breakEven
+        moneyness
+        intrinsicValue
+        timeValuePremium
+        spread
+        spreadHomogenous
+        spreadRelative
+        deltaStopLoss
+        deltaStopLossAbsolute
+        agio
+        agioAnnual
+        omega
+        delta
+        gamma
+        theta
+        rho
+        vega
+        discountAbsolute
+        discountPercent
+        sidewaysReturn
+        sidewaysReturnAbsolute
+        sidewaysAnnualReturn
+        outperformanceLevel
+        maxAnnualReturn
+        maxReturn
+        maxReturnAbsolute
+        maxRedemptionPrice
+        deltaCap
+        deltaCapAbsolute
+        fairValue
+        bonusAnnualReturn
+        bonusBuffer
+        bonusBufferAbsolute
+        bonusReturn
+        bonusReturnAbsolute
+        deltaBonusLevel
+        deltaBonusLevelAbsolute
+        deltaStrike
+        deltaStrikeAbsolute
+        deltaSecurityLevel
+
+        dirtyPrice
+        parity
+
+        # Bond Keyfigure temporary
+        ismaYield
+        accruedInterest
+        duration
+        modifiedDuration
+        update {
+          when
+          type
+          value
+          underlyingValue
+        }
+      }
+      snapQuote {
+        lastChange
+        instrumentId
+        lastPrice
+        quotes {
+          value
+          type
+        }
+        
+      }
+      
+    }
+    assetType {
+      name
+      id
+      
+    }
+    isin
+    wkn
+    description {
+      text
+    }
+    underlyings {
+      groupId
+      referencePrice
+      multiplier
+      quantity
+      percentage
+      leverageFactor
+      bonusBarrier
+      cap
+      capitalGuarantee
+      conditionalCouponTriggerLevel
+      conditionalCouponTriggerLevelLower
+      conditionalCouponTriggerLevelUpper
+      knockIn
+      knockInLower
+      knockInUpper
+      knockOut
+      knockOutLower
+      knockOutUpper
+      lockIn
+      participation
+      redemption
+      reverseLevel
+      security
+      start
+      strike
+      securityBarrierObservationStartAt
+      securityBarrierObservationEndAt
+      securityBarrierTriggeredAt
+      instrument {
+        currency {
+          displayCode
+        }
+        snapQuote {
+          lastChange
+          instrumentId
+          quotes {
+            type
+            value
+          }
+        }
+      }
+      
+    }
+    content {
+      id
+      isin
+      wkn
+      main
+      tickerSymbol
+      name
+      group {
+        assetGroup
+        seoTag
+      }
+      exchange {
+        id
+        name
+        code
+      }
+      currency {
+        id
+        name
+        displayCode
+        sign
+      }
+      countryId
+      snapQuote {
+        lastChange
+        instrumentId
+        lowPrice
+        highPrice
+        firstPrice
+        lastPrice
+        yesterdayPrice
+        cumulativeTrades
+        cumulativeTurnover
+        cumulativeVolume
+        quotes {
+          size
+          delay
+          type
+          value
+          percentChange
+          change
+          when
+        }
+      }
+      performance(period: [WEEK1, MONTH1, MONTH3, MONTH6, WEEK52, YEAR3, YEAR5, YEAR10]) {
+        period
+        averagePrice
+        performance
+        sharpe
+        vola
+      }
+      stats(periods: [ALL_TIME, WEEK52]) {
+        period
+        lowPrice
+        lowPriceDate
+        deltaLowPrice
+        highPrice
+        highPriceDate
+        deltaHighPrice
+      }
+      rangeCharts {
+        intraday {
+          min
+          max
+          current
+          threshold
+          
+        }
+        year {
+          min
+          max
+          current
+          threshold
+          
+        }
+        
+      }
+      
+    }
+    
+  }
+}

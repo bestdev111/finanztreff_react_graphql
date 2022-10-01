@@ -1,0 +1,23 @@
+@import '../../../../styles/theme';
+
+.ht-50 {
+    height: 50px;
+}
+.blue {
+    background-color: blue;
+    color: white;
+}
+.red {
+    background-color: red;
+    color: white;
+}
+
+.center-dialog {
+    transform: translateX(calc(50vw - 50%)) !important;
+}
+
+.delete-modal .modal-dialog.modal-lg {
+    @media screen and (min-width: map-get($grid-breakpoints, xl) - 1) {
+        max-width: 768px !important;
+    }
+}

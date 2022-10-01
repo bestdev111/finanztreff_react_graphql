@@ -1,0 +1,21 @@
+query getPerformanceInstrumentDevisen($instrumentId: Int!) {
+    instrument(id: $instrumentId) {
+    id
+    name
+    group {
+      assetGroup
+      seoTag
+    }
+    currency{
+      sign
+      displayCode
+    }
+    performance(period:[WEEK1, MONTH1, MONTH3, MONTH6, WEEK52 ,YEAR3, YEAR5, YEAR10]) {
+                period
+                averagePrice
+                performance
+                sharpe
+                vola
+    }
+  }
+}

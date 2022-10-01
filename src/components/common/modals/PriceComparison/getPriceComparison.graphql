@@ -1,0 +1,34 @@
+query getInstrumentHistoryInfo($instrumentId: Int!, $from: LocalDate!, $to: LocalDate!) {
+    instrument(id: $instrumentId) {
+        currency {
+            displayCode
+        }
+        snapQuote {
+            lastChange
+            instrumentId
+            firstPrice
+            lowPrice
+            highPrice
+            cumulativeVolume
+            quote(type:TRADE) {
+                value
+                when
+            }
+        }
+        group{
+            assetGroup
+        }
+        quoteHistory(from:$from, to:$to) {
+            edges {
+                node {
+                    date
+                    firstPrice
+                    lastPrice
+                    lowPrice
+                    highPrice
+                    volume
+                }
+            }
+        }
+    }
+}

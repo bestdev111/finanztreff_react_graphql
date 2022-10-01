@@ -1,0 +1,42 @@
+@import "../../../../styles/theme.scss";
+
+
+.profile-process{
+    .modal-content {
+        background-color: white; 
+    }
+    .modal-header {
+        box-shadow: none;
+        border: none;
+    }
+    .password-forgotten{
+        color: #326EAC; 
+        margin-bottom: 30px;
+        cursor: pointer;
+    }
+    .profile-title{
+            margin-top: -10px !important;
+    }
+    .registration-questions{
+        color: #326EAC;
+        cursor: pointer;
+    }
+    .modal-body{
+        border-bottom-left-radius: 0.3em;
+        border-bottom-right-radius: 0.3em;
+    }
+}
+
+.fs-13{
+    font-size: 13px;
+}
+
+.fs-24{
+    font-size: 24px;
+    font-family: Roboto;
+}
+
+.my-confirmation{
+    padding-bottom: 50px !important;
+
+}

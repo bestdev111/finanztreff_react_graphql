@@ -1,0 +1,77 @@
+query getCommodityInstruments($chartScope: ChartScope!) {
+  list(id: "commodity_instruments") {
+    id
+    content {
+      id
+      name
+      chart(scope: $chartScope) {
+        id
+        series {
+          label
+          type
+          data {
+            value
+            when
+          }
+        }
+        threshold {
+          type
+          value
+        }
+      }
+      group {
+        id
+        name
+        seoTag
+        assetGroup
+        main {
+          stats(periods: [ALL_TIME, WEEK52]) {
+            period
+            lowPrice
+            lowPriceDate
+            deltaLowPrice
+            highPrice
+            highPriceDate
+            deltaHighPrice
+          }
+          indicators {
+            relativeStrengthLevy {
+              deltaMedian
+              indicator
+            }
+            movingAverage {
+              deltaLine200Day
+              deltaLine38Day
+            }
+          }
+          chart(scope: INTRADAY) {
+            series {
+              label
+              type
+              data {
+                value
+                when
+              }
+            }
+            threshold {
+              type
+              value
+            }
+          }
+        }
+      }
+      currency {
+        displayCode
+      }
+      snapQuote {
+        lastChange
+        instrumentId
+        quote(type:TRADE) {
+        value
+        change
+        percentChange
+        }
+      }
+    }
+  }
+}

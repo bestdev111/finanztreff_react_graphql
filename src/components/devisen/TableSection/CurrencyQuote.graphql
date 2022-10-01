@@ -1,0 +1,5 @@
+query CurrencyQuote($baseCode: String!, $quoteCode: String!) {
+        currencyQuote(baseCode: $baseCode, quoteCode: $quoteCode) {
+            lastPrice
+        }
+    }

@@ -1,0 +1,34 @@
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+@import "../../../styles/theme";
+
+
+.search-result-page{
+    .search-field {
+        font-size: 20px;
+        padding: 24px 8px !important;
+        border-radius: 5px;
+        font-weight: 700 !important;
+        @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+          font-size: 16px !important;
+          padding: 22px 10px !important;
+        }
+      }
+
+    .nav-tabs{
+        margin-bottom: 16px;
+    }
+    .infinite-scroll-component{
+        background-color: white;
+        padding: 0 16px;
+        height: 600px !important;
+        max-height: 600px !important;
+    }
+    .carousel-inner{
+        background-color: white;
+        padding: 0 16px;
+        @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+          padding: 0 8px !important;
+        }
+    }
+}

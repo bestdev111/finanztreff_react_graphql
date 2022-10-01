@@ -1,0 +1,48 @@
+
+.derivate-info {
+  padding: 7px;
+  line-height: 1;
+  color: white;
+
+  .info-side {
+    div {
+      &:first-child {
+        font-size: 12px;
+
+        + div {
+          font-size: 9px;
+          opacity: 0.45;
+          margin-top: 2px;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  .buttons-side {
+    display: flex;
+  }
+
+  button {
+    border: 0;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 0 2px 0;
+    min-width: 34px;
+  }
+
+}
+.hot-section-container .section-heading {
+  font-size: 24px;
+  font-family: "Roboto Slab",sans-serif;
+}
+
+.font-weight-bold {
+  font-weight: 700 !important;
+}
+
+@media screen and (max-width: 767px) {
+  .hot-section-container .section-heading  {
+    font-size: 20px;
+  }
+}

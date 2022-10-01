@@ -1,0 +1,110 @@
+@import 'src/styles/theme';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.news-overview {
+
+  .carouse-container {
+    margin-bottom: 20px;
+  }
+
+  .carousel {
+    padding-bottom: 8px;
+    margin-bottom: 30px;
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        margin-bottom: 10px !important;
+    }
+    .carousel-inner {
+      padding-top: 17px;
+    }
+
+    @media screen and (min-width: map-get($grid-breakpoints, xl) - 1) {
+      .carousel-controls {
+        margin-bottom: -13px;
+        width: 500px;
+        margin-left: 380px;
+      }
+    }
+      .carousel-controls {
+      margin-bottom: -13px;
+    }
+
+    .news-stories-area {
+      .news-story-media img {
+        width: 100%;
+        height: 250px;
+      }
+    }
+
+    .story-heading {
+      height: 91px;
+    }
+
+    .news-story-content {
+      height: 142px;
+      &.video-story-text{
+        height: 46px !important;
+      }
+
+      .news-story-text{
+        color: #38383899;
+      }
+
+      .news-story-text.stock-info-small-row {
+        height: 100%;
+        position: relative;
+
+        .snap-quote.negative-movement, .snap-quote.positive-movement {
+          position: absolute;
+          bottom: 0;
+        }
+      }
+    }
+  }
+
+  .bottom-feed {
+    .news-stories-area {
+      padding: 8px;
+      .story-heading {
+
+        .story-heading-title {
+          span, a {
+            color: grey;
+          }
+
+        }
+
+        h4 {
+          padding-top: 2px;
+        }
+      }
+
+      .news-story-content {
+        padding-top: 8px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 760px ){
+    .container .carouse-container .carousel.slide .carousel-inner .carousel-item{
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .bottom-feed {
+      .news-stories-area {
+        padding: 2px 0;
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+  .news-overview-wrapper {
+    .carouse-container {
+      .news-stories-area {
+        padding: 8px;
+      }
+    }
+  }
+}

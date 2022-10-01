@@ -1,0 +1,46 @@
+@import 'src/styles/theme';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.asset-summary-card{
+  //height: 200px;
+  background-color: white;
+  @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+    //height: 299px;
+  }
+  @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+    height: unset;
+    width: unset !important;
+  }
+  box-shadow: 0px 3px 6px #00000029;
+  .icon-line{
+    //width: 41px;
+    background-color: #00000008;
+    //text-align: center;
+  }
+  .icon-line-vertical{
+    height: 41px;
+    background-color: #00000008;
+    text-align: center;
+  }
+  .card-body{
+    margin: 11px;
+  }
+  .pie-chart{
+    margin-top: -34px;
+    margin-left: -30px;
+    @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+      margin-left: -45px;
+    }
+    div{
+      overflow: unset !important;
+    }
+    .highcharts-background{
+      height: 0;
+    }
+  }
+
+  .pie-title{
+    margin-top: 55px;
+  }
+}

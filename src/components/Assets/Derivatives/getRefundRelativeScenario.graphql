@@ -1,0 +1,18 @@
+query getRefundRelativeScenario($groupId: Int!) {
+    group(id: $groupId) {
+        id
+        underlyings {
+            instrument {
+                currency {
+                    displayCode
+                }
+            }
+        }
+        refundRelativeScenario {
+            performance
+            value
+            underlyingValue
+            underlyingPerformance
+        }
+    }
+}

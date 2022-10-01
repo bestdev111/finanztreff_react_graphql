@@ -1,0 +1,42 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.modal{
+    &#technischeKennzahlenModal {
+        .content-wrapper {
+            .charts-row {
+                &.big-charts {
+                    padding-bottom: 0;
+                    padding-right: 15px;
+                    margin-top: 5px;
+
+                    .chart-wrapper {
+                        padding-top: 0;
+
+                        figure {
+                            .chart-container {
+                                height: 150px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) and (min-width: map-get($grid-breakpoints, md)) {
+                .table-like-row {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    > div {
+                        margin: 0;
+
+                        + div {
+                            min-width: 250px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

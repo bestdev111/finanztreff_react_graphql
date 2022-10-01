@@ -1,0 +1,12 @@
+query getAssetTypeGroup($underlyingInstrumentGroupId: Int!, $assetClassId: Long!) {
+  group(id: $underlyingInstrumentGroupId) {
+    id
+    derivativeAssetTypeGroupBucket(criteria: {assetClass: $assetClassId}) {
+      assetTypeGroup {
+        id
+        name
+      }
+      count
+    }
+  }
+}

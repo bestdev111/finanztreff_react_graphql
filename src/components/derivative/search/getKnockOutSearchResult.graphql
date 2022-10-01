@@ -1,0 +1,45 @@
+query getKnockOutSearchResult ($assetGroup: [AssetGroup!], $assetType: String, $underlyingInstrumentGroupId: Long, ,$first: Int, $after: ID,){
+    search(criteria: {assetGroup: $assetGroup, assetType: $assetType, underlyingInstrumentGroupId: $underlyingInstrumentGroupId}, first: $first, after : $after) {
+        edges {
+            cursor
+            node {
+                id
+                name
+                wkn # WKN
+                group {
+                    id
+                    seoTag
+                    assetGroup
+                    issuerId
+                    issuer { # Emitent
+                        name
+                        partner
+                    }
+                    main {
+                        keyFigures {
+                            gearing # Hebel
+                            deltaStopLoss # StopLoss
+                            deltaStopLossAbsolute # DF SL
+                        }
+                    }
+                    derivative {
+                        maturityDate # Laufzeit
+                        optionType  # Art CALL -> LONG, PUT -> SHORT
+                    }
+                    underlyings {
+                        strike # Basispreis
+                        currency {
+                            displayCode # Basispreis, StopLoss
+                        }
+                    }
+                }
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+    }
+}

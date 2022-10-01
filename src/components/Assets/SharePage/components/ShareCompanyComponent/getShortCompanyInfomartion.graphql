@@ -1,0 +1,16 @@
+query getShortCompanyInfomartion($groupId: Int!) {
+    group(id: $groupId) {
+        id
+        company {
+            id
+            name
+            profile {
+                text
+            }
+            shareHolders {
+                name
+                percent
+            }
+        }
+    }
+}

@@ -1,0 +1,129 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.candle-bars-wrapper {
+    height: 380px;
+    position: relative;
+
+    > .row {
+        height: 100%;
+        align-items: stretch;
+    }
+
+    .middle-line {
+        height: 2px;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+    }
+
+    .bar-wrapper {
+        height: 100%;
+        text-align: center;
+        font-size: 13px;
+
+        .candle-wrapper {
+            position: absolute;
+            display: inline-block;
+
+            &.negative-move {
+                .candle-axis,
+                .candle {
+                    background-color: var(--pink);
+                }
+            }
+
+            &.positive-move {
+                .candle-axis,
+                .candle {
+                    background-color: var(--green);
+                }
+
+                .candle-data {
+                    &.open-data {
+                        top: -10px;
+                        left: 35px;
+                        bottom: auto;
+                        right: auto;
+                        text-align: left;
+                    }
+
+                    &.close-data {
+                        bottom: -10px;
+                        right: 32px;
+                        top: auto;
+                        left: auto;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+
+        .candle {
+            width: 26px;
+            left: 50%;
+            margin-left: -13px;
+            position: absolute;
+        }
+
+        .candle-axis {
+            width: 4px;
+        }
+
+        .candle-data {
+            position: absolute;
+            line-height: 1.1;
+
+            &.high-data {
+                top: -40px;
+                left: -14px;
+            }
+
+            &.low-data {
+                bottom: -40px;
+                left: -14px;
+            }
+
+            &.close-data {
+                top: -10px;
+                left: 35px;
+                text-align: left;
+            }
+
+            &.open-data {
+                bottom: -10px;
+                right: 32px;
+                text-align: right;
+            }
+        }
+    }
+
+    + .week-days-wrapper {
+        margin-bottom: 15px;
+
+        .day-wrapper {
+            padding: 7px;
+
+            &.active {
+                background: transparent linear-gradient(180deg, #ffffff 0%, #ffffff 1%, #fefefe 38%, #f1f1f1 100%) 0% 0%
+                    no-repeat;
+                box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+                border: 1px solid rgba(0, 0, 0, 0.06);
+            }
+        }
+
+        .week-day-heading {
+            font-size: 18px;
+            line-height: 1.2;
+        }
+
+        .week-day-data {
+            margin-top: 16px;
+
+            .kurs-type {
+                font-size: 13px;
+                opacity: 0.45;
+            }
+        }
+    }
+}

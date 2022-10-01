@@ -1,0 +1,80 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/variables";
+@import "../../../../styles/theme";
+
+.news-modal {
+    .modal-header{
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    .modal-body{
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        @media only screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+            padding-left: 0.5rem !important;
+            padding-right: 0.5rem !important;
+        }
+    }
+
+
+    @media only screen and (min-width: 768px) {
+        .news-detail-modal{
+            max-width: 752px !important;
+            width: 100%;
+        }
+    }
+
+
+    @media only screen and (max-width: 375px) {
+        .mobile-modal-body {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+    }
+    .next-news-button {
+        position: sticky !important;
+        top: 50%;
+    }
+
+    .news-item-modal-wrapper .modal-header {
+        box-shadow: none;
+    }
+
+    @media only screen and (min-width: map-get($grid-breakpoints, xl) - 1) {
+        .news-item-modal-wrapper {
+            .modal-body {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+        }
+    }
+
+    @media only screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+        .news-item-modal-wrapper {
+            .modal-body {
+                padding-left: 19px !important;
+                padding-right: 19px !important;
+            }
+        }
+    }
+
+    @media only screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+        .news-item-modal-wrapper {
+            .neg-margin {
+                margin-right: -28px;
+            }
+            .modal-header {
+                height: 51px;
+            }
+            .modal-body {
+                padding-left: 8px !important;
+                padding-right: 8px !important;
+            }
+        }
+    }
+}
+
+.newsInstrumentLink:hover {
+    text-decoration: none;
+}
+

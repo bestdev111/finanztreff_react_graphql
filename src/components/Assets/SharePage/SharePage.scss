@@ -1,0 +1,16 @@
+@import "src/styles/theme";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+    .pr-xl-28px{
+        padding-right: 28px !important;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        .pr-xl-28px{
+            padding-right: 16px !important;
+        }
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        .pr-xl-28px{
+            padding-right: 16px !important;
+        }
+    }

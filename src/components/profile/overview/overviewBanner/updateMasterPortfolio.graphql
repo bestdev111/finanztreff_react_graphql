@@ -1,0 +1,6 @@
+mutation UpdatePortfolioMaster($changes: [FieldChangeBooleanRequest!]!) {
+    updatePortfolioMaster(changes: $changes) {
+        id
+        value
+    }
+}

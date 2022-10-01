@@ -1,0 +1,19 @@
+query getInstrumentQuoteHistoryInfo($instrumentId: Int!, $from: LocalDate!, $to: LocalDate!) {
+    instrument(id: $instrumentId) {
+        currency {
+            displayCode
+        }
+        quoteHistory(from:$from, to:$to) {
+            edges {
+                node {
+                    date
+                    firstPrice
+                    lastPrice
+                    lowPrice
+                    highPrice
+                    volume
+                }
+            }
+        }
+    }
+}

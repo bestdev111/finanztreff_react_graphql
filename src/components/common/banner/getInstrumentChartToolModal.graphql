@@ -1,0 +1,33 @@
+query getInstrumentChartToolModal($instrumentId:Int!, $chartScope: ChartScope!, $criteria: HistoryQuoteCriteria!) {
+    instrument(id:$instrumentId) {
+        id
+        historyQuote(criteria: $criteria) {
+            edges {
+                node {
+                    cumulativeVolume
+                    start
+                    firstPrice
+                    highPrice
+                    id
+                    lastPrice
+                    lowPrice
+                }
+            }
+        }
+        chart(scope:$chartScope) {
+            id
+            series {
+                label
+                type
+                data {
+                    value
+                    when
+                }
+            }
+            threshold {
+                type
+                value
+            }
+        }
+    }
+}

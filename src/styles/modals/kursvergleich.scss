@@ -1,0 +1,137 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.modal{
+    &#kursvergleichDerLetztenHandelstageModal {
+        .candle-bars-wrapper-mobile {
+            display: none;
+        }
+
+        @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+            .candle-bars-wrapper {
+                display: none;
+            }
+
+            .candle-bars-wrapper-mobile {
+                display: block;
+                min-height: 290px;
+                position: relative;
+
+                .row {
+                    > .col {
+                        padding-right: 0;
+                    }
+                }
+
+                .middle-line {
+                    position: absolute;
+                    height: 2px;
+                    width: 100%;
+                }
+
+                .bar-wrapper {
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .candle-wrapper {
+                    position: absolute;
+                    display: inline-block;
+
+                    &.positive-move {
+                        margin-top: 1px;
+
+                        .candle {
+                            background-color: var(--green);
+                        }
+
+                        .candle-data {
+                            color: var(--green);
+                            top: -38px;
+                        }
+                    }
+
+                    &.negative-move {
+                        .candle {
+                            background-color: var(--pink);
+                        }
+                        .candle-data {
+                            color: var(--pink);
+                            bottom: -38px;
+                        }
+                    }
+                }
+
+                .candle {
+                    width: 100px;
+                    position: relative;
+                }
+
+                .candle-data {
+                    position: absolute;
+                    line-height: 1.1;
+                    width: 100%;
+                }
+            }
+
+            .week-days-wrapper {
+                > .row {
+                    > .col {
+                        padding-right: 0;
+
+                        &:nth-child(6),
+                        &:nth-child(7) {
+                            display: none;
+                        }
+
+                        + .col {
+                            padding-left: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+            .content-wrapper {
+                margin: 0;
+                padding-top: 0;
+                box-shadow: none;
+            }
+
+            .candle-bars-wrapper-mobile {
+                margin: 0 8px;
+                min-height: 140px;
+
+                .row {
+                    margin: 0;
+
+                    > .col {
+                        &:nth-child(3),
+                        &:nth-child(4),
+                        &:nth-child(5) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            .week-days-wrapper {
+                padding: 0 0 25px;
+                margin: 0;
+
+                > .row {
+                    margin: 0;
+
+                    > .col {
+                        &:nth-child(3),
+                        &:nth-child(4),
+                        &:nth-child(5) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

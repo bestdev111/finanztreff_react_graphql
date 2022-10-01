@@ -1,0 +1,6 @@
+query getFundTypes {
+    fundTypes {
+        id
+        name
+    }
+}

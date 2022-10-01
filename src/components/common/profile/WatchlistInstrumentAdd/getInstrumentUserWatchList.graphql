@@ -1,0 +1,19 @@
+query getInstrumentUserWatchList($instrumentId: Int!) {
+    instrument(id:$instrumentId) {
+        id
+        name
+        isin
+        exchange {
+            id
+            name
+        }
+        currency {
+            id
+            displayCode
+        }
+        snapQuote{
+            instrumentId
+            lastPrice
+        }
+    }
+}

@@ -1,0 +1,94 @@
+query getFundSearchResult(
+        $criteria: SearchFundCriterion,
+        $sort:[SearchFundSort!],
+        $first: Int, $after: ID) {
+  searchFund(criterion:$criteria, sort: $sort, first: $first, after: $after) {
+    edges {
+      cursor
+      node {
+        id
+        isin
+        wkn
+        main
+        name
+        group {
+          id
+          assetGroup
+          seoTag
+          fundTranche {
+            main
+            savingPlanCapable
+            germanVwlCapable
+            distributing
+            currency {
+              name
+              displayCode
+            }
+            totalExpenseRatio
+            investmentVolume {
+              date
+              value
+            }
+            foundationDate
+            srri {
+              value
+            }
+          }
+          assetType {
+            name
+          }
+          fund {
+            id
+            region {
+              name
+            }
+            topic {
+              name
+            }
+            currency {
+              name
+            }
+            type {
+              name
+            }
+            strategy {
+              name
+            }
+            company {
+              name
+            }
+          }
+        }
+        exchange {
+          id
+          name
+        }
+        snapQuote {
+          lastChange
+          instrumentId
+          quotes {
+            type
+            value
+            when
+          }
+        }
+        performance(period:[WEEK52,YEAR3]) {
+          performance
+          deltaAveragePrice
+          period
+        }
+        stats(periods: [WEEK52]) {
+          period
+          deltaHighPrice
+        }
+      }
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+      hasPreviousPage
+      startCursor
+    }
+    count
+  }
+}

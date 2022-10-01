@@ -1,0 +1,35 @@
+query getInstrumentUserPortfolios($instrumentId: Int!) {
+    instrument(id:$instrumentId) {
+        id
+        name
+        isin
+        exchange {
+            id
+            name
+        }
+        group {
+            id
+            assetGroup
+            bond {
+                nominalCurrencyCode
+            }
+        }
+        snapQuote {
+            lastChange
+            instrumentId
+            lastPrice
+            quotes {
+                delay
+                type
+                value
+                percentChange
+                change
+                when
+            }
+        }
+        currency {
+            id
+            displayCode
+        }
+    }
+}

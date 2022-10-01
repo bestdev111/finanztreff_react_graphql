@@ -1,0 +1,66 @@
+query getLimitsPage {
+    user {
+        username
+        profile {
+            id
+            limitViewType
+            limitViewOrder
+            limitViewOrderAsc
+            limits {
+                id
+                instrumentId
+                instrument {
+                    id
+                    isin
+                    wkn
+                    group {
+                        id
+                        seoTag
+                        assetGroup
+                        sector{
+                            name
+                        }
+                    }
+                    tickerSymbol
+                    name
+                    snapQuote {
+                        lastChange
+                        lastPrice
+                        instrumentId
+                        quotes {
+                            value
+                            change
+                            percentChange
+                            when
+                            delay
+                            type
+                        }
+                    }
+                    currency {
+                        displayCode
+                        alphaCode
+                    }
+                    exchange {
+                        id
+                        name
+                        code
+                    }
+                }
+                trailing
+                upper
+                percent
+                quoteType
+                initialValue
+                effectiveLimitValue
+                initialTime
+                limitValue
+                hitValue
+                hitStatus
+                hitTime
+                smsNotification
+                mailNotification
+                memo
+            }
+        }
+    }
+}

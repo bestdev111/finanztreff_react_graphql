@@ -1,0 +1,56 @@
+@import "src/styles/theme";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.base-search-card{
+    font-size: 16px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .card-header{
+        display: none !important;
+    }
+    .card-body{
+        flex-grow: inherit;
+    }
+    .header-filter{
+        max-width: max-content;
+        margin: unset;
+        line-height: 16px !important;
+    }
+    .button-body{
+        .title{
+            font-size: 16px !important;
+        }
+    }
+    box-shadow: 0px 3px 6px #00000029;
+    border-width: 3px !important;
+    border-color: white !important;
+    cursor: pointer;
+    &.active{
+        border-width: 3px !important;
+        border-color: #326EAC !important;
+        border-radius: 0 !important;
+    }
+    .asset-type-tag{
+        padding: unset !important;
+        padding-top: 2px !important;
+        padding-left: 6px !important;
+        padding-right: 6px !important;
+    }
+}
+
+.fund-filter-dropdown-item{
+    .dropdown-menu {
+        min-width: min-content !important;
+    }
+    .options-filter{
+        padding: 0 !important;
+        .card-body{
+            padding: 0 !important;
+            .button-container {
+                margin: 0 !important;
+            }
+        }
+    }
+}

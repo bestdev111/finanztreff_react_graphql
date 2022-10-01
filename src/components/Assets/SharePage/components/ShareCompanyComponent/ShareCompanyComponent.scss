@@ -1,0 +1,71 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
+.firm-profil {
+  .left-col {
+    .content {
+      margin-left: -15px;
+    }
+  }
+
+  .right-col {
+    //border-left: 2px solid var(--border-gray);
+
+    .content {
+      margin-right: -15px;
+    }
+  }
+
+  .content {
+    // background-color: #0000000a;
+    padding: 15px;
+  }
+
+  .firm-name {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .about-firm {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+
+  @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+    .content {
+      min-height: 490px;
+    }
+  }
+
+  @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+    > .row {
+      margin: 0 -8px;
+
+      > [class*="col-"],
+      [class="col"] {
+        padding: 0 8px;
+      }
+    }
+
+    .left-col {
+      .content {
+        margin: 0;
+        padding: 0;
+        border-bottom: 2px solid var(--border-gray);
+        padding-bottom: 25px;
+        margin-bottom: 25px;
+      }
+    }
+
+    .right-col {
+      h3 {
+        text-align: center;
+      }
+    }
+
+    .content {
+      background-color: transparent;
+    }
+  }
+}

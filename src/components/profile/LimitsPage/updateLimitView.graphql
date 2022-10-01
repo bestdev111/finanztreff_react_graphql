@@ -1,0 +1,6 @@
+mutation EditLimitView($viewType: String!) {
+    editLimitView(viewType: $viewType) {
+        responseCode
+        responseMessage
+    }
+}

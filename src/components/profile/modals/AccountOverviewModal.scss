@@ -1,0 +1,38 @@
+.account-overview-modal-dropdown-years{
+    .header-filter{
+        margin-bottom: 0 !important;
+    }
+    .dropdown-menu{
+        .card-header{
+            display: none !important;
+        }
+    }
+    .button-container{
+        width: 300px;
+    }
+    .title {
+        &.single-line{
+            font-size: 20px !important;
+            font-family: Roboto Slab !important;
+        }
+    }
+}
+
+.account-overview-modal-plus-minus-buttons{
+    .btn-green {
+        padding: 1px 6px;
+        font-size: 18px;
+        margin-bottom: 4px;
+        margin-right: -2px !important;
+        width: 30px;
+        height: 30px;
+    }
+    .btn-pink {
+        padding: 1px 13.2px;
+        font-size: 18px;
+        margin-bottom: 4px;
+        margin-right: -2px !important;
+        width: 30px;
+        height: 30px;
+    }
+}

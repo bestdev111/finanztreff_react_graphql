@@ -1,0 +1,26 @@
+query getDerivativePerformanceCompare($groupId: Int!) {
+    group(id: $groupId) {
+        id
+        wkn
+        assetGroup
+        main {
+            performance(period:[WEEK1, MONTH1, MONTH6, CURRENT_YEAR, WEEK52, YEAR3]) {
+                period
+                performance
+            }
+        }
+        underlyings {
+            isin
+            group {
+                wkn
+            }
+            instrument {
+                id
+                performance(period:[WEEK1, MONTH1, MONTH6, CURRENT_YEAR, WEEK52, YEAR3]) {
+                    period
+                    performance
+                }
+            }
+        }
+    }
+}

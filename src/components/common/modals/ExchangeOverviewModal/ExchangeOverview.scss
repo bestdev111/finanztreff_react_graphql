@@ -1,0 +1,62 @@
+.exchange-overview {
+  thead {
+    tr.first-row th {
+      padding-bottom: 0;
+    }
+    tr.second-row th {
+      padding-top: 0;
+      padding-bottom: 12px !important;
+    }
+  }
+  .column-exchange {
+    //width: 172px;
+  }
+  .column-indicator {
+    width: 24px;
+    .timing-info-box {
+      margin: 0 !important;
+    }
+  }
+  .column-currency {
+    width: 100px;
+  }
+  td.column-currency {
+    border-bottom: 1px;
+  }
+  td.column-indicator {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  .column-change {
+    width: 78px;
+  }
+  .column-bid,
+  .column-ask {
+    width: 64px;
+  }
+  .column-stats,
+  .column-year-stats,
+  .column-peak {
+    width: 78px;
+  }
+  .column-volume {
+    width: 108px;
+  }
+  .column-time {
+    width: 108px;
+  }
+  .column-trade {
+    width: 122px;
+    .svg-icon {
+      margin-left: 4px !important;
+    }
+  }
+  .column-profile {
+    width: 28px;
+  }
+  .inner-body-heading {
+    td {
+      padding: 12px 0 ;
+    }
+  }
+}

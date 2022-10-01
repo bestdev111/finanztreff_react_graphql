@@ -1,0 +1,2578 @@
+scalar OffsetDateTime
+scalar LocalDate
+scalar LocalTime
+scalar Long
+
+schema {
+    query: Query
+    subscription : Subscription
+    mutation: Mutation
+}
+
+type Mutation {
+    # Profile Settings
+    editPortfolioView(viewType: String!, portfolioId: Long): DefaultServiceResponse! # portfolioId is missing or null, changes default portfolio view of the profile
+    editPortfolioOrder(viewOrder: String!, viewOrderAsc: Boolean, portfolioId: Long): DefaultServiceResponse! # portfolioId is missing or null, changes default portfolio order of the profile
+    editWatchlistView(viewType: String!, watchlistId: Long): DefaultServiceResponse! # watchlistId is missing or null, changes default watchlist view of the profile
+    editWatchlistOrder(viewOrder: String!, viewOrderAsc: Boolean, watchlistId: Long): DefaultServiceResponse! # watchlistId is missing or null, changes default watchlist order of the profile
+    editLimitView(viewType: String!): DefaultServiceResponse!
+    editLimitOrder(viewOrder: String!, viewOrderAsc: Boolean): DefaultServiceResponse!
+
+    # Profile
+    changeProfileEmail(email: String!): DefaultServiceResponse!
+    changeProfilePassword(password: String!): DefaultServiceResponse!
+    deleteProfile: DefaultServiceResponse!
+
+    # Portfolio
+    createNewPortfolio(name: String!, real: Boolean, broker: String): Portfolio
+    renamePortfolio(portfolioId: Long!, newName: String!): Portfolio
+    updatePortfolio(entry: PortfolioUpdateRequest!): Portfolio
+    updatePortfolioAlert(entry: PortfolioAlertRequest!): Portfolio
+    deletePortfolio(portfolioId: Long!): DefaultServiceResponse!
+    updatePortfolioMaster(changes: [FieldChangeBooleanRequest!]!): [FieldChangeBooleanResponse!]
+
+    # Portfolio Entry
+    createPortfolioEntry(entry: PortfolioEntryRequest!): PortfolioEntry
+    closePortfolioEntry(entry: ClosePortfolioEntryRequest!): PortfolioEntry
+    editPortfolioEntry(entry: EditPortfolioEntryRequest!): PortfolioEntry
+    deletePortfolioEntry(portfolioId: Long!, portfolioEntryId: Long!): DefaultServiceResponse!
+    removePortfolioEntry(portfolioId: Long!, portfolioEntryId: Long!, amount: Float!, date: OffsetDateTime!): DefaultServiceResponse!
+    copyPortfolioEntry(fromPortfolioId: Long!, portfolioEntryId: Long!, toPortfolioId: Long!): PortfolioEntry!
+    movePortfolioEntry(fromPortfolioId: Long!, portfolioEntryId: Long!, toPortfolioId: Long!): PortfolioEntry!
+    splitPortfolioEntry(entry: SplitPortfolioEntryRequest!): PortfolioEntry
+
+    # Misc
+    importProfile(userName: String!, password: String!, portfolioFilter: [Long]!, watchlistFilter: [Long]!, includeLimits: Boolean!): DefaultServiceResponse!
+    updatePushToken(newToken: String!, oldToken: String): DefaultServiceResponse!
+
+    # File Upload
+    uploadFile(portfolioId: Long!, fileContent: String!, fileName: String): UploadFileResponse! # result.responseCode != 0 -> Error, result.responseMessage -> description
+    importRecords(portfolioId: Long!, records: [UploadFileRecordInput!]!): [PortfolioEntry]!
+
+    # Watchlist
+    createNewWatchlist(name: String!): Watchlist
+    renameWatchlist(watchlistId: Long!, newName: String!): Watchlist
+    updateWatchlist(entry: WatchlistUpdateRequest!): Watchlist
+    deleteWatchlist(watchlistId: Long!): DefaultServiceResponse!
+    updateWatchlistMaster(changes: [FieldChangeBooleanRequest!]!): [FieldChangeBooleanResponse!]
+    createWatchlistEntry(entry: WatchlistEntryRequest!): WatchlistEntry
+    editWatchlistEntry(entry: EditWatchlistEntryRequest!): WatchlistEntry
+    deleteWatchlistEntry(watchlistId: Long!, watchlistEntryId: Long!): DefaultServiceResponse!
+    copyWatchlistEntry(fromWatchlistId: Long!, watchlistEntryId: Long!, toWatchlistId: Long!): WatchlistEntry!
+    moveWatchlistEntry(fromWatchlistId: Long!, watchlistEntryId: Long!, toWatchlistId: Long!): WatchlistEntry!
+
+    # Account
+    accountDeposit(portfolioId: Long!, amount: Float!): AccountEntry!
+    accountWithdrawal(portfolioId: Long!, amount: Float!): AccountEntry!
+    accountDividend(entry: AccountDividendRequest!): AccountEntry!
+
+    # Account Edit Ops
+    addAccountEntry(portfolioId: Long!, entry: AccountEntryInput!): AccountEntry!
+    editAccountEntry(portfolioId: Long!, accountEntryId: Long!, entry: AccountEntryInput!): AccountEntry!
+    deleteAccountEntry(portfolioId: Long!, accountEntryId: Long!): DefaultServiceResponse!
+
+    # Limits
+    addLimit(entry: LimitEntryRequest!): LimitEntry!
+    editLimit(limitId: Long!, entry: LimitEntryRequest!): LimitEntry!
+    deleteLimit(limitId: Long!): DefaultServiceResponse!
+
+    # Feedback
+    feedback(feedback: FeedbackRequest!): FeedbackResponse!
+}
+
+input AccountEntryInput {
+    accountTypeId: Long!
+    amount: Float!
+    entryTime: OffsetDateTime!
+    portfolioEntryId: Long
+    memo: String
+}
+
+input PortfolioUpdateRequest {
+    portfolioId: Long!
+    wd1: Boolean
+    wd2: Boolean
+    wd3: Boolean
+    wd4: Boolean
+    wd5: Boolean
+    wd6: Boolean
+    wd7: Boolean
+    eom: Boolean
+    wdTime: OffsetDateTime
+    memo: String
+}
+
+input PortfolioAlertRequest {
+    portfolioId: Long!
+    portfolioAlert: Boolean
+    portfolioLowerLimit: Float
+    portfolioUpperLimit: Float
+    positionAlert: Boolean
+    positionLowerLimit: Float
+    positionUpperLimit: Float
+}
+
+input WatchlistUpdateRequest {
+    watchlistId: Long!
+    wd1: Boolean
+    wd2: Boolean
+    wd3: Boolean
+    wd4: Boolean
+    wd5: Boolean
+    wd6: Boolean
+    wd7: Boolean
+    eom: Boolean
+    wdTime: OffsetDateTime
+    memo: String
+}
+
+input AccountDividendRequest {
+    portfolioId: Long!
+    portfolioEntryId: Long!
+    amount: Float!
+    entryTime: OffsetDateTime!
+    currencyCode: String
+    memo: String
+}
+
+input PortfolioEntryRequest {
+    portfolioId: Long!
+    instrumentId: Long!
+    price: Float!
+    quantity: Float!
+    charges: Float!
+    currencyCode: String
+    entryTime: OffsetDateTime!
+    memo: String
+}
+
+input ClosePortfolioEntryRequest {
+    portfolioId: Long!
+    portfolioEntryId: Long!
+    price: Float!
+    quantity: Float!
+    charges: Float!
+    currencyCode: String
+    closeTime: OffsetDateTime!
+    memo: String
+}
+
+input EditPortfolioEntryRequest {
+    portfolioId: Long!
+    portfolioEntryId: Long!
+    instrumentId: Long!
+    price: Float!
+    quantity: Float!
+    charges: Float!
+    currencyCode: String
+    entryTime: OffsetDateTime!
+    memo: String
+}
+
+input SplitPortfolioEntryRequest {
+    portfolioId: Long!
+    portfolioEntryId: Long!
+    from: Float!
+    to: Float!
+    splitTime: OffsetDateTime!
+}
+
+input WatchlistEntryRequest {
+    watchlistId: Long!
+    instrumentId: Long!
+    price: Float!
+    memo: String
+}
+
+input EditWatchlistEntryRequest {
+    watchlistId: Long!
+    watchlistEntryId: Long!
+    memo: String
+}
+
+input LimitEntryRequest {
+    instrumentId: Long
+    trailing: Boolean
+    upper: Boolean
+    percent: Boolean
+    quoteType: QuoteType
+    limitValue: Float
+    smsNotification: Boolean
+    mailNotification: Boolean
+    memo: String
+}
+
+input FieldChangeBooleanRequest {
+    id: Long!
+    value: Boolean!
+}
+
+type FieldChangeBooleanResponse {
+    id: Long!
+    value: Boolean!
+}
+
+type DefaultServiceResponse {
+    id: Long!
+    responseCode: Int!
+    responseMessage: String!
+}
+
+input UploadFileRecordInput {
+    id: Long!
+    operationType: OperationType!
+    accountNumber: String!
+    instrumentId: Long!
+    quantity: Float!
+    price: Float!
+    charges: Float!
+    currencyPrice: Float!
+    entryTime: OffsetDateTime!
+    currencyCode: String
+}
+
+type UploadFileRecord {
+    id: Long!
+    operationType: OperationType!
+    accountNumber: String!
+    instrumentId: Long!
+    instrument: Instrument
+    quantity: Float!
+    price: Float!
+    charges: Float!
+    currencyPrice: Float!
+    entryTime: OffsetDateTime!
+    currencyCode: String
+}
+
+enum OperationType {
+    BUY,
+    SELL
+}
+
+type UploadFileResponse {
+    result: DefaultServiceResponse!
+    data: UploadFileRecord
+}
+
+type Query {
+    assetPage(seoTag: String!): AssetPage
+    list(id: String!): List
+    group(id: Int!): InstrumentGroup
+    instrument(id: Int!): Instrument
+    instrumentGroup(instrumentGroupId: Int!): [Instrument!]
+
+    # Analysis
+    analysisSearch(criteria: AnalysisCriteria, first: Int, after: ID, last: Int, before: ID): AnalysisConnection!
+    analysisInstitute: [AnalystInstitute!]
+
+    # Search
+    search(criteria: SearchCriteria, first: Int, after: ID): InstrumentDetailConnection!
+    searchShare(criterion: SearchShareCriterion, sort: [SearchShareSort!], first: Int, after: ID): InstrumentConnection!
+    searchDerivative(criterion: SearchDerivativeCriterion, sort: [SearchDerivativeSort!] first: Int, after: ID): InstrumentConnection!
+    searchFund(criterion: SearchFundCriterion, sort: [SearchFundSort!] first: Int, after: ID): InstrumentConnection!
+    searchEtf(criterion: SearchEtfCriterion, sort: [SearchEtfSort!] first: Int, after: ID): InstrumentConnection!
+    searchBond(criterion: SearchBondCriterion, sort: [SearchBondSort!] first: Int, after: ID): InstrumentConnection!
+    searchIndex(criteria: SearchIndexCriteria, first: Int, after: ID): InstrumentConnection!
+    searchCrossRate(criteria: SearchCrossRateCriteria, first: Int, after: ID): InstrumentConnection!
+    bestWarrantsByIssuer(underlyingIsin: String!, pctChange: Float!, months: Long!): [IssuerBestInstrument!]!
+    bestWarrantRnd(underlyingIsin: String!, pctChange: Float!, months: Long!): IssuerBestInstrument
+
+    # User Profile
+    user: User
+    checkProfile: DefaultServiceResponse!
+    fetchProfileOverview(userName: String!, password: String!): ProfileOverviewResponse!
+    portfolioPerformance(id: Int!): [PortfolioPerformanceEntry!]!
+    instrumentIncluded(id: Int!): InstrumentIncludedResponse
+    brokers: [Broker!]!
+    accountOperationTypes: [AccountOperationType!]!
+
+    # Mein FT Statistics
+    instrumentGroupIncluded(instrumentGroupId: Long!): InstrumentGroupIncludedResponse!
+    instrumentGroupTrades(instrumentGroupId: Long!, days: Long!): [InstrumentTrade]! # days = 0 for today
+    instrumentGroupLimits(instrumentGroupId: Long!): [InstrumentLimit]!
+    instrumentGroupTradesTopVolume(days: Long!, buy: Boolean!, itemsReturned: Long!): [InstrumentGroupTrade]! # days = 0 for today
+    instrumentGroupTradesTopTrades(days: Long!, buy: Boolean!, itemsReturned: Long!): [InstrumentGroupTrade]! # days = 0 for today
+
+    # Currency
+    currencyPairs(baseCode: String!): [CurrencyPair!]!
+    currencyQuote(baseCode: String!, quoteCode: String!): SnapQuote
+    currencyHistory(baseCode: String!, quoteCode: String!, time: OffsetDateTime!): QuoteHistory
+
+    # News
+    news(id: ID): News
+    newsSearch(criteria: NewsCriteria, first: Int, after: ID): NewsConnection!
+    newsIsinCount(criteria: NewsIsinCountCriteria): [NewsIsinCountEdge!]!
+    analysesIsinCount(criteria: NewsIsinCountCriteria): [NewsIsinCountEdge!]!
+    newsTopics: [NewsTopic!]
+    newsSource: [NewsSource!]
+
+    # theScreener
+    theScreenerRatingSearch(criteria: TheScreenerSearchCriteria, first: Int): [TheScreenerRating!]!
+
+    # Classification
+    classification(category: [AssetGroup!], leveraged: Boolean): [AssetClass!]!
+    assetTypeGroupBucket(criteria: AssetTypeGroupBucketCriteria): [AssetTypeGroupBucket!]!
+    issuers: [Issuer!]!
+    regions: [Region!]!
+    sectors: [Sector!]!
+
+    # Fund Classification
+    fundRegions: [FundRegion]!
+    fundTopics: [FundTopic]!
+    fundTypes: [FundType]!
+    fundTypeBucket(criteria: FundTypeBucketCriteria): [FundTypeBucket]!
+    fundCurrencies: [FundCurrency!]!
+    fundStrategies: [FundStrategy!]!
+    fundCompanies: [FundCompany!]!
+
+    # ETF Classification
+    etfStrategies: [EtfStrategy!]!
+    etfSectors: [EtfSector!]!
+    etfRegions: [EtfRegion!]!
+    etfReplications: [EtfReplication!]!
+    etfIssuers: [EtfIssuer!]!
+    etfPosition: [EtfPosition!]!
+    etfAllocation: [EtfAllocation!]!
+
+    # Bond Classification!
+    bondIssuers: [BondIssuer!]!
+    bondTypes: [BondType!]!
+    bondNominalCurrencyBuckets: [CurrencyBucket!]!
+    bondTradingCurrencyBuckets: [CurrencyBucket!]!
+
+}
+
+type PeerGroupPerformancePeriod {
+    period: CalculationPeriod!
+
+    minimum: Float!
+    isinMin: String
+    instrumentGroupMin: InstrumentGroup!
+    maximum: Float!
+    isinMax: String
+    instrumentGroupMax: InstrumentGroup!
+    average: Float!
+}
+
+input FeedbackRequest {
+    email: String
+    body: String!
+}
+
+type FeedbackResponse {
+    orderId: String
+}
+
+type ProfileOverviewResponse {
+    result: DefaultServiceResponse!
+    data: UserProfile
+}
+
+type CurrencyPair {
+    baseCurrency: Currency!
+    quoteCurrency: Currency!
+    group: InstrumentGroup
+}
+
+type InstrumentIncludedResponse {
+    portfolios: [PortfolioItem!]!
+    watchlists: [WatchlistItem!]!
+    limitsNumber: Long!
+}
+
+type Broker {
+    id: Long!
+    name: String!
+}
+
+type AccountOperationType {
+    id: Long!
+    name: String!
+}
+
+type InstrumentGroupIncludedResponse {
+    portfolios: Long!
+    totalPortfolios: Long!
+    watchlists: Long!
+    totalWatchlists: Long!
+    limitsUpper: Long!
+    limitsLower: Long!
+    limits: Long!
+    totalLimits: Long!
+}
+
+type InstrumentTrade {
+    instrument: Instrument!
+    price: Float!
+    quantity: Float!
+    buy: Boolean!
+}
+
+type InstrumentLimit {
+    instrument: Instrument!
+    upper: Boolean!
+    limitValue: Float!
+}
+
+type InstrumentGroupTrade {
+    group: InstrumentGroup!
+    quantity: Float!
+    trades: Long!
+    portfolios: Long!
+    profiles: Long!
+}
+
+type PortfolioItem {
+    id: Int!
+    name: String!
+    real: Boolean!
+}
+
+type WatchlistItem {
+    id: Int!
+    name: String!
+}
+
+type AssetPage {
+    name: String
+    assetGroup: AssetGroup
+    groupId: Int
+    robots: RobotsMetaConfiguration
+}
+
+type RobotsMetaConfiguration {
+    index: Boolean
+    follow: Boolean
+}
+
+type InstrumentGroup {
+    id: Int
+    name: String!
+    isin: String
+    wkn: String
+    seoTag: String
+    tickerSymbol: String
+    ticker: String
+    assetGroup: AssetGroup
+    assetTypeGroup: AssetTypeGroup
+    assetType: AssetType
+    assetClass: AssetClass
+    sectorId: Int
+    sector: Sector
+    issuerId: Int
+    issuer: Issuer
+    refCountryId: Int
+    refCountry: Country
+    refMarketCapitalization: InstrumentGroupMarketCapitalization
+    description: InstrumentGroupDescription
+    bond: InstrumentGroupBond
+    etf: InstrumentGroupExchangeTradedFund
+    derivative: InstrumentGroupDerivative
+    crossRate: InstrumentGroupCrossRate
+    fundTranche: InstrumentGroupFundTranche
+    fund: Fund
+    underlyings: [InstrumentGroupUnderlying!]
+    underlying: Boolean
+    main: Instrument
+    content: [Instrument!]!
+    analysis(criteria: InstrumentGroupAnalysisCriteria, first: Int, after: ID): AnalysisConnection!
+    analysisReport: AnalysisReport
+    news(criteria: InstrumentGroupNewsCriteria, first: Int, after: ID): NewsConnection!
+    compositions: [InstrumentGroupComposition!]!
+    composition(compositionId: Int!): InstrumentGroupComposition
+    compositionPerformance: CompositionPerformance
+    indexParticipation: [InstrumentGroup!]!
+    topFlop(limit: Int): [InstrumentTopFlop!]
+    peerGroup: [InstrumentGroup!]!
+    peerGroupCompare: [PeerGroupCompare!]
+    estimates: Estimates
+    company: Company
+    theScreenerRating: TheScreenerRating
+    refundRelativeScenario: [RefundRelativeScenario!]
+    alternativeDerivativeProducts(criteria: AlternativeDerivativeProductsCriteria): [AlternativeDerivativeProductsBucket!]!
+    alternativeFundTranches: [InstrumentGroupFundTranche!]
+    interestRateInformation: InstrumentGroupInterestRateInformation
+
+    derivativeKeyFigureRangeBucket(criteria: DerivativeKeyFigureRangeBucketCriteria, ranges: DerivativeKeyFigureRangeBucketRanges): [DerivativeKeyFigureRangeBucket!]!
+
+    derivativeAssetClassBucket(criteria: DerivativeAssetClassBucketCriteria): [DerivativeAssetClassBucket!]!
+    derivativeAssetTypeGroupBucket(criteria: DerivativeAssetTypeGroupBucketCriteria): [DerivativeAssetTypeGroupBucket!]!
+    derivativeAssetTypeBucket(criteria: DerivativeAssetTypeBucketCriteria): [DerivativeAssetTypeBucket!]!
+
+    derivativeIssuer(criteria: DerivativeIssuerCriteria): [DerivativeIssuerBucket!]!
+}
+
+input DerivativeKeyFigureRangeBucketCriteria {
+    assetClass: Long
+    assetType: String
+}
+
+input DerivativeAssetTypeBucketCriteria {
+    assetGroup: AssetGroup
+    assetClass: Long
+    assetTypeGroup: String
+}
+
+input DerivativeKeyFigureRangeBucketRanges {
+    gearing: [FloatRangeValue!]
+}
+
+type DerivativeKeyFigureRangeBucket  {
+    optionType: DerivativeOptionType
+    from: Float
+    to: Float
+    count: Long
+}
+
+input DerivativeAssetTypeGroupBucketCriteria {
+    assetGroup: AssetGroup
+    assetClass: Long
+}
+
+type DerivativeAssetTypeGroupBucket {
+    assetTypeGroup: AssetTypeGroup
+    count: Long
+}
+
+type DerivativeAssetTypeBucket {
+    assetType: AssetType
+    count: Long
+}
+
+input DerivativeIssuerCriteria {
+    assetClass: Long
+    assetTypeGroup: String
+    assetType: String
+    optionType: DerivativeOptionType
+}
+
+type DerivativeIssuerBucket {
+    issuer: Issuer
+    count: Long
+}
+
+input DerivativeAssetClassBucketCriteria {
+    assetGroup: AssetGroup
+    optionType: DerivativeOptionType
+}
+
+type DerivativeAssetClassBucket {
+    assetClass: AssetClass
+    count: Long
+}
+
+input FundTypeBucketCriteria {
+    assetClass: Long
+    assetTypeGroup: String
+    assetType: String
+    companyId: Long
+}
+
+type FundTypeBucket {
+    fundType: FundType
+    count: Int
+}
+
+input AssetTypeGroupBucketCriteria {
+    assetGroup: AssetGroup
+    assetClass: Long
+    etfIssuerId: Long
+}
+
+type AssetTypeGroupBucket {
+    assetTypeGroup: AssetTypeGroup
+    count: Long
+}
+
+type CurrencyBucket {
+    currency: Currency
+    count: Long
+}
+
+input AlternativeDerivativeProductsCriteria {
+    issuerId: Long
+}
+
+type AlternativeDerivativeProductsBucket {
+    assetClass: AssetClass
+    optionType: DerivativeOptionType
+    count: Long
+}
+
+input TheScreenerSearchCriteria {
+    update: Boolean
+    change: TheScreenerRatingChange
+    instrumentGroupId: Int
+}
+
+enum TheScreenerRatingChange {
+    UPGRADE
+    DOWNGRADE
+}
+
+type Issuer {
+    id: Long
+    name: String
+    partner: Boolean
+}
+
+type IssuerBestInstrument {
+    issuerGroupId: Long!
+    issuerName: String
+    instrument: Instrument
+}
+
+type InstrumentTopFlop {
+    instrument: Instrument!
+    snapQuote: SnapQuote!
+}
+
+type InstrumentGroupInterestRateInformation {
+    interestRate: Float
+    nextPaymentDate: LocalDate
+    lastPaymentDate: LocalDate
+    finalPaymentDate: LocalDate
+}
+
+type InstrumentGroupDescription {
+    tradingIdea: String
+    text: String
+    natural: String
+}
+
+type InstrumentGroupMarketCapitalization {
+    value: Float!
+    currencyId: Long!
+    currency: Currency
+}
+
+type InstrumentGroupDerivative {
+    id: Int!
+    optionType: DerivativeOptionType
+    currencyQuanto: Boolean
+    exerciseStyle: DerivativeExerciseStyle
+    maturityDate: LocalDate
+    issueSize: Long
+    issuePrice: Float
+    issueDate: LocalDate
+    hasManagementFees: Boolean
+    hasIssuerRightOfTermination: Boolean
+    hasRollingFeature: Boolean
+    nominalAmount: Float
+    paymentDate: LocalDate
+    isPrivatePlacement: Boolean
+    nameTermSheet: String
+    issueValueDate: LocalDate
+    rollingStrategy: DerivativeRollingStrategy
+    rollingFrequency: DerivativeRollingFrequency
+    settlementType: DerivativeSettlementType
+    managementFee: Float
+    lockIn: Boolean
+    capitalProtection: Boolean
+    dayCountConvention: Int
+    automaticExercise: Boolean
+    securedInstrument: Boolean
+    usWithholding: Boolean
+    finalValuationDate: LocalDate
+    exercisePeriodStart: LocalDate
+    deltaAtIssuance: Float
+    quotationType: DerivativeQuotationType
+    preferenceInterestRate: String
+    stuttgartDerivativeName: String
+    interestMarkup: Float
+}
+
+type BondIssuer {
+    id: Int
+    name: String
+    englishName: String
+    legalName: String
+    isin: String
+    group: InstrumentGroup
+    symbol: String
+    lei: String
+}
+
+type BondStatus {
+    id: Int!
+    name: String
+}
+
+type BondIssueStatus {
+    id: Int!
+    name: String!
+}
+
+type BondPriceAttribute {
+    id: Int!
+    name: String!
+}
+
+type BondType {
+    id: Int!
+    name: String!
+}
+
+type InstrumentGroupBond {
+    id: Int!
+    isin: String
+    wkn: String
+    name: String
+    type: BondType
+    issuer: BondIssuer
+    interestLoan: Float
+    nominalValue: Float
+    nominalCurrencyCode: String
+    nominalCurrency: Currency
+    minAmountTradableLot: Float
+    subscriptionStart: OffsetDateTime
+    subscriptionEnd: OffsetDateTime
+    status: BondStatus
+    issueSize: Long
+    issueStatus: BondIssueStatus
+    issueDate: LocalDate
+    firstTradingDate: LocalDate
+    maturityDate: LocalDate
+    fiatIssuance: Boolean
+    subordinatedDebt: Boolean
+    priceAttribute: BondPriceAttribute
+    tradingCurrencyCode: String
+    tradingCurrency: Currency
+    settlementCurrencyCode: String
+    settlementCurrency: Currency
+    minTradableLot: Float
+}
+
+type FundDocumentType {
+    code: String
+    name: String
+}
+
+type FundDocument {
+    type: FundDocumentType
+    url: String
+    creationDate: LocalDate
+}
+
+type InstrumentGroupFundTranche {
+    id: Long!
+    name: String
+    isin: String
+    main: Boolean
+    germanRiesterCapable: Boolean
+    germanVwlCapable: Boolean
+    savingPlanCapable: Boolean
+    distributing: Boolean
+    distributionFrequency: DistributionFrequency
+    currencyCode: String @deprecated
+    currency: Currency
+    charge: Float
+    depositFee: Float
+    assetBasedFee: Float
+    totalExpenseRatio: Float
+    rePurchasePrice: Float
+    fund: Fund
+    group: InstrumentGroup
+    investmentVolume: InvestmentVolume
+    srri: FundTrancheSyntheticRiskAndRewardIndicator
+    foundationDate: LocalDate
+    documents: [FundDocument!]
+    peerGroup: FundTranchePeerGroup
+}
+
+type FundTranchePeerGroup {
+    id: Long!
+    name: String
+    performance: [PeerGroupPerformancePeriod!]
+}
+
+type DistributionFrequency {
+    id: String!
+    name: String!
+    month: Int!
+}
+
+type Contact {
+    phone: String
+    fax: String
+    website: String
+    email: String
+}
+
+type Address {
+    postCode: String
+    city: String
+    street: String
+    houseNo: String
+}
+
+type InvestmentVolume {
+    date: LocalDate
+    value: Float
+    currencyCode: String @deprecated
+    currency: Currency
+}
+
+type FundCurrency {
+    id: String!
+    name: String!
+    currency: Currency
+}
+
+type FundTopic {
+    id: String!
+    name: String!
+}
+
+type FundRegion {
+    id: String!
+    name: String!
+    countryIsoAlpha3: String
+    country: Country
+}
+
+type FundStrategy {
+    id: String!
+    name: String!
+}
+
+type FundType {
+    id: String!
+    name: String!
+}
+
+type FundCompany {
+    id: Long
+    name: String
+    address: Address
+    contact: Contact
+}
+
+type FundAdvisor {
+    name: String
+    address: Address
+    contact: Contact
+}
+
+type FundBenchmark {
+    name: String
+    isin: String
+    group: InstrumentGroup
+}
+
+type FundManager {
+    firstName: String
+    lastName: String
+    preference: Int
+}
+
+type FundTrancheSyntheticRiskAndRewardIndicator {
+    value: Int
+    when: LocalDate
+}
+
+type Fund {
+    id: Long!
+    name: String!
+    exchangeTradedFund: Boolean
+    indexFund: Boolean
+    benchmark: FundBenchmark
+    company: FundCompany
+    advisor: FundAdvisor
+    managers: [FundManager!]
+    currency: FundCurrency
+    topic: FundTopic
+    region: FundRegion
+    strategy: FundStrategy
+    type: FundType
+    investmentConcept: String
+    portfolios: [FundPortfolio!]!
+    investmentVolume: InvestmentVolume
+}
+
+type FundPortfolioEntry {
+    name: String
+    percent: Float
+}
+
+type FundPortfolio {
+    name: String
+    entries: [FundPortfolioEntry!]!
+}
+
+type EtfKeyFigures {
+    totalExpenseRatio: Float
+    maxLoosing6Month: Float
+    longestLoosingPeriod: Int
+    trackingError: Float
+    jensenAlpha: Float
+    betaFactor: Float
+    positiveRegression: Float
+    negativeRegression: Float
+}
+
+type InstrumentGroupExchangeTradedFund {
+    id: Int!
+    benchmark: FundBenchmark
+    foundationDate: LocalDate
+    investmentConcept: String
+    participationFactor: Float
+    distributing: Boolean
+    charge: Float
+    quanto: Boolean
+    underlyingRatio: Float
+    investmentVolume: InvestmentVolume
+    position: EtfPositionType
+    issuer: EtfIssuer
+    sector: EtfSector
+    region: EtfRegion
+    allocation: EtfAllocation
+    domicile: EtfDomicile
+    strategy: EtfStrategy
+    replication: EtfReplication
+    portfolios: [FundPortfolio!]!
+    keyFigures: EtfKeyFigures
+    peerGroup: EtfPeerGroup
+}
+
+type EtfPeerGroup {
+    id: Long!
+    name: String
+    performance: [PeerGroupPerformancePeriod!]
+}
+
+type EtfIssuer {
+    id: Int!
+    name: String
+}
+
+type EtfSector {
+    id: Int!
+    name: String
+}
+
+type EtfRegion {
+    id: Int!
+    name: String
+}
+
+type EtfAllocation {
+    id: Int!
+    name: String
+}
+
+type EtfDomicile {
+    id: Int!
+    name: String
+}
+
+type EtfStrategy {
+    id: Int!
+    name: String
+}
+
+type EtfReplication {
+    id: Int!
+    name: String
+}
+
+type InstrumentGroupCrossRate {
+    homeCurrencyId: Int!
+    homeCurrency: Currency!
+    foreignCurrencyId: Int!
+    foreignCurrency: Currency!
+}
+
+type InstrumentGroupUnderlying {
+    id: Long
+    isin: String
+    name: String
+    groupId: Long
+    group: InstrumentGroup
+    currencyId: Long
+    currency: Currency
+    exchageId: Long
+    exchange: Exchange
+    instrumentId: Long
+    instrument: Instrument
+    referencePrice: Float
+    multiplier: Float
+    quantity: Float
+    percentage: Float
+    leverageFactor: Float
+    bonusBarrier: Float
+    cap: Float
+    capitalGuarantee: Float
+    conditionalCouponTriggerLevel: Float
+    conditionalCouponTriggerLevelLower: Float
+    conditionalCouponTriggerLevelUpper: Float
+    knockIn: Float
+    knockInLower: Float
+    knockInUpper: Float
+    knockOut: Float
+    knockOutLower: Float
+    knockOutUpper: Float
+    lockIn: Float
+    participation: Float
+    redemption: Float
+    reverseLevel: Float
+    security: Float
+    securityBarrierObservationStartAt: LocalDate
+    securityBarrierObservationEndAt: LocalDate
+    securityBarrierTriggeredAt: LocalDate
+    knockInTriggeredAt: OffsetDateTime
+    knockOutTriggeredAt: OffsetDateTime
+    start: Float
+    strike: Float
+}
+
+enum EtfPositionType {
+    SHORT,
+    LONG,
+}
+
+type EtfPosition {
+    id: Int!
+    name: String
+}
+
+enum DerivativeOptionType {
+    PUT,
+    CALL
+}
+
+enum DerivativeExerciseStyle {
+    EUROPEAN,
+    AMERICAN,
+    BERMUDAN
+}
+
+enum DerivativeRollingStrategy {
+    OFFENSIVE,
+    DEFENSIVE,
+    NEUTRAL
+}
+
+enum DerivativeRollingFrequency {
+    ANNUALLY,
+    SEMI_ANNUALLY,
+    MONTHLY,
+    QUARTERLY,
+    ONCE
+}
+
+enum DerivativeSettlementType {
+    CASH_SETTLEMENT,
+    PHYSICAL_DELIVERY,
+    BOTH
+}
+
+enum DerivativeQuotationType {
+    CLEAN,
+    FLAT,
+    XFLAT
+}
+
+type InstrumentGroupComposition {
+    id: Int!
+    name: String
+    groupId: Int!
+    group: InstrumentGroup!
+    exchangeId: Int
+    exchange: Exchange
+    currencyId: Int
+    currency: Currency
+    mainInstrumentId: Int @deprecated
+    mainInstrument: Instrument @deprecated
+    delay: Int
+    entries: [Instrument!]!
+}
+
+type PeerGroupCompare {
+    type: PeerGroupCompareType!
+    value: Float!
+    chart: PeerGroupCompareChart
+}
+
+type PeerGroupCompareChart {
+    current: PeerGroupCompareChartPoint!
+    min: PeerGroupCompareChartPoint!
+    max: PeerGroupCompareChartPoint!
+    breakPoint: Float!
+}
+
+type PeerGroupCompareChartPoint {
+    group: InstrumentGroup
+    isin: String
+    value: Float
+}
+
+type CompositionPerformance {
+    periods: [CompositionPerformacePeriod!]
+}
+
+type CompositionPerformanceValue {
+    group: InstrumentGroup
+    value: Float
+    price: Float
+}
+
+type CompositionPerformacePeriod {
+    period: CalculationPeriod
+    min: CompositionPerformanceValue
+    max: CompositionPerformanceValue
+    current: CompositionPerformanceValue
+}
+
+type Estimates {
+    current: FundamentalKeyFigures
+    next: FundamentalKeyFigures
+}
+
+type FundamentalKeyFigures {
+    year: Int
+    dividendYield: Float
+    dividendPerShare: Float
+    priceToCashFlowRatio: Float
+    priceToEarningsRatio: Float
+    priceToSalesRatio: Float
+    netIncome: Float
+    sales: Float
+    operatingCashFlow: Float
+    salesPerShare: Float
+    cashFlowPerShare: Float
+    workingCapital: Float
+    equityReturn: Float
+    salesRatio: Float
+    returnOnAssets: Float
+    returnOnInvestment: Float
+    intensityOfInvestments: Float
+    intensityOfLabor: Float
+    equityRatio: Float
+    debtEquityRatio: Float
+    cashGrade1: Float
+    cashGrade2: Float
+    cashGrade3: Float
+    cashRatioGrade1: Float
+    cashRatioGrade2: Float
+    cashRatioGrade3: Float
+    debtRatio: Float
+    earningPerShare: Float
+    dilutedEarningPerShare: Float
+    employees: Float
+    personnelExpenses: Float
+    salesPerEmployee: Float
+    dividendPayoutRatio: Float
+}
+
+type TheScreenerRating {
+    isin: String!
+    group: InstrumentGroup!
+    currencyId: Int
+    currency: Currency
+    rating: Int
+    previousRating: Int
+    marketCapitalisation: Float
+    beta: Int
+    correlation: Float
+    earningsPerShareRevision: Float
+    referenceIndexName: String
+    numberOfAnalysts: Int
+    payout: Float
+    performance2week: Float
+    premium: Float
+    date: LocalDate
+    valuationRating: Int
+    dividend: Float
+    globalPriceEarningsRatio: Float
+
+    badNews: TheScreenerRatingBadNewsFactor
+    earningsRevisionTrend: TheScreenerRatingEarningsRevisionTrend
+    globalEvaluation: TheScreenerRatingGlobalEvaluation
+    mediumTermTechnicalTrend: TheScreenerRatingMediumTermTechnicalTrend
+
+    longTermGrowth: TheScreenerRatingLongTermGrowth
+    longTermPriceEarnings: Float
+
+    risk: TheScreenerRatingRisk
+    technicalReverse: TheScreenerRatingTechnicalReverse
+    valueAtRisk: TheScreenerRatingValueAtRisk
+    bearMarket: TheScreenerRatingBearMarket
+}
+
+type TheScreenerRatingEarningsRevisionTrend {
+    value: Int
+    price: Float
+    date: LocalDate
+}
+
+type TheScreenerRatingBadNewsFactor {
+    factor: Int
+    riskZone: Int
+}
+
+type TheScreenerRatingGlobalEvaluation {
+    value: Int
+    date: LocalDate
+}
+
+type TheScreenerRatingLongTermGrowth {
+    year: Int
+    value: Float
+}
+
+type TheScreenerRatingMediumTermTechnicalTrend {
+    value: Int
+    date: LocalDate
+}
+
+type TheScreenerRatingTechnicalReverse {
+    value: Float
+    min: Float
+    max: Float
+}
+
+type TheScreenerRatingBearMarket {
+    riskZone: Int
+    factor: Int
+}
+
+type TheScreenerRatingRisk {
+    date: LocalDate
+    zone: Int
+}
+
+type TheScreenerRatingValueAtRisk {
+    value: Float
+    relative: Float
+}
+
+type Instrument {
+    id: Int!
+    isin: String
+    wkn: String
+    seoTag: String @deprecated
+    tickerSymbol: String
+    name: String!
+    main: Boolean!
+    groupId: Int!
+    group: InstrumentGroup!
+    exchangeId: Int!
+    exchange: Exchange!
+    currencyId: Int!
+    currency: Currency!
+    countryId: Int!
+    country: Country
+    sectorId: Int @deprecated
+    sector: Sector @deprecated
+    securityCategoryId: AssetGroup @deprecated
+    marketCapitalization: Float
+    firstTradingDay: LocalDate
+    lastTradingDay: LocalDate
+    snapQuote: SnapQuote
+    previousSnapQuote: SnapQuote
+    quoteHistory(from: LocalDate!, to: LocalDate!): QuoteHistoryConnection! @deprecated
+    historyQuote(criteria: HistoryQuoteCriteria): HistoryQuoteConnection!
+    timeAndSales(criteria: TimeAndSalesCriteria, last: Int before: ID): InstrumentTimeAndSalesConnection!
+    chart(scope: ChartScope!): Chart
+    monteCarlo(days: Int!): MonteCarloResult
+    performance(period: [CalculationPeriod!]): [InstrumentPerformance!]!
+    stats(periods:[CalculationPeriod!]): [InstrumentStatistics!]!
+    indicators: InstrumentIndicators
+    rangeCharts: InstrumentRangeCharts
+    keyFigures: DerivativeInstrumentKeyFigures @deprecated
+    derivativeKeyFigures: DerivativeInstrumentKeyFigures
+}
+
+type DerivativeInstrumentKeyFigures {
+    gearing: Float
+    premium: Float
+    premiumAbsolute: Float
+    premiumAnnual: Float
+    implicitVolatility: Float
+    breakEven: Float
+    moneyness: Float
+    intrinsicValue: Float
+    timeValuePremium: Float
+    spread: Float
+    spreadHomogenous: Float
+    spreadRelative: Float
+    deltaStopLoss: Float
+    deltaStopLossAbsolute: Float
+    agio: Float
+    agioAnnual: Float
+    omega: Float
+    delta: Float
+    gamma: Float
+    theta: Float
+    rho: Float
+    vega: Float
+    discount: Float @deprecated
+    discountAbsolute: Float
+    discountPercent: Float
+    sidewaysReturn: Float
+    sidewaysReturnAbsolute: Float
+    sidewaysAnnualReturn: Float
+    outperformanceLevel: Float
+    maxAnnualReturn: Float
+    maxReturn: Float
+    maxReturnAbsolute: Float
+    maxRedemptionPrice: Float
+    deltaCap: Float
+    deltaCapAbsolute: Float
+    fairValue: Float
+    bonusAnnualReturn: Float
+    bonusBuffer: Float
+    bonusBufferAbsolute: Float
+    bonusReturn: Float
+    bonusReturnAbsolute: Float
+    deltaBonusLevel: Float
+    deltaBonusLevelAbsolute: Float
+    deltaStrike: Float
+    deltaStrikeAbsolute: Float
+    deltaSecurityLevel: Float
+
+    dirtyPrice: Float
+    parity: Float
+
+    # Bond Keyfigure temporary
+    ismaYield: Float
+    accruedInterest: Float
+    duration: Float
+    modifiedDuration: Float
+
+    update: InstrumentKeyFiguresUpdate
+}
+
+type InstrumentKeyFiguresUpdate {
+    when: OffsetDateTime
+    type: QuoteType
+    value: Float
+    underlyingValue: Float
+}
+
+type Country {
+    id: Int!
+    isoAlpha2: String!
+    isoAlpha3: String!
+    name: String!
+    currencyId: Int
+    numericCode: Int
+    internalVwdId: String
+}
+
+type QuoteHistoryConnection {
+    edges: [QuoteHistoryEdge!]!
+    pageInfo: PageInfo
+}
+
+input HistoryQuoteCriteria {
+    from: OffsetDateTime!
+    to: OffsetDateTime!
+    aggregation: HistoryQuoteAggregation
+}
+
+enum HistoryQuoteAggregation {
+    TICK
+    MINUTE
+    HOUR
+    DAY
+    WEEK
+    MONTH
+}
+
+type HistoryQuoteConnection {
+    edges: [HistoryQuoteEdge!]!
+    pageInfo: PageInfo
+}
+
+type HistoryQuoteEdge {
+    cursor: ID
+    node: HistoryQuote
+}
+
+type HistoryQuote {
+    id: ID
+    start: OffsetDateTime
+    firstPrice: Float
+    lastPrice: Float
+    lowPrice: Float
+    highPrice: Float
+    cumulativeVolume: Long
+}
+
+type QuoteHistory {
+    id: ID
+    date: LocalDate
+    firstPrice: Float
+    lastPrice: Float
+    lowPrice: Float
+    highPrice: Float
+    changePercent: Float
+    volume: Long
+    turnOver: Float
+    trades: Int
+}
+
+type QuoteHistoryEdge {
+    cursor: ID
+    node: QuoteHistory
+}
+
+input TimeAndSalesCriteria {
+    from: OffsetDateTime
+    to: OffsetDateTime
+}
+
+type InstrumentTimeAndSalesConnection {
+    edges: [InstrumentTimeAndSalesEdge!]!
+    pageInfo: PageInfo
+}
+
+type InstrumentTimeAndSales {
+    when: OffsetDateTime
+    askPrice: Float
+    bidPrice: Float
+    firstPrice: Float
+    lowPrice: Float
+    highPrice: Float
+    lastPrice: Float
+    askVolume: Long
+    bidVolume: Long
+    volume: Long
+}
+
+type InstrumentTimeAndSalesEdge {
+    cursor: ID
+    node: InstrumentTimeAndSales
+}
+
+type User {
+    username: String
+    firstName: String
+    lastName: String
+    profile: UserProfile
+}
+
+type UserProfile {
+    id: Long!
+    portfolioViewType: String
+    portfolioViewOrder: String
+    portfolioViewOrderAsc: Boolean
+    watchlistViewType: String
+    watchlistViewOrder: String
+    watchlistViewOrderAsc: Boolean
+    limitViewType: String
+    limitViewOrder: String
+    limitViewOrderAsc: Boolean
+    portfolios: [Portfolio!]
+    watchlists: [Watchlist!]
+    limits: [LimitEntry!]
+}
+
+type Portfolio {
+    id: Int!
+    real: Boolean!
+    broker: String
+    name: String
+    inMasterPortfolio: Boolean!
+    viewType: String
+    viewOrder: String
+    viewOrderAsc: Boolean
+    wd1: Boolean!
+    wd2: Boolean!
+    wd3: Boolean!
+    wd4: Boolean!
+    wd5: Boolean!
+    wd6: Boolean!
+    wd7: Boolean!
+    eom: Boolean!
+    wdTime: OffsetDateTime!
+    memo: String
+    portfolioAlert: Boolean!
+    portfolioLowerLimit: Float
+    portfolioUpperLimit: Float
+    positionAlert: Boolean!
+    positionLowerLimit: Float
+    positionUpperLimit: Float
+    entries: [PortfolioEntry!]
+    accountEntries: [AccountEntry!]
+    performanceEntries: [PortfolioPerformanceEntry!]
+}
+
+type PortfolioEntry {
+    id: Int!
+    name: String
+    instrumentId: Int
+    instrumentGroupId: Int
+    quantity: Float!
+    price: Float!
+    buyCharges: Float!
+    buyCurrencyPrice: Float
+    previousCurrencyPrice: Float
+    currentCurrencyPrice: Float
+    entryTime: OffsetDateTime!
+    memo: String
+    currencyCode: String
+    nominalValue: Float
+    nominalCurrency: String
+    instrument: Instrument
+    snapQuote: SnapQuote
+    intradayPrices: [ChartSeries!]
+}
+
+type AccountEntry {
+    id: Int!
+    accountTypeId: Long
+    accountTypeDescriptionEn: String
+    instrumentId: Int
+    portfolioEntryId: Int
+    instrument: Instrument
+    amount: Float!
+    quantity: Float
+    memo: String
+    securityDescription: String
+    entryTime: OffsetDateTime!
+}
+
+#type AccountInstrument {
+#    id: Int
+#    wkn: String
+#    securityCategoryId: String
+#    seoTag: String
+#}
+
+type PortfolioPerformanceEntry {
+    value: Float!
+    date: OffsetDateTime!
+}
+
+type Watchlist {
+    id: Int!
+    name: String
+    inMasterPortfolio: Boolean!
+    viewType: String
+    viewOrder: String
+    viewOrderAsc: Boolean
+    createdOn: OffsetDateTime!
+    wd1: Boolean!
+    wd2: Boolean!
+    wd3: Boolean!
+    wd4: Boolean!
+    wd5: Boolean!
+    wd6: Boolean!
+    wd7: Boolean!
+    eom: Boolean!
+    wdTime: OffsetDateTime!
+    memo: String
+    entries: [WatchlistEntry!]
+}
+
+type WatchlistEntry {
+    id: Int!
+    name: String
+    quantity: Float!
+    price: Float!
+    entryTime: OffsetDateTime!
+    memo: String
+    instrument: Instrument
+    snapQuote: SnapQuote
+    intradayPrices: [ChartSeries!]
+}
+
+type LimitEntry {
+    id: Long!
+    instrumentId: Long
+    instrument: Instrument
+    trailing: Boolean
+    upper: Boolean
+    percent: Boolean
+    quoteType: QuoteType
+    initialValue: Float
+    initialTime: OffsetDateTime
+    limitValue: Float
+    effectiveLimitValue: Float
+    hitValue: Float
+    hitStatus: Boolean
+    hitTime: OffsetDateTime
+    smsNotification: Boolean
+    mailNotification: Boolean
+    memo: String
+}
+
+enum ExchangeType {
+    REGULAR
+    INVESTMENT_FUND
+}
+
+type Exchange {
+    id: Int!
+    delay: Int
+    name: String
+    code: String
+    openingTime: LocalTime
+    closingTime: LocalTime
+    type: ExchangeType
+}
+
+type Currency {
+    id: Int
+    alphaCode: String
+    displayCode: String
+    name: String
+    sign: String
+}
+
+type Sector {
+    id: Int!
+    name: String
+    nameShort: String
+}
+
+type InstrumentPerformance {
+    period: CalculationPeriod!
+    averagePrice: Float
+    deltaAveragePrice: Float
+    performance: Float
+    performanceAbsolute: Float
+    correlation: Float
+    averageVolume: Float
+    cumulativeVolume: Long
+    cumulativeTurnover: Float
+    benchmark: Float
+    sharpe: Float
+    volatility: Float
+    volatilityMid: Float
+    alpha: Float
+    beta: Float
+    vola: Float
+}
+
+type InstrumentRangeCharts {
+    intraday: RangeChart
+    year: RangeChart
+}
+
+type RangeChart {
+    min: Float
+    max: Float
+    current: Float
+    threshold: Float
+}
+
+type InstrumentIndicators {
+    relativeStrengthLevy: RelativeStrengthLevyIndicator
+    relativeStrengthIndex: RelativeStrengthIndex
+    movingAverage: MovingAverageIndicator
+}
+
+type InstrumentStatistics {
+    period: CalculationPeriod!
+    lowPrice: Float
+    highPrice: Float
+    deltaLowPrice: Float
+    deltaHighPrice: Float
+    lowPriceDate: LocalDate
+    highPriceDate: LocalDate
+}
+
+type RelativeStrengthLevyIndicator {
+    deltaMedian: Float
+    indicator: Float
+}
+
+type RelativeStrengthIndex {
+    last7Days: Float
+    last9Days: Float
+    last14Days: Float
+    last25Days: Float
+}
+
+type MovingAverageIndicator {
+    line10Day: Float
+    line20Day: Float
+    line38Day: Float
+    line90Day: Float
+    line200Day: Float
+    deltaLine10Day: Float
+    deltaLine20Day: Float
+    deltaLine38Day: Float
+    deltaLine90Day: Float
+    deltaLine200Day: Float
+}
+
+type Subscription {
+    update(instrument: Int!) : SnapQuote!
+}
+
+type SnapQuote {
+    instrumentId: Int!
+    delay: Int
+    lowPrice: Float
+    highPrice: Float
+    firstPrice: Float
+    lastPrice: Float
+    yesterdayPrice: Float
+    cumulativeTrades: Int
+    cumulativeTurnover: Float
+    cumulativeVolume: Long
+    lastChange: OffsetDateTime
+    quotes: [Quote]!
+    quote(type: QuoteType!): Quote
+}
+
+type Quote {
+    type: QuoteType
+    value : Float
+    percentChange: Float
+    change : Float
+    size: Int
+    delay: Int
+    when: OffsetDateTime
+}
+
+enum QuoteType {
+    BID
+    ASK
+    TRADE
+    NET_ASSET_VALUE
+    ISSUE_PRICE
+    REDEMPTION_PRICE
+}
+
+type List {
+    id: String!
+    name: String!
+    content: [Instrument!]
+}
+
+type Chart {
+    id: ID!
+    series: [ChartSeries!]!
+    threshold: ChartThreshold
+}
+
+type MonteCarloResult {
+    min: Float
+    avg: Float
+    max: Float
+    up: Float
+    down: Float
+}
+
+type ChartSeries {
+    label: String!
+    type: QuoteType!
+    data: [ChartPoint!]!
+}
+
+type ChartThreshold {
+    type: ChartThresholdType!
+    value: Float
+}
+
+enum ChartThresholdType {
+    YESTERDAY_CLOSE
+}
+
+type ChartPoint {
+    value: Float!
+    when: OffsetDateTime
+}
+
+input InstrumentGroupNewsCriteria {
+    feeds: [NewsFeed!]
+}
+
+input AnalysisCriteria {
+    isin: [String!]
+    targetFrom: LocalDate
+    targetTo: LocalDate
+    created: LocalDateRangeValue
+    institutes: [String!]
+    recommendation: AnalysisRecommendation
+    latest: Boolean
+    updated: Boolean
+    timeFrame: Int
+}
+
+input InstrumentGroupAnalysisCriteria {
+    from: LocalDate
+}
+
+input SearchCriteria {
+    searchString: String
+    underlying: Boolean
+    underlyingInstrumentGroupId: Long
+    assetGroup: [AssetGroup!]
+    assetClass: Long
+    assetTypeGroup: String
+    assetType: String
+    issuerId: Long
+}
+
+input FloatRangeValue {
+    from: Float
+    to: Float
+}
+
+input LocalDateRangeValue {
+    from: LocalDate
+    to: LocalDate
+}
+
+input SearchShareCriterion {
+    regionId: Long
+    marketCapitalization: FloatRangeValue
+    ranges: [ShareRangeCriteria!]!
+    trends: [ShareKeyFigureTrend!]!
+    # Year Period
+    period: Period
+}
+
+input ShareRangeCriteria {
+    keyFigure: ShareSearchKeyFigure!
+    from: Float
+    to: Float
+}
+
+input ShareKeyFigureTrend {
+    keyFigure: ShareSearchKeyFigure!
+    value: Trend!
+    type: TrendType!
+}
+
+enum TrendType {
+    ANNUAL, PERIOD
+}
+
+enum ShareSearchKeyFigure {
+    DIVIDEND_YIELD,
+    DIVIDEND_YIELD_AVERAGE,
+    DIVIDEND_PAYOUT_RATIO,
+    DIVIDEND_CHANGE_PERCENT,
+    SALES_CHANGE_PERCENT,
+    NET_INCOME_CHANGE_PERCENT,
+    CASH_FLOW_CHANGE_PERCENT,
+    SALES_PER_EMPLOYEE_CHANGE_PERCENT
+}
+
+enum ShareSortField {
+    DIVIDEND_YIELD,
+    DIVIDEND_YIELD_AVERAGE,
+    DIVIDEND_PAYOUT_RATIO,
+    DIVIDEND_CHANGE_PERCENT,
+    SALES_CHANGE_PERCENT,
+    NET_INCOME_CHANGE_PERCENT,
+    CASH_FLOW_CHANGE_PERCENT,
+    SALES_PER_EMPLOYEE_CHANGE_PERCENT,
+    MARKET_CAPITALIZATION
+}
+
+input SearchShareSort {
+    field: ShareSortField
+    descending: Boolean
+}
+
+enum Period {
+    LAST_1_YEAR,
+    LAST_3_YEARS,
+    LAST_5_YEARS,
+    LAST_10_YEARS,
+}
+
+enum DerivativeKeyFigure {
+    GEARING
+    STRIKE
+    CAP
+    MONEYNESS
+    KNOCK_IN
+    KNOCK_IN_LOWER
+    KNOCK_IN_UPPER
+    KNOCK_OUT
+    KNOCK_OUT_LOWER_BARRIER
+    KNOCK_OUT_UPPER_BARRIER
+    STOP_LOSS_BARRIER
+    BONUS_LEVEL
+    BONUS_BARRIER
+    MAX_RETURN_ANNUAL
+    SIDEWAYS_RETURN_ANNUAL
+    PERFORMANCE_MONTH1
+    BONUS_RETURN_ANNUAL
+    BONUS_BUFFER_ABSOLUTE
+    PREMIUM_ANNUAL
+    DISCOUNT_ABSOLUTE
+}
+
+input DerivativeKeyFigureCriteria {
+    keyFigure: DerivativeKeyFigure
+    from: Float
+    to: Float
+}
+
+input SearchDerivativeCriterion {
+    assetGroup: AssetGroup
+    assetClass: Long
+    assetTypeGroup: String
+    assetType: String
+    underlyingInstrumentGroupId: Int
+    issuerId: [Long!]
+    optionType: DerivativeOptionType
+    maturityDate: LocalDateRangeValue
+    keyFigures: [DerivativeKeyFigureCriteria!]
+}
+
+enum FundKeyFigure {
+    TOTAL_EXPENSE_RATIO
+    FUND_VOLUME
+    FUND_TRANCHE_VOLUME
+}
+
+enum FundSortField {
+    NAME
+    TOTAL_EXPENSE_RATIO
+    FUND_VOLUME
+    FUND_TRANCHE_VOLUME
+}
+
+input FundKeyFigureCriteria {
+    keyFigure: FundKeyFigure
+    from: Float
+    to: Float
+}
+
+input SearchFundSort {
+    field: FundSortField
+    descending: Boolean
+}
+
+input SearchFundCriterion {
+    germanRiesterCapable: Boolean
+    germanVwlCapable: Boolean
+    savingPlanCapable: Boolean
+    distributing: Boolean
+    fundTopicId: Int
+    fundCurrencyId: Int
+    fundRegionId: Int
+    fundTypeId: Int
+    fundStrategyId: Int
+    fundCompanyId: Int
+    srriFrom: Int
+    srriTo: Int
+    foundationDateFrom: LocalDate
+    foundationDateTo: LocalDate
+    keyFigures: [FundKeyFigureCriteria!]
+}
+
+input SearchEtfSort {
+    field: EtfSortField
+    descending: Boolean
+}
+
+enum EtfSortField {
+    NAME
+    PERFORMANCE_MONTH_1
+    PERFORMANCE_MONTH_6
+    PERFORMANCE_YEAR_1
+    PERFORMANCE_YEAR_3
+    PERFORMANCE_YEAR_5
+    TOTAL_EXPENSE_RATIO
+    MAX_LOOSING_6_MONTH
+    LONGEST_LOOSING_PERIOD
+    TRACKING_ERROR
+    JENSEN_ALPHA
+    BETA_FACTOR
+    POSITIVE_REGRESSION
+    NEGATIVE_REGRESSION
+    VOLUME
+}
+
+enum EtfKeyFigure {
+    PERFORMANCE_MONTH_1
+    PERFORMANCE_MONTH_6
+    PERFORMANCE_YEAR_1
+    PERFORMANCE_YEAR_3
+    PERFORMANCE_YEAR_5
+    TOTAL_EXPENSE_RATIO
+    MAX_LOOSING_6_MONTH
+    LONGEST_LOOSING_PERIOD
+    TRACKING_ERROR
+    JENSEN_ALPHA
+    BETA_FACTOR
+    POSITIVE_REGRESSION
+    NEGATIVE_REGRESSION
+    VOLUME
+}
+
+input EtfKeyFigureCriteria {
+    keyFigure: EtfKeyFigure
+    from: Float
+    to: Float
+}
+
+input SearchEtfCriterion {
+    assetClass: Long
+    assetTypeGroup: String
+    assetType: String
+    distributing: Boolean
+    quanto: Boolean
+    positionId: Long
+    sectorId: Long
+    regionId: Long
+    allocationId: Long
+    domicileId: Long
+    strategyId: Long
+    replicationId: Long
+    benchmarkId: Long
+    issuerId: Long
+    foundationDateFrom: LocalDate
+    foundationDateTo: LocalDate
+    keyFigures: [EtfKeyFigureCriteria!]
+}
+
+enum DerivativeSortField {
+    GEARING
+    STRIKE
+    CAP
+    MONEYNESS
+    KNOCK_IN
+    KNOCK_IN_LOWER
+    KNOCK_IN_UPPER
+    KNOCK_OUT
+    KNOCK_OUT_LOWER_BARRIER
+    KNOCK_OUT_UPPER_BARRIER
+    STOP_LOSS_BARRIER
+    BONUS_LEVEL
+    BONUS_BARRIER
+    MAX_RETURN_ANNUAL
+    SIDEWAYS_RETURN_ANNUAL
+    PERFORMANCE_MONTH1
+    BONUS_RETURN_ANNUAL
+    BONUS_BUFFER_ABSOLUTE
+    PREMIUM_ANNUAL
+    DISCOUNT_ABSOLUTE
+    MATURITY_DATE
+}
+
+input SearchDerivativeSort {
+    field: DerivativeSortField
+    descending: Boolean
+}
+
+enum BondSortField {
+    ISMA_YIELD
+    ACCRUED_INTEREST
+    PERFORMANCE_YEAR_1
+    MATURITY_DATE
+    ISSUE_SIZE
+    NOMINAL_VALUE
+    REGION
+    NOMINAL_CURRENCY
+    DIRTY_PRICE
+    MIN_AMOUNT_TRADABLE_LOT
+}
+
+enum BondKeyFigure {
+    ISMA_YIELD
+    ACCRUED_INTEREST
+    DURATION
+    MODIFIED_DURATION
+    ISSUE_SIZE
+    NOMINAL_VALUE
+    DIRTY_PRICE
+    MIN_AMOUNT_TRADABLE_LOT
+}
+
+input BondKeyFigureCriteria {
+    keyFigure: BondKeyFigure
+    from: Float
+    to: Float
+}
+
+input SearchBondCriterion {
+    assetClass: Long
+    assetTypeGroup: String
+    assetType: String
+    typeId: Long
+    issuerId: Long
+    hasSubordinatedDebt: Boolean
+    tradingCurrencyId: Long
+    nominalCurrencyId: Long
+    maturityDateFrom: LocalDate
+    maturityDateTo: LocalDate
+    keyFigures: [BondKeyFigureCriteria!]
+}
+
+input SearchBondSort {
+    keyFigure: BondSortField
+    descending: Boolean
+}
+
+input SearchIndexCriteria {
+    assetClass: Long
+    assetTypeGroup: String
+    assetType: String
+    regionId: Long
+    sectorId: Long
+}
+
+input SearchCrossRateCriteria {
+    assetClass: Long
+    assetTypeGroup: String
+    assetType: String
+    homeCurrencyId: Long
+    homeCurrencyCode: String
+    foreignCurrencyId: Long
+    foreignCurrencyCode: String
+}
+
+type NewsTopic {
+    id: ID
+    name: String
+    videoCapable: Boolean
+}
+
+type NewsSource {
+    id: String
+    name: String
+}
+
+input NewsCriteria {
+    feeds: [ID!]
+    source: [ID!]
+    isin: [String!]
+    topic: [ID!]
+    searchString: String
+    intervalStart: OffsetDateTime
+    intervalEnd: OffsetDateTime
+}
+
+input NewsIsinCountCriteria {
+    isins: [String!]!
+    startDate: LocalDate!
+    endDate: LocalDate
+}
+
+type NewsInstrument {
+    isin: String!
+    groupId: Int @deprecated
+    group: InstrumentGroup
+    instrumentId: Int @deprecated
+    name: String @deprecated
+    instrument: Instrument @deprecated
+}
+
+type NewsLink {
+    href: String
+    name: String
+}
+
+type NewsMedia {
+    name: String
+    mime: String
+    height: Int
+    width: Int
+    source: String
+    alt: String
+    caption: String
+    producer: String
+}
+
+interface Node {
+    id: ID!
+}
+
+type PageInfo {
+    hasNextPage: Boolean!
+    hasPreviousPage: Boolean!
+    startCursor: ID
+    endCursor: ID
+}
+
+type NewsStream {
+    mimeType: String
+    duration: Int
+    width: Int
+    height: Int
+    source: String
+}
+
+type News implements Node {
+    id: ID!
+    headline: String
+    body: String
+    topic: String
+    teaser: String
+    feed: NewsFeed
+    source: NewsSource
+    instruments: [NewsInstrument!]
+    keywords: [String!]
+    categories: [String!]
+    links: [NewsLink!]
+    medias: [NewsMedia!]
+    streams: [NewsStream!]
+    when: OffsetDateTime
+}
+
+type NewsEdge {
+    cursor: ID!
+    node: News!
+}
+
+type NewsIsinCountEdge {
+    newsCount: Int
+    isin: String
+    date: LocalDate
+}
+
+type InstrumentEdge {
+    cursor: ID!
+    node: Instrument!
+}
+
+type NewsConnection {
+    edges: [NewsEdge!]!
+    pageInfo: PageInfo
+}
+
+type InstrumentConnection {
+    edges: [InstrumentEdge!]!
+    pageInfo: PageInfo
+    count: Long
+}
+
+type AssetGroupBucket {
+    assetGroup: AssetGroup!
+    count: Int!
+}
+
+type InstrumentDetailConnection {
+    edges: [InstrumentEdge!]!
+    assetGroups: [AssetGroupBucket!]!
+    pageInfo: PageInfo
+    count: Long
+}
+
+type AnalysisConnection {
+    edges: [AnalysisEdge!]!
+    pageInfo: PageInfo
+}
+
+type AnalysisEdge {
+    cursor: ID!
+    node: Analysis!
+}
+
+type Analysis {
+    id: ID!
+    recommendation: AnalysisRecommendation
+    recommendationPrevious: AnalysisRecommendation
+    date: LocalDate!
+    instrumentGroupId: Long
+    isin: String!
+    group: InstrumentGroup
+    targetPrice: Float
+    targetPricePrevious: Float
+    referencePrice: Float
+    currencyId: Int
+    currency: Currency
+    timeFrame: Int
+    institute: AnalystInstitute
+    analyst: Analyst
+    headline: String
+    body: String
+    updated: Boolean
+    latest: Boolean
+}
+
+type AnalysisReport {
+    positiveCount: Int
+    neutralCount: Int
+    negativeCount: Int
+    recommendation: AnalysisRecommendation
+    price: Float
+    currencyId: Int
+    currency: Currency
+    targets: [AnalysisReportTarget!]!
+}
+
+type AnalysisReportTarget {
+    recommendation: AnalysisRecommendation
+    price: Float
+    count: Int
+}
+
+type AnalystInstitute {
+    id: ID
+    name: String!
+}
+type Analyst {
+    firstName: String
+    lastName: String
+}
+
+type Region {
+    id: Int!
+    name: String
+    countries: [Country!]!
+}
+type Company {
+    id: Int!
+    name: String
+    fiscal: CompanyFiscal
+    accountingStandard: String
+    currencyId: Int
+    currency: Currency
+    profile: CompanyProfile
+    shareHolders: [CompanyShareHolder!]
+    employees: [CompanyEmployee!]
+    statements(criteria: CompanyStatementsCriteria): [CompanyStatement!]
+    dividends(criteria: CompanyDividendsCriteria): [CompanyDividend!]
+    outstandingShares: Long
+    keyFigures(criteria: KeyFiguresCriteria): [FundamentalKeyFigures!]
+    performance: CompanyPerformance
+}
+
+type CompanyFiscal {
+    day: Int
+    month: Int
+}
+
+input CompanyStatementsCriteria {
+    category: [CompanyStatementCategory!]
+    fromYear: Int
+    toYear: Int
+}
+
+input CompanyDividendsCriteria {
+    fromYear: Int
+    toYear: Int
+}
+
+input KeyFiguresCriteria {
+    fromYear: Int
+    toYear: Int
+}
+
+type CompanyProfile {
+    text: String
+    phone: String
+    fax: String
+    email: String
+    address: String
+    foundationDate: LocalDate
+    website: String
+}
+
+type CompanyPerformanceEntry {
+    year: Int
+    yearPeriod: Int
+    cashFlowChange: Float
+    cashFlowChangePercent: Float
+    cashFlowYearChange: Float
+    cashFlowYearChangePercent: Float
+    cashFlowYearTrend: Trend
+    cashFlowPeriodTrend: Trend
+    salesChange: Float
+    salesChangePercent: Float
+    salesYearChange: Float
+    salesYearChangePercent: Float
+    salesYearTrend: Trend
+    salesPeriodTrend: Trend
+    netIncomeChange: Float
+    netIncomeChangePercent: Float
+    netIncomeYearChange: Float
+    netIncomeYearChangePercent: Float
+    netIncomeYearTrend: Trend
+    netIncomePeriodTrend: Trend
+    dividendChange: Float
+    dividendChangePercent: Float
+    dividendYearChange: Float
+    dividendYearChangePercent: Float
+    dividendYearTrend: Trend
+    dividendPeriodTrend: Trend
+    salesPerEmployeeChange: Float
+    salesPerEmployeeChangePercent: Float
+    salesPerEmployeeYearChange: Float
+    salesPerEmployeeYearChangePercent: Float
+    salesPerEmployeeYearTrend: Trend
+    salesPerEmployeePeriodTrend: Trend
+    dividendYieldChange: Float
+    dividendYieldChangePercent: Float
+    dividendYieldYearChange: Float
+    dividendYieldYearChangePercent: Float
+    dividendYieldYearTrend: Trend
+    dividendYieldPeriodTrend: Trend
+    dividendYieldAverage: Float
+}
+
+type CompanyPerformance {
+    keyFigures: FundamentalKeyFigures
+    items: [CompanyPerformanceEntry!]!
+}
+
+type CompanyShareHolder {
+    name: String
+    percent: Float
+    announcedOn: OffsetDateTime
+}
+
+type CompanyEmployee {
+    name: String
+    member: Boolean
+    role: String
+    job: String
+}
+
+type CompanyStatement {
+    name: String
+    category: CompanyStatementCategory
+    important: Boolean
+    year: Int
+    value: Float
+    percent: Boolean
+}
+
+type RefundRelativeScenario {
+    underlyingPerformance: Float
+    performance: Float
+    underlyingValue: Float
+    value: Float
+}
+
+type CompanyDividend {
+    date: LocalDate
+    value: Float
+}
+
+enum ChartScope {
+    INTRADAY
+    WEEK
+    MONTH
+    THREE_MONTH
+    SIX_MONTH
+    YEAR
+    THREE_YEAR
+    FIVE_YEAR
+    TEN_YEAR
+}
+
+enum AssetGroup {
+    SHARE
+    ETC
+    ETF
+    ETN
+    FUND
+    FUT
+    MMR
+    REAL_ESTATE
+    INDEX
+    KNOCK
+    VWL
+    MULTI
+    OPT
+    WARR
+    COMM
+    OTHER
+    CROSS
+    CERT
+    BOND
+}
+
+type InvestmentRiskLevel {
+    level: RiskLevel
+    name: String
+}
+
+type AssetClass {
+    id: Int!
+    assetGroup: AssetGroup!
+    name: String!
+    leveraged: Boolean!
+    investmentRiskLevel: InvestmentRiskLevel
+    typeGroups: [AssetTypeGroup!]!
+    types: [AssetType!]! @deprecated
+}
+
+type AssetTypeGroup {
+    id: String
+    name: String
+    types: [AssetType!]!
+}
+
+type AssetType {
+    id: String
+    name: String
+}
+
+enum CalculationPeriod {
+    INTRADAY
+    CURRENT_YEAR
+    WEEK1
+    WEEK2
+    DAY9
+    DAY25
+    DAY38
+    DAY200
+    DAY250
+    MONTH1
+    MONTH2
+    MONTH3
+    MONTH6
+    WEEK52
+    YEAR3
+    YEAR5
+    YEAR10
+    ALL_TIME
+    YESTERDAY
+}
+
+enum NewsFeed {
+    NEWS_FEED
+    EDITORIAL_FEED
+    VIDEO_FEED
+}
+
+enum CompanyStatementCategory {
+    SNAPSHOT,
+    INCOMESTATEMENT_OTHEROPERATINGRESULTS,
+    EMPLOYEE,
+    FINANCIALSTATEMENT_LIABILITIES,
+    FINANCIALSTATEMENT_ASSETS,
+    CASHFLOW,
+    BENCHMARK,
+    INCOMESTATEMENT_INCOME,
+    INCOMESTATEMENT_REVENUE,
+    FINANCIALSTATEMENT_EQUITY,
+    OTHER
+}
+
+enum PeerGroupCompareType {
+    NET_DIVIDEND_YIELD
+    PRICE_CASHFLOW_RATIO
+    PRICE_EARNINGS_RATIO
+    PRICE_TO_SALES_RATIO
+    DIVIDEND_PAYOUT_RATIO
+    PRICE_EARNING_TO_GROWTH
+}
+
+enum AnalysisRecommendation {
+    POSITIVE,
+    NEGATIVE,
+    NEUTRAL
+}
+
+enum Trend {
+    NEGATIVE,
+    POSITIVE,
+    NEUTRAL
+}
+
+enum RiskLevel {
+    VERY_LOW,
+    LOW,
+    MODERATE,
+    HIGH,
+    VERY_HIGH
+}

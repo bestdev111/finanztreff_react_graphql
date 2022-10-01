@@ -1,0 +1,65 @@
+#performance-chart-section {
+    .main-section {
+        padding-top: unset !important;
+    }
+
+    .header-filter {
+        margin-bottom: unset !important;
+    }
+
+    .btn-devisen-dropdown .px-3 {
+        padding-left: 5px !important;
+        padding-right: unset !important;
+    }
+
+    .btn-devisen-dropdown .toggle-icon {
+        margin-top: 9px !important;
+        margin-left: 5px !important;
+        width: 17.5px !important;
+        height: 10.5px !important;
+    }
+
+    .flex-grow-1 .section-heading-devisen {
+        width: auto !important;
+    }
+
+    .btn-devisen-dropdown{
+        padding-top: 1px !important;
+    }
+
+    @media only screen and (max-width: 767px) {
+        .table-flags-style {
+            width: 20px !important;
+            height: auto !important;
+            max-height: 13.33px !important;
+            border-radius: 0.1rem !important;
+            margin-right: 5px !important;
+            box-shadow: 1px 1px 2px 1px #00000029 !important;
+        }
+    }
+
+    @media only screen and (min-width: 1281px) {
+        .table-flags-style {
+            padding-right: unset !important;
+            margin-top: 5px !important;
+            float: right !important;
+            width: 24px !important;
+            height: auto !important;
+            max-height: 16px !important;
+            border-radius: 0.1rem !important;
+            margin-right: 10px !important;
+            box-shadow: 1px 1px 2px 1px #00000029 !important;
+        }
+    }
+
+    @media only screen and (max-width: 1280px) {
+        .table-flags-style {
+            width: 24px !important;
+            height: auto !important;
+            max-height: 16px !important;
+            border-radius: 0.1rem !important;
+            margin-right: 10px !important;
+            box-shadow: 1px 1px 2px 1px #00000029 !important;
+        }
+    }
+}

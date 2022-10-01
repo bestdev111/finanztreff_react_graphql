@@ -1,0 +1,71 @@
+query searchIndex($regionId: Long, $sectorId: Long, $first: Int, $after: ID) {
+  searchIndex(criteria: {regionId: $regionId, sectorId: $sectorId}, first: $first, after: $after) {
+    edges {
+      cursor
+      node {
+        id
+        name
+        wkn
+        group {
+          id
+          name
+          wkn
+          seoTag
+          assetGroup
+          refCountry{
+            name
+            isoAlpha3
+          }
+          assetType {
+            id
+            name
+          }
+          main {
+            id
+            country {
+              name
+              isoAlpha3
+            }
+            chart(scope: INTRADAY) {
+              series {
+                label
+                type
+                data {
+                  value
+                  when
+                }
+              }
+              threshold {
+                type
+                value
+              }
+            }
+          }
+          compositions {
+            id
+            name
+          }
+        }
+        currency {
+            displayCode
+        }
+        snapQuote {
+          lastChange
+          instrumentId
+          quote(type:TRADE) {
+            value
+            change
+            percentChange
+          }
+        }
+      }
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+      hasPreviousPage
+      startCursor
+    }
+    count
+  }
+}

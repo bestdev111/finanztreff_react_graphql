@@ -1,0 +1,5 @@
+query getSearchShareCount($criterion: SearchShareCriterion, $sort: [SearchShareSort!] = []){
+    searchShare(criterion: $criterion, sort: $sort){
+        count
+    }
+}

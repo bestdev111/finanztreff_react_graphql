@@ -1,0 +1,5 @@
+query getBondSearchCount($criterion: SearchBondCriterion, $sort:[SearchBondSort!] = []) {
+  searchBond(criterion: $criterion, sort: $sort, first: 0) {
+    count
+  }
+}

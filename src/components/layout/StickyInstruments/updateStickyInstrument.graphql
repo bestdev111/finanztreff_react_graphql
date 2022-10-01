@@ -1,0 +1,21 @@
+subscription updateStickyInstrument($id:Int!) {
+    update(instrument: $id) {
+        instrumentId
+        lastPrice
+        lowPrice
+        highPrice
+        firstPrice
+        cumulativeTrades
+        cumulativeVolume
+        cumulativeTurnover
+        quotes {
+            delay
+            type
+            value
+            percentChange
+            change
+            size
+            when
+        }
+    }
+}

@@ -1,0 +1,30 @@
+.simple-asset-search {
+  .table-single-asset {
+    font-size: 13px;
+    .column-wkn {
+      width: 120px;
+    }
+    .column-isin {
+      width: 160px;
+    }
+    .column-type {
+      width: 50px;
+    }
+  }
+  .form-control {
+    //height: 100%;
+    color: black;
+    line-height: 22px;
+    &::placeholder {
+      color: black;
+    }
+  }
+  .btn-action {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .btn-toggle {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}

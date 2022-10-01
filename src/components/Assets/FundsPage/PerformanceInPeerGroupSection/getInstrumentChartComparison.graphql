@@ -1,0 +1,25 @@
+query getInstrumentChartComparisonPeerGroup($instrumentId:Int!, $chartScope: ChartScope!) {
+    instrument(id:$instrumentId) {
+        id
+        name
+        group{
+            id
+            wkn
+        }
+        chart(scope:$chartScope) {
+            id
+            series {
+                label
+                type
+                data {
+                    value
+                    when
+                }
+            }
+            threshold {
+                type
+                value
+            }
+        }
+    }
+}

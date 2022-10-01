@@ -1,0 +1,45 @@
+query getTradedAssets($days: Long!, $buy:Boolean!, $itemsReturned: Long!) {
+    instrumentGroupTradesTopVolume(days: $days, buy: $buy, itemsReturned: $itemsReturned) {
+        group {
+            id
+            name
+            main {
+                id
+                name
+                exchange {
+                    code
+                }
+                group{
+                    seoTag
+                    assetGroup
+                }
+                currency {
+                    displayCode
+                }
+            }
+        }
+        quantity
+    }
+    instrumentGroupTradesTopTrades(days: $days, buy: $buy, itemsReturned: $itemsReturned) {
+        group {
+            id
+            name
+            main {
+                id
+                name
+                exchange {
+                    code
+                }
+                group{
+                    seoTag
+                    assetGroup
+                }
+                currency {
+                    displayCode
+                }
+            }
+        }
+        trades
+    }
+
+}

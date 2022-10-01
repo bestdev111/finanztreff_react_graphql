@@ -1,0 +1,174 @@
+.securities-results {
+
+  .nav-tabs {
+    border: none;
+
+    .nav-link {
+      padding: 2px 7px;
+
+      &:hover {
+        //color: initial;
+      }
+
+      &.active {
+        border: 1px solid;
+        color: var(--primary);
+      }
+    }
+  }
+
+  .search-tags {
+    margin-top: 10px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .asset-type-tag {
+      padding: 1px 7px;
+    }
+
+    > span {
+      + span {
+        margin-left: 8px;
+      }
+    }
+  }
+
+  .carousel-height {
+    min-height: 550px;
+  }
+
+  .carousel-height-news {
+    min-height: 460px;
+  }
+  .custom-carousel-indicator {
+    .carousel-controls ol{
+      max-width: 150px !important;
+      overflow:hidden;
+      li{
+        min-width: 10px;
+      }
+    }
+  }
+
+  .custom-carousel-indicator.main-search-carousel-md-sm {
+    .carousel-controls.dark-version.mb-n4 {
+      .carousel-slide-control-wrapper {
+        opacity: 1 !important;
+      }
+    }
+  }
+
+  .search-results {
+    overflow-y: auto;
+    max-height: 350px;
+    padding-top: 0;
+
+    > .result-item {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      padding: 15px 0;
+      border-bottom: 2px solid var(--border-gray);
+
+      .name {
+        line-height: 1;
+        font-size: 18px;
+        font-weight: bold;
+        color: #0D5A94;
+        padding-left: 0;
+      }
+
+      div {
+        width: 40%;
+
+        .type {
+          font-weight: bold;
+          padding-right: 10px;
+          float: right;
+        }
+
+      }
+
+    }
+  }
+
+  .result-md{
+    display: flex;
+    justify-content: space-between !important;
+    .wkn-div{
+      justify-content: space-around;
+    }
+  }
+
+  .col-title {
+    font-size: 24px;
+    margin: 0;
+    font-family: "Roboto Slab", sans-serif;
+    font-weight: 700 !important;
+    border-bottom: 3px solid var(--border-gray);
+    padding-bottom: 10px;
+  }
+
+  .asset-tab-hover:hover{
+    color: white;
+    &.active :hover{
+        color: var(--primary);
+    }
+  }
+
+  .news-title-md {
+    margin: 0;
+    font-size: 18px;
+    color: #0D5A94;
+    font-weight: 700;
+    cursor: pointer;
+    width: 75%;
+  }
+
+  .news-col {
+    .news-container {
+      max-height: 400px;
+      overflow-y: auto;
+
+      .news-item {
+        padding: 10px 0;
+        align-items: center;
+        border-bottom: 2px solid var(--border-gray);
+
+        .news-title {
+          margin: 0;
+          font-size: 18px;
+          color: #0D5A94;
+          font-weight: 700;
+          cursor: pointer;
+        }
+
+        .info {
+          font-size: 13px;
+
+          .asset-name {
+            margin-right: 10px;
+          }
+
+          .stock-value {
+            margin-right: 10px;
+          }
+
+          & > span {
+            margin: 2px 3px;
+
+            &:first-child {
+              font-weight: 600;
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

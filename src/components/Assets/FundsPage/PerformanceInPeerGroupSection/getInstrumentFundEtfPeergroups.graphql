@@ -1,0 +1,76 @@
+query getInstrumentFundEtfPeergroups($groupId: Int!) {
+  group(id: $groupId) {
+    id
+    fundTranche {
+      id
+      name
+      peerGroup {
+        id
+        name
+        performance {
+          minimum
+          instrumentGroupMin {
+            id
+            name
+            isin
+            assetGroup
+            wkn
+            seoTag
+            main {
+              id
+            }
+          }
+          maximum
+          instrumentGroupMax {
+            id
+            name
+            assetGroup
+            isin
+            wkn
+            seoTag
+            main {
+              id
+            }
+          }
+          average
+          period
+        }
+      }
+    }
+    etf {
+        id
+        peerGroup {
+            performance{
+            minimum
+            isinMin
+            instrumentGroupMin{
+                id
+                name
+                isin
+                wkn
+                assetGroup
+                seoTag
+                main{
+                    id
+                }
+            }
+            maximum
+            isinMax
+            instrumentGroupMax{
+                id
+                name
+                isin
+                assetGroup
+                wkn
+                seoTag
+                main{
+                    id
+                }
+            }
+            average
+            period
+            }
+        }
+    }
+  }
+}

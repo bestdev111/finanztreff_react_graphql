@@ -1,0 +1,10 @@
+query getNewsCount($isins: [String!]!, $intervalStart: OffsetDateTime, $intervalEnd: OffsetDateTime, $first: Int, $after: ID) {
+    newsSearch(criteria: {isin: $isins, intervalStart: $intervalStart
+    intervalEnd: $intervalEnd}, first: $first, after: $after) {
+        edges {
+            node {
+                id
+            }
+        }
+    }
+}

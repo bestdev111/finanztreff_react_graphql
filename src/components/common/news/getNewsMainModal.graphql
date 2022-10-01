@@ -1,0 +1,69 @@
+query getNewsMainModal($id: ID!) {
+  news(id: $id) {
+        id
+        headline
+        teaser
+        body
+        feed
+        keywords
+        links {
+            name
+            href
+        }
+        source{
+            id
+            name
+        }
+        instruments {
+            group {
+                id
+                isin
+                name
+                assetGroup
+                seoTag
+                main {
+                    id
+                    snapQuote {
+                        lastChange
+                        instrumentId
+                        lowPrice
+                        highPrice
+                        firstPrice
+                        lastPrice
+                        yesterdayPrice
+                        cumulativeTrades
+                        cumulativeTurnover
+                        cumulativeVolume
+                        quotes {
+                            delay
+                            type
+                            value
+                            percentChange
+                            change
+                            when
+                        }
+                    }
+                    currency {
+                        alphaCode
+                        sign
+                        name
+                        displayCode
+                    }
+                }
+            }
+        }
+        when
+        medias {
+            source
+            width
+            height
+        }
+        streams {
+            mimeType
+            duration
+            width
+            height
+            source
+        }
+    }
+}

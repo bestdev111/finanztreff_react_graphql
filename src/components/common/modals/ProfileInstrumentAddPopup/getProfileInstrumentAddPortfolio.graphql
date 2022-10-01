@@ -1,0 +1,14 @@
+query InstrumentIncluded($id: Int!) {
+    instrumentIncluded(id: $id) {
+        portfolios {
+            id
+            name
+            real
+        }
+        watchlists {
+            id
+            name
+        }
+        limitsNumber
+    }
+}

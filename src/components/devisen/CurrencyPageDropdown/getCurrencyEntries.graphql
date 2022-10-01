@@ -1,0 +1,6 @@
+query getCurrencyEntries {
+    analysisInstitute {
+        id
+        name
+    }
+}

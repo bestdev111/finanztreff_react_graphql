@@ -1,0 +1,66 @@
+query getCurrentNews($id: ID!) {
+  news(id: $id) {
+        id
+        when
+        body
+        headline
+        teaser
+        links {
+            name
+            href
+        }
+        source {
+            id
+            name
+        }
+        medias {
+            source
+            width
+            height
+        }
+        streams {
+            mimeType
+            duration
+            width
+            height
+            source
+        }
+        feed
+        keywords
+        instruments {
+            group {
+                id
+                isin
+                name
+                assetGroup
+                seoTag
+                main {
+                    id
+                    snapQuote {
+                        lastChange
+                        instrumentId
+                        lowPrice
+                        highPrice
+                        firstPrice
+                        lastPrice
+                        yesterdayPrice
+                        cumulativeTrades
+                        cumulativeTurnover
+                        cumulativeVolume
+                        quotes {
+                            delay
+                            type
+                            value
+                            percentChange
+                            change
+                            when
+                        }
+                    }
+                    currency {
+                        displayCode
+                    }
+                }
+            }
+        }
+    }
+}

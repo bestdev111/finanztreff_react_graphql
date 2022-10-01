@@ -1,0 +1,133 @@
+query getEtfSearchResult($criterion: SearchEtfCriterion, $sort:[SearchEtfSort!] = [], $first: Int, $after: ID) {
+    searchEtf(criterion: $criterion, sort: $sort, first: $first, after: $after) {
+        count
+        edges {
+            node {
+                id
+                isin
+                wkn
+                main
+                tickerSymbol
+                name
+                exchange {
+                    id
+                    name
+                    code
+                }
+                currency {
+                    id
+                    name
+                    displayCode
+                    sign
+                }
+                snapQuote {
+                    lastChange
+                    instrumentId
+                    lowPrice
+                    highPrice
+                    firstPrice
+                    lastPrice
+                    yesterdayPrice
+                    cumulativeTrades
+                    cumulativeTurnover
+                    cumulativeVolume
+                    quotes {
+                        delay
+                        type
+                        value
+                        percentChange
+                        change
+                        when
+                    }
+                }
+                performance(period:[WEEK52, YEAR3]) {
+                    period
+                    averagePrice
+                    performance
+                    sharpe
+                    vola
+                }
+                stats(periods: [WEEK52]) {
+                    period
+                    lowPrice
+                    lowPriceDate
+                    deltaLowPrice
+                    highPrice
+                    highPriceDate
+                    deltaHighPrice
+                }
+                group {
+                    id
+                    isin
+                    name
+                    seoTag
+                    assetGroup
+                    assetClass {
+                        name
+                    }
+                    assetTypeGroup {
+                        name
+                    }
+                    assetType {
+                        name
+                    }
+                    etf {
+                        id
+                        investmentConcept
+                        participationFactor
+                        underlyingRatio
+                        position
+                        charge
+                        distributing
+                        foundationDate
+                        quanto
+                        issuer {
+                            name
+                        }
+                        sector {
+                            name
+                        }
+                        region {
+                            name
+                        }
+                        allocation {
+                            name
+                        }
+                        domicile {
+                            name
+                        }
+                        strategy {
+                            name
+                        }
+                        replication {
+                            name
+                        }
+                        investmentVolume {
+                            date
+                            value
+                            currency {
+                                displayCode
+                            }
+                        }
+                        keyFigures {
+                            totalExpenseRatio
+                            jensenAlpha
+                            betaFactor
+                            negativeRegression
+                            positiveRegression
+                            maxLoosing6Month
+                            longestLoosingPeriod
+                            trackingError
+                        }
+                    }
+                }
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+    }
+}

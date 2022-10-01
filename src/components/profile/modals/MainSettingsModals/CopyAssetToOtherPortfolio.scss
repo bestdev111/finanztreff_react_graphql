@@ -1,0 +1,17 @@
+@import "src/styles/theme";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.dropdown-menu-height{
+    .dropdown-menu{
+        height: 170px !important;
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            height: 130px !important
+        }
+        .dropdown-item{
+            line-height: 1.2;
+        }
+        .form-control{
+            height: 28px;
+        }
+    }
+}

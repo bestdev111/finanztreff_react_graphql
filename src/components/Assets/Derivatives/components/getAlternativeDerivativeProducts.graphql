@@ -1,0 +1,17 @@
+query getAlternativeDerivativeProducts($underlyingInstrumentGroupId: Int!, $issuerId: Long!) {
+  group(id:$underlyingInstrumentGroupId) {
+    id
+    alternativeDerivativeProducts(criteria: {issuerId: $issuerId}) {
+      optionType
+      assetClass {
+        id
+        name
+        investmentRiskLevel {
+          level
+          name
+        }
+      }
+      count
+    }
+  }
+}

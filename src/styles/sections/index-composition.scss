@@ -1,0 +1,265 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+
+.index-component {
+
+  .table th, .table td {
+    padding: 0.5rem;
+  }
+
+  .screen-overlay {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 500;
+    @media screen and (max-width: map-get($grid-breakpoints, xl)) {
+      background-color: white;
+      opacity: 75%;
+      z-index: 502;
+    }
+  }
+
+  .z-501 {
+    z-index: 501;
+  }
+
+  .z-502 {
+    z-index: 502;
+  }
+
+  .z-503 {
+    z-index: 503;
+  }
+
+  .filters-holder {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-bottom: 1em;
+
+    &.show {
+      display: block !important;
+    }
+
+    @media screen and (max-width: map-get($grid-breakpoints, xl)) {
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: stretch;
+
+      background-color: white;
+      display: block;
+      overflow: hidden;
+      position: fixed;
+      left: 0;
+      width: 100vw;
+      z-index: 500;
+      padding: 2em;
+      bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .dropdown > button {
+      width: 100%;
+    }
+
+    .left-block {
+      display: flex;
+      justify-content: start;
+      flex-wrap: nowrap;
+
+
+      @media screen and (max-width: map-get($grid-breakpoints, xl)) {
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: stretch;
+      }
+
+      .dropdown {
+        margin-right: 0.5em;
+        margin-bottom: 0.5em;
+        flex: 100%;
+        @media screen and (max-width: map-get($grid-breakpoints, md)) {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .right-block {
+      justify-content: end;
+      min-width: 300px;
+
+      @media screen and (max-width: map-get($grid-breakpoints, xl)) {
+        flex: 100%;
+      }
+
+      .dropdown {
+        .dropdown-toggle {
+          max-width: 180px !important;
+          @media screen and (max-width: map-get($grid-breakpoints, xl)) {
+            max-width: 100% !important;
+            width: 100% !important;
+          }
+        }
+
+        .dropdown-menu {
+          min-width: 300px !important;
+        }
+      }
+    }
+
+    .dropdown {
+      text-align: right;
+
+      .dropdown-toggle {
+        text-align: left;
+        border-radius: 5px;
+        max-width: 230px;
+
+        @media screen and (max-width: map-get($grid-breakpoints, xl)) {
+          width: 100% !important;
+          max-width: 100%;
+        }
+
+        .drop-legend {
+          font-weight: bold;
+          letter-spacing: 0.04rem;
+          padding-right: 25px;
+        }
+
+        .drop-selection {
+          display: inline-block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 100%;
+        }
+
+      }
+
+      .dropdown-menu {
+        min-width: 340px;
+        padding: 8px 16px;
+        border-width: 2px;
+        box-shadow: 0 3px 6px;
+        border-radius: 0;
+        width: auto;
+        display: block;
+
+        @media screen and (max-width: map-get($grid-breakpoints, xl)) {
+          width: 100vw;
+          left: 0;
+          top: auto;
+          position: fixed;
+          background-color: white;
+          opacity: 1;
+          display: block;
+          overflow: hidden;
+          z-index: 510;
+          bottom: 0;
+          padding-bottom: 2em;
+        }
+
+        .drop-header {
+          position: relative;
+          font-weight: bold;
+          font-size: 16px;
+          border-bottom: 2px solid var(--border-gray);
+        }
+
+        .drop-body {
+          margin: 5px 0;
+          padding-bottom: 15px;
+          max-height: 270px;
+          overflow-y: auto;
+
+          .body-row {
+            border: 0;
+            border-bottom: 2px solid var(--border-gray);
+            padding: 15px 10px;
+            padding-left: 0;
+            padding-right: 0;
+
+            button {
+              margin-bottom: 10px;
+              margin-right: 8px;
+              color: var(--blue);
+
+              &.active-filter {
+                color: #fff;
+                background-color: var(--primary);
+                border-color: var(--primary);
+              }
+            }
+
+            .stock-menu-item {
+              padding: 0.5em;
+              border-top: solid 2px var(--border-gray);
+              transition: background-color $main-hover-transition;
+              cursor: pointer;
+
+              &:hover {
+                background-color: var(--border-gray);
+              }
+            }
+          }
+        }
+
+        .drop-footer {
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+
+      .drop-arrow-image {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+
+  .index-mobile-filter {
+    display: none;
+    @media screen and (max-width: map-get($grid-breakpoints, xl)) {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  .index-mobile-modal-backdrop {
+    position: fixed;
+    top: 100vh;
+    left: 0;
+    z-index: 499;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.75;
+  }
+
+  .index-mobile-modal-backdrop.visible {
+    @media screen and (max-width: map-get($grid-breakpoints, xl)) {
+      top: 0;
+      transition: top ease-in-out 0.1s;
+    }
+  }
+
+  .index-mobile-filter-title {
+    display: none;
+    @media screen and (max-width: map-get($grid-breakpoints, xl)) {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  .dropdown-menu-right {
+    left: auto !important;
+    right: 0 !important;
+  }
+}
+

@@ -1,0 +1,149 @@
+@import 'src/styles/theme';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.page-container {
+
+  &.share-overview{
+    .carousel-inner {
+      padding-top: unset !important;
+    }
+    .carousel-item {
+      padding-bottom: unset !important;
+    }
+    .market-container{
+      padding-top: 0px !important;
+      box-shadow: rgba(0, 0, 0, 0.56) 0px 11px 70px 4px;
+
+    }
+    .market-overview-section{
+      h4{
+        padding-bottom: 16px;
+      }
+    }
+  }
+  .stock-movement{
+    font-weight: bold;
+  }
+  .stock-currency{
+    font-size: 11px !important;
+  }
+  .news-currency-code{
+    font-size: 13px !important;
+  }
+}
+
+.arrow-movement{
+  height: 16px !important;
+  margin-top: 6px;
+}
+.text-normal{
+  font-weight: 200 !important;
+}
+
+.share-find-filter-card{
+  position: absolute;
+  z-index: 1;
+  top: 100px;
+  &.right-15{
+    right: 15px;
+  }
+  &.right-212{
+    right: 212px;
+  }
+}
+
+.share-find-filter{
+  width: 477px;
+  @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+    width: 316px !important;
+  }
+  .card-body{
+    .btn{
+      background-color: #F1F1F1;
+      color: #326EAC;
+      &.active{
+        background-color: #5B9DE1;
+        color: white;
+      }
+    }
+  }
+  .card-footer{
+    background-color: white;
+  }
+  .branch-types{
+    flex-grow: 1;
+    width: 33%;
+    @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+      width: 50%;
+    }
+    padding: 6.5px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    &.active{
+      color: #326EAC;
+      font-weight: bold;
+    }
+  }
+}
+
+.share-overview-market-container{
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 11px 70px 4px !important;
+}
+
+.share-overview-wrapper {
+  .share-trading-ideas-heading {
+    padding-top: 10px;
+  }
+  .market-overview-section {
+    .market-section-heading {
+      @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+        padding-top: 8px !important;
+        margin-left: -4px !important
+      }
+      h1 {
+        font-size: 20px !important;
+        padding-bottom: 1rem !important;
+        @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+          padding-bottom: 0 !important;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+  .share-overview-wrapper {
+    .share-trading-ideas-heading {
+      padding-top: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+  .share-overview-wrapper {
+    .market-overview-section {
+      .market-section-heading {
+        h1 {
+          font-size: 24px !important;
+        }
+      }
+    }
+  }
+}
+
+.trading-ideas-icon-home-page{
+  width: 27px;
+  @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+    width: 20px;
+  }
+}
+.trading-ideas-heading {
+  font-size: 24px;
+}
+@media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+  .trading-ideas-heading {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,22 @@
+query getFundSearchResultCount(
+        $fundTopicId: Int
+        $fundCurrencyId: Int
+        $fundRegionId: Int
+        $fundCompanyId: Int
+        $fundTypeId: Int
+        $fundStrategyId: Int
+        $keyFigures: [FundKeyFigureCriteria!] = [],
+        $sort:[SearchFundSort!] = [],
+        $first: Int, $after: ID) {
+  searchFund(
+    criterion: {
+        fundCompanyId: $fundCompanyId,
+        fundTopicId: $fundTopicId,
+        fundCurrencyId: $fundCurrencyId,
+        fundRegionId: $fundRegionId,
+        fundTypeId: $fundTypeId,
+        fundStrategyId: $fundStrategyId,
+        keyFigures: $keyFigures}, sort: $sort, first: $first, after: $after) {
+    count
+  }
+}

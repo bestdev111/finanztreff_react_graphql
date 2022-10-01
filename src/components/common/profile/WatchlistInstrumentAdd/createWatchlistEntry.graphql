@@ -1,0 +1,11 @@
+mutation createWatchlistEntry($watchlistId: Long!, $instrumentId: Long!, $price:Float!, $memo: String) {
+    createWatchlistEntry(entry:{
+        watchlistId: $watchlistId, instrumentId: $instrumentId, price: $price, memo: $memo
+    }) {
+        id
+        name
+        price
+        quantity
+        memo
+    }
+}

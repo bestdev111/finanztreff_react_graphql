@@ -1,0 +1,6 @@
+query getOperationTypes {
+    accountOperationTypes {
+        id
+        name
+    }
+}

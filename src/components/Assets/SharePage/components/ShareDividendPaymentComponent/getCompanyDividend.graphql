@@ -1,0 +1,16 @@
+query getCompanyDividend($groupId: Int!, $from: Int, $to: Int) {
+    group(id: $groupId) {
+        id
+        company {
+            id
+            name
+            currency {
+                displayCode
+            }
+            dividends(criteria: {fromYear: $from, toYear: $to}) {
+                date
+                value
+            }
+        }
+    }
+}

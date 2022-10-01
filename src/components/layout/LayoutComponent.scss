@@ -1,0 +1,96 @@
+@import "src/styles/theme";
+
+.sky-container-col{
+    padding-left: unset !important;
+    padding-right: unset !important;
+    width: 120px !important;
+    background: white !important;
+    z-index: -10 !important;
+    flex-basis: 0 !important;
+    flex-grow: 1 !important;
+    overflow: hidden !important;
+}
+
+
+.main-skyscraper-container{
+    @media screen and (min-width: 1280px){
+        max-width: 1440px !important;
+    }
+    @media screen and (min-width: 767px) and (max-width: 1280px){
+        max-width: 928px !important;
+    }
+
+}
+.skyscraper-container{
+        @media screen and (min-width: 1280px){
+            padding-right: unset !important;
+            padding-left: unset !important;
+            z-index: 99 !important;
+            box-shadow: 0 0 10px 0 #00000038;
+        }
+        @media screen and (min-width: 767px) and (max-width: 1280px){
+            padding-right: unset !important;
+            padding-left: unset !important;
+            z-index: 99 !important;
+            box-shadow: 0 0 10px 0 #00000038;
+        }
+}
+.remove-margin-rows{
+    margin-left: unset !important;
+    margin-right: unset !important
+}
+.remove-main-wrapper{
+    box-shadow: none !important;
+}
+.modal-dialog-sky-placement{
+    @media screen and (min-width: 821px){
+        padding-right: 105px !important;
+    }
+}
+.modal-dialog-sky-placement-date{
+    @media screen and (min-width: 821px){
+        left: 0;
+        right: 105px;
+    }
+}
+#search-results-modal .search-results{
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+#search-results-modal .search-results::-webkit-scrollbar {
+    @media screen and (min-width: 821px){
+        display: none;
+    }
+}
+@media screen and (max-width: map-get($grid-breakpoints, xl)) {
+    .advertisment-container{
+        max-width:map-get($container-max-widths, md) + 120px !important;
+    }
+    .skyad-placement{
+        right: 88px !important;
+    }
+}
+@media screen and (min-width: map-get($grid-breakpoints, xl)) {
+    .advertisment-container{
+        max-width:map-get($container-max-widths, xl) + 120px !important;
+    }
+    .skyad-placement{
+        right: 88px !important;
+    }
+}
+@media screen and (min-width: map-get($grid-breakpoints, xl)) and (max-width: map-get($grid-breakpoints, xl) + 60px) {
+    .sky-container-col{
+        display: none !important;
+    }
+    .skyad-placement{
+        right: 0 !important;
+    }
+}
+@media screen and (min-width: map-get($grid-breakpoints, md)) and (max-width: map-get($grid-breakpoints, md) + 60px) {
+    .sky-container-col{
+        display: none !important;
+    }
+    .skyad-placement{
+        right: 0 !important;
+    }
+}

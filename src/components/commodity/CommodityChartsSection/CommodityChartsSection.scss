@@ -1,0 +1,68 @@
+@import 'src/styles/theme';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.dot {
+    content:"\A";
+    width: 13px;
+    height: 13px;
+    border-radius: 0.5em;
+    display:inline-block;
+}
+
+.legend{
+    font-size: 15px;
+    @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+        font-size: 13px !important;
+    }
+    .inactive{
+        color: #cccccc;
+        .dot{
+            background-color: #cccccc !important; 
+        }
+    }
+}
+
+.dropdown-legend-button{
+    color: #383838 !important;
+    border: none !important;
+    background-color: #F1F1F1 !important;
+    font-weight: bolder;
+    width: 100%;
+    .dot{
+        background-color: black !important;
+    }
+}
+
+.dropdown-legend-menu{
+    :last-child{
+        display: none;
+    }
+} 
+.flex-grow-1 .section-heading-devisen{
+    font-size: 24px !important;
+    float: left !important;
+    width: 28.6% !important;
+    margin-bottom: 0 !important;
+    margin-top: 3px !important;
+}
+.flex-grow-1 .justify-content-between {
+    justify-content:unset !important;
+}
+#commodity-chart-section .carousel-indicators li{
+    background-color: #3838384D !important;
+}
+#commodity-chart-section .carousel-indicators li.active{
+    background-color:#383838 !important;
+}
+.commodity-charts-coming-soon{
+    width: 100% !important;
+    left: 0px !important;
+}
+.commodity-charts-coming-soon-text{
+    margin-top: 50% !important;
+    @media screen and (min-width: 1279px){
+        margin-top: 34% !important
+    }
+    z-index: 10000 !important;
+}

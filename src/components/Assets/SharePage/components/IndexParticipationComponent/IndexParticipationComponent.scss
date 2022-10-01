@@ -1,0 +1,16 @@
+@import "src/styles/theme";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.index-participation-scroll{
+    overflow-y: scroll;
+    min-height: 151px;
+    max-height: 151px;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        min-height: min-content !important;
+        max-height: max-content !important;
+    }
+}
+
+.index-participation-scroll::-webkit-scrollbar {
+    display: none;
+}

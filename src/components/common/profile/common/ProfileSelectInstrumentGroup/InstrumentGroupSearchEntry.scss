@@ -1,0 +1,27 @@
+.select-instrument-group-trigger {
+  .btn {
+    background-color: #F1F1F1;
+    border-color: #F1F1F1;
+    color: black;
+  }
+}
+
+.asset-tab-hover:hover{
+  color: white;
+  &.active :hover{
+      color: var(--primary);
+  }
+}
+
+.search-securities-profile{
+  &.nav-tabs{
+    border: none !important;
+    margin-bottom: 16px;
+    a{
+      &.active{
+        border: 1px solid var(--primary);
+        color: var(--primary);
+      }
+    }
+  }
+}

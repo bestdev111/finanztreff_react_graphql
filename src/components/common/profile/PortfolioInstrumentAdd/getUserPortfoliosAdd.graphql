@@ -1,0 +1,12 @@
+query getUserPortfoliosAdd {
+    user {
+        username
+        profile {
+        id
+            portfolios {
+                id
+                name
+            }
+        }
+    }
+}

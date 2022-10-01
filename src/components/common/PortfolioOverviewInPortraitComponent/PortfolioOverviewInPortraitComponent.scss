@@ -1,0 +1,80 @@
+@import "src/styles/theme";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.range-chart-donut{
+    .highcharts-background{
+        height: 0 !important;
+    }
+}
+
+.blur-text-6px{
+    filter: blur(6px) !important;
+    -webkit-filter: blur(6px) !important;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.text-center-xl{
+    text-align: center;
+}
+
+.text-left-lg{
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        text-align: left !important;
+    }
+}
+
+.text-left-sm{
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        text-align: left !important;
+    }
+}
+
+.text-nowrap-sm{
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        white-space: nowrap !important;
+    }
+}
+
+.text-right-xl{
+    text-align: right !important;
+}
+
+.button-purchase-width{
+    height: 39px;
+    min-width: 145px;
+    &.padding-top-6px{
+        padding-top: 6px;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        height: 39px;
+        min-width: 168px;
+    }
+}
+
+.fs-20-21-22{
+    font-size: 22px !important;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        font-size: 21px !important;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        font-size: 20px !important;
+    }
+}
+
+.fs-18-21-21{
+    font-size: 21px !important;
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        font-size: 13.8px !important;
+    }
+}
+
+.img-width-66-40{
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        width: 40px !important;
+    }
+}

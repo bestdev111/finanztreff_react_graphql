@@ -1,0 +1,66 @@
+query getHomeAnalyses($first: Int, $after: ID,
+                        $isin: [String!], $institutes: [String!],
+                        $targetFrom: LocalDate, $targetTo: LocalDate,
+                        $timeFrame: Int, $updated: Boolean, $recommendation: AnalysisRecommendation) {
+    analysisSearch(criteria: {
+                        latest: true, updated: $updated, timeFrame: $timeFrame,
+                        isin: $isin, institutes: $institutes, recommendation: $recommendation,
+                        targetFrom: $targetFrom, targetTo: $targetTo
+                    }, first: $first, after: $after) {
+        edges {
+            cursor
+            node {
+                id
+                date
+                timeFrame
+                recommendation
+                targetPrice
+                referencePrice
+                updated
+                latest
+                currency {
+                    displayCode
+                }
+                institute {
+                    id
+                    name
+                }
+                analyst {
+                    firstName
+                    lastName
+                }
+                group {
+                    id
+                    name
+                    isin
+                    seoTag
+                    assetGroup
+                    main {
+                        id
+                        currency {
+                            displayCode
+                        }
+                        snapQuote {
+                            lastChange
+                            instrumentId
+                            quotes {
+                                value
+                                change
+                                percentChange
+                                type
+                            }
+                        }
+                    }
+                }
+                headline
+                body
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+    }
+}

@@ -1,0 +1,13 @@
+query theScreenerRatingSearchUpdate($first: Int!, $change: TheScreenerRatingChange, $instrumentGroupId: Int){
+	theScreenerRatingSearch(criteria:{update: true, change: $change, instrumentGroupId: $instrumentGroupId}, first: $first) {
+    previousRating
+    rating
+    group {
+      name
+      isin
+      seoTag
+      assetGroup
+		}
+    date
+  }
+}

@@ -1,0 +1,52 @@
+@import "src/styles/theme";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.share-classes-card{
+    height: 277px;
+    width: 209px;
+    border: 1px solid #989898;
+    border-radius: 0;
+    .card-body{
+        padding: 12px;
+    }
+    .card-title{
+        font-size: 17px;
+    }
+    .card-header{
+        border-radius: 0;
+        height: 27px;
+        width: 209px;
+        padding: 0;
+        text-align: center;
+        background-color: #989898;
+        color: white;
+        font-weight: bold;
+    }
+    &.primary, &.current-card{
+        border: 1px solid #383838;
+        .card-header{
+            background-color: #383838;
+        }
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        width: 227px;
+        .card-header{
+            width: 227px;
+        }
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        height: 183px;
+        width: 344px;
+        margin: 6px auto;
+        .card-header{
+            height: 27px;
+            width: 344px;
+        }
+    }
+}
+
+.card-overflow-hidden{
+    .carousel-inner {
+        overflow: hidden !important;
+    }
+}

@@ -1,0 +1,10 @@
+query getShareSeachMetaData {
+    classification(category: SHARE) {
+        id
+        name
+        typeGroups {
+            id
+            name
+        }
+    }
+}

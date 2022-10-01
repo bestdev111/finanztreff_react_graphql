@@ -1,0 +1,24 @@
+query getListInstrumentsChart($listId: String!) {
+        list(id: $listId) {
+            id
+            content {
+                name
+                id
+                chart(scope: FIVE_YEAR) {
+                    id
+                    series {
+                    label
+                    type
+                    data {
+                        value
+                        when
+                    }
+                    }
+                    threshold {
+                    type
+                    value
+                    }
+                }
+            }
+        }
+    }

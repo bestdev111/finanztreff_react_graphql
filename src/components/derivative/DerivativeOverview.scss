@@ -1,0 +1,76 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+@import "../../styles/theme";
+
+
+div#analogproduct-derivative div.carousel-inner {
+  overflow: hidden !important;
+}
+
+@media screen and (min-width: 1280px) {
+  .left-info-overview {
+    margin-top: -11px !important;
+  }
+  .info-row-overview {
+    margin-top: 13px !important;
+  }
+  .right-info-overview {
+    margin-top: -10px !important;
+  }
+  .derivative-info-left {
+    margin-top: -10px !important;
+  }
+  .derivative-info-row-left {
+    margin-top: 8px !important;
+  }
+  .derivative-info-row-right {
+    margin-top: 10px !important;
+  }
+  .derivative-info-right {
+    margin-top: -10px;
+  }
+  .text-max-250 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 220px;
+    display: block;
+    overflow: hidden;
+  }
+}
+
+@media screen and (min-width: 768px) and(max-width: 1280px) {
+  .left-info-overview {
+    margin-top: -9px !important;
+  }
+}
+
+.most-traded-derivative-section {
+  .most-traded-derivative-page-main-heading {
+    color: white;
+    font-family: "Roboto Slab", sans-serif;
+    font-size: 24px;
+  }
+}
+
+.derivative-underlying-filters {
+  .underlying-filter-button-title {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 0;
+
+  }
+}
+
+.derivative-asset-rows-wrapper {
+  .derivative-page-section-heading-sm:first-child {
+    margin-bottom: 0;
+    @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+      display: block;
+      font-size: 20px !important;
+    }
+    @media screen and (min-width: map-get($grid-breakpoints, md) - 1) {
+      display: inline;
+      font-size: 24px !important;
+    }
+  }
+}

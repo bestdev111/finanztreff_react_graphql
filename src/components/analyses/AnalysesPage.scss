@@ -1,0 +1,417 @@
+@import "src/styles/theme";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+
+.analysis-page {
+  .analysis-period-content {
+    width: 420px;
+  }
+}
+
+
+// ----
+.fs-24px{
+  font-size: 24px !important;
+}
+
+.fs-18px{
+  font-size: 18px !important;
+}
+
+.fs-17px{
+  font-size: 18px !important;
+}
+
+.fs-15px{
+  font-size: 15px !important;
+}
+
+.fs-35px{
+  font-size: 35px !important;
+}
+
+.fs-16px{
+  font-size: 16px !important;
+}
+
+.fs-20px{
+  font-size: 20px !important;
+}
+
+.fs-36px{
+  font-size: 36px !important;
+}
+
+.fs-22px{
+  font-size: 22px !important;
+}
+
+.fs-11px{
+  font-size: 11px !important;
+}
+
+.fs-12px{
+  font-size: 12px !important;
+}
+
+.fs-13px{
+  font-size: 13px !important;
+}
+
+.fs-14px{
+  font-size: 14px !important;
+}
+
+.bg-lighten-gray{
+  background-color: #F1F1F1;
+}
+
+.text-ellipsis{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  &.large{
+    max-width: 330px;
+  }
+  &.small{
+    max-width: 170px;
+    font-size: 15px;
+  }
+}
+
+.input-search{
+  color: #989898;
+  font-weight: 600;
+}
+
+.period-section{
+  max-width: 400px;
+  display: flex;
+  flex-flow: wrap;
+  margin-right: 0px;
+  .a{
+    padding: unset;
+    margin: unset
+  }
+}
+
+.dropdown-button-period:hover{
+  text-decoration: none;
+}
+
+.dropdown-button-period{
+  min-width: 300px;
+  min-height: 55px;
+  background-color: #F1F1F1;
+  border-color: #F1F1F1;
+  border-radius: 5px;
+  .title{
+    font-size: 20px;
+  }
+  .sub-title{
+    font-size: 15px
+  }
+  :hover{
+    text-decoration: none;
+  }
+  @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+    min-width: 160px;
+    .title{
+      font-size: 16px;
+    }
+    .sub-title{
+      font-size: 13px
+    }
+  }
+}
+
+.single-search{
+  width: unset;
+}
+.search-containt-fl{
+  display: inline-flex;
+}
+
+.positive{
+  padding: 11px 21px !important;
+  //width: 100px !important;
+  &.in-modal{
+    padding: 10px 35px !important;
+  }
+}
+
+.negative{
+  padding: 11px 18px !important;
+  //width: 100px !important;
+  &.in-modal{
+    padding: 10px 33px !important;
+  }
+}
+
+.neutral{
+  padding: 11px 16px !important;
+  //width: 100px !important;
+  &.in-modal{
+    padding: 10px 30px !important;
+  }
+}
+
+.buttons-in-results{
+  div{
+    button:last-child{
+      margin-right: 0;
+    }
+    button{
+      background-color: white;
+      color: #326EAC;
+      margin-right: 6px;
+      .active-img{
+          display: none;
+      }
+      .inactive-img{
+        display: inline;
+      }
+      &.active, &:hover{
+        .inactive-img{
+          display: none;
+        }
+        .active-img{
+          display: inline;
+        }
+        color: white;
+        background-color: #5B9DE1;
+        &.pos{
+          background-color: #18C48F;
+        }
+        &.neutr{
+          background-color: #FFCC00;
+        }
+        &.neg{
+          background-color: #FF4D7D;
+        }
+        &.primary{
+          background-color: #FF4D7D;
+        }
+      }
+    }
+  }
+}
+
+.dropdown-analysis{
+  .custom-menu-time{
+    min-width: 428px;
+    padding: 8px 16px;
+    left: -126px;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+      left: -254px;
+    }
+    input{
+      &.form-control{
+        background-color: #f1f1f1;
+        border: none;
+        max-width: 120px !important;
+      }
+    }
+  }
+  .custom-menu-institute{
+    min-width: 370px;
+    padding: 8px 16px;
+    left: -69px;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+      left: -197px;
+      
+    }
+  }
+  .dropdown-button {
+    border-radius: 0.3em;
+    margin: 4px 8px 4px 0px;
+    font-size: 14px;
+    padding-left: 16px;
+    padding-right: 12px;
+    &.not-active{
+      background-color: #F1F1F1;
+      color: #326EAC;
+    }
+  }
+  
+    
+  
+  .dropdown-item{
+    width: unset;
+  }
+  
+  .dropdown-header{
+    padding: 0 !important;
+  }
+}
+
+.in-modal{
+  &.height-big{
+    height: 32px !important;
+  }
+  .stripped{
+    height: 8.5px;
+    width: 100%;
+    background: linear-gradient(to right, transparent 70%, white 30%), linear-gradient(to right, transparent, transparent);
+    background-size: 16px 2px, 100% 2px;
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
+    position: absolute;
+    top: 7px;
+  }
+
+
+  .green-line{
+    //width: 90px;
+    background-color: #18C48F;
+    height: 12px;
+    margin-top: 5px;
+    z-index: 10;
+  }
+
+  .red-line{
+    //width: 90px;
+    background-color: #FF4D7D;
+    height: 12px;
+    margin-top: 5px;
+    z-index: 10;
+  }
+
+  .arrow-right {
+    width: 0; 
+    height: 0; 
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent; 
+    
+    border-left: 8px solid #18C48F;
+    z-index: 10;
+    margin-top:3px;
+  }
+
+  .arrow-left {
+    width: 0; 
+    height: 0; 
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid #FF4D7D; 
+    z-index: 10;
+    margin-top:3px;
+  }
+
+  .linear-gradient{
+    width: 100%;
+    height: 7.8px;
+    margin-top: 7.5px;
+    &.positive-analyse{
+      background-image: linear-gradient(to right, #FFCC00, #FFCC00 , #18C48F, #18C48F);
+    }
+    &.negative-analyse{
+      background-image: linear-gradient(to right, #FF4D7D, #FF4D7D , #FFCC00, #FFCC00);
+    }
+  }
+}
+
+.main-section{
+  .heading-with-info{
+    display: flex;
+    .buttons-in-results{
+      &.analyses-buttons-modal{
+        div{
+          padding-top: 0 !important
+        }
+      }
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+      display: inline;
+      .buttons-in-results{
+        white-space: nowrap;
+        margin-top: 10px;
+      }
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+      .buttons-in-results{
+        &.analyses{
+          margin-top: 10px;
+          margin-left: 16px !important;
+        }
+        button{
+          padding-left: 8px;
+          padding-right: 8px;
+        }
+        &.analyses-buttons-modal{
+          margin-left: -16px !important;
+          
+          .first-section{
+            padding: 16px !important;
+            div{
+              padding: 0 !important
+            }
+            div:last-child{
+              padding-left: 8px !important
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+@media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+  .section-heading{
+    padding: 0 16px !important;
+  }
+  
+  .search-containt-fl {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .institute{
+    padding-right: 10px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px){
+  .options{
+    display: flex !important;
+    .single-search{
+      width: 52%;
+    }
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+  input,label{
+  cursor: pointer !important;
+  }
+}
+
+.non-active-button{
+  position: absolute;
+  width: 25px;
+  left: 0;
+  height: 25px;
+  background-color: rgba(255,255,255,0.4);
+  color: white;
+  cursor: default;
+}
+
+.pointer{
+  width: 14px;
+  background-color: white;
+  height: 22px;
+  position: absolute;
+  font-size: 60px;
+}
+
+.page-container.analysis-page.analysis-page-wrapper {
+  .analysis-page-heading {
+    font-size: 20px;
+    @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+      font-size: 24px;
+    }
+  }
+}

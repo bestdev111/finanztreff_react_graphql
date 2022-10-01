@@ -1,0 +1,45 @@
+@import 'src/styles/theme';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.trading-ideas-wrapper {
+  .trading-idea-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .trading-ideas-icon-home-page{
+    width: 27px;
+    @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+      width: 20px;
+    }
+  }
+  .trading-ideas-heading {
+    font-size: 24px;
+  }
+  @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+    .trading-ideas-heading {
+      font-size: 20px;
+    }
+
+    .trading-ideas-mobile-btn {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+  }
+
+  .border-button-blue {
+    text-decoration: none !important;
+    border-radius: 0 !important;
+    color: #326EAC !important;
+    border-bottom: #326EAC 2.3px solid !important;
+
+    &.active {
+      border-bottom: transparent 2.3px solid !important;
+    }
+  }
+}
+
+.derivative-trading-idea-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.05);
+
+}

@@ -1,0 +1,18 @@
+mutation EditAccountEntry($portfolioId: Long!,$accountEntryId: Long!, $entry: AccountEntryInput!) {
+    editAccountEntry(portfolioId: $portfolioId, entry: $entry, accountEntryId: $accountEntryId) { 
+        id
+        accountTypeId
+        accountTypeDescriptionEn
+        instrumentId
+        portfolioEntryId
+        instrument {
+            id
+            name
+        }
+        amount
+        quantity
+        memo
+        securityDescription
+        entryTime
+    }
+}

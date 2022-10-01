@@ -1,0 +1,124 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.videos-slider-wrapper {
+    &.multi-items-row {
+        .carousel-controls {
+            margin-bottom: -5px;
+        }
+
+        .carousel-inner {
+            padding-bottom: 20px;
+        }
+    }
+
+    .carousel-caption {
+        position: initial;
+        text-align: left;
+
+        h5 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .small-caption {
+            margin-bottom: 50px;
+
+            small {
+                font-size: 13px;
+                color: #ffffffb8;
+
+                & + small {
+                    text-align: right;
+                }
+
+                > span {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .video-holder {
+        position: relative;
+
+        &::after {
+            content: "";
+            display: table;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -24px;
+            margin-left: -20px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 24px 0 24px 41.6px;
+            border-color: transparent transparent transparent #ffffff;
+            opacity: 0.9;
+        }
+    }
+
+    .bottom-wrapper {
+        text-align: right;
+    }
+
+    .video-item-wrapper {
+        margin-top: 30px;
+
+        + .video-item-wrapper {
+            border-left: 2px solid #ffffff0f;
+        }
+
+        .video-holder {
+            max-height: 150px;
+            overflow: hidden;
+        }
+
+        .carousel-caption {
+            h5 {
+                font-size: 18px;
+            }
+
+            .small-caption {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+        &.multi-items-row {
+            .carousel-item {
+                > .row {
+                    > .video-item-wrapper {
+                        margin-top: 15px;
+
+                        &:nth-last-child(-n + 2) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+        .content-wrapper-heading {
+            font-size: 15px;
+        }
+
+        .carousel-controls {
+            margin-bottom: 5px !important;
+        }
+
+        .mobile-video-holder {
+            .video-item-wrapper {
+                margin-top: 8px;
+
+                .video-holder {
+                    max-height: none;
+                }
+            }
+        }
+    }
+}

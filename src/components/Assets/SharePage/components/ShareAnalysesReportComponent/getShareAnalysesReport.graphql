@@ -1,0 +1,21 @@
+query getAnalyseReport($groupId:Int!) {
+    group(id: $groupId) {
+        id
+        analysisReport {
+            neutralCount
+            negativeCount
+            positiveCount
+            recommendation
+            price
+            currency {
+                displayCode
+                sign
+            }
+            targets {
+                recommendation
+                price
+                count
+            }
+        }
+    }
+}

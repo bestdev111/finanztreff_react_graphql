@@ -1,0 +1,85 @@
+.home-banner {
+    .stock-chart,
+    .main-chart-movement {
+        .chart-marker-label {
+            position: relative;
+            text-transform: uppercase;
+        }
+    }
+
+    .stock-chart {
+        padding: 0 8px;
+    }
+}
+//
+//#assets-chart {
+//    max-height: 300px;
+//
+//    .highcharts-legend {
+//        .legend-asset-wrapper {
+//            width: 240px;
+//        }
+//    }
+//
+//    .highcharts-legend-item.highcharts-pie-series {
+//        .highcharts-point {
+//            transform: translate(-6px, -4px);
+//        }
+//    }
+//
+//    @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+//        max-height: none;
+//
+//        .highcharts-legend {
+//            .legend-asset-wrapper {
+//                width: 100%;
+//            }
+//        }
+//    }
+//}
+
+[shareholder-chart],
+[data-element="shareholder-chart"] {
+    &[with-risiko],
+    &[data-element="with-risiko"] {
+        .highcharts-legend {
+            .legend-asset-wrapper {
+                width: 100%;
+                text-align: right;
+            }
+        }
+    }
+
+    .highcharts-legend {
+        .legend-asset-wrapper {
+            font-size: 13px;
+        }
+    }
+
+    .highcharts-legend-item.highcharts-pie-series {
+        .highcharts-point {
+            transform: translate(-6px, -5px);
+        }
+    }
+}
+
+[mocked-chart="pie-chart-on-dark"],
+[data-mocked-chart="pie-chart-on-dark"] {
+    .highcharts-legend {
+        .legend-asset-wrapper {
+            font-size: 13px;
+        }
+    }
+
+    .highcharts-legend-item.highcharts-pie-series {
+        .highcharts-point {
+            transform: translate(-6px, -4px);
+        }
+    }
+}
+
+.modal {
+    #assets-chart {
+        max-height: none;
+    }
+}

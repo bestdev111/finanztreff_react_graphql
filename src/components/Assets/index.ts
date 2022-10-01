@@ -1,0 +1,5 @@
+export * from './IndexPage'
+export * from './SharePage'
+export * from './OptionPage'
+export * from './KnockPage'
+export * from './CertificatesPage'

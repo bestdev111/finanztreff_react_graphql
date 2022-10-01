@@ -1,0 +1,259 @@
+query getFundsInfo($groupId: Int!) {
+    group(id: $groupId) {
+        id
+        name
+        isin
+        assetGroup
+        wkn
+        content {
+            id
+            isin
+            wkn
+            main
+            tickerSymbol
+            name
+            marketCapitalization
+            group {
+                assetGroup
+                seoTag
+                sector {
+                    name
+                }
+            }
+            exchange {
+                id
+                name
+                code
+                type
+            }
+            currency {
+                id
+                name
+                displayCode
+                sign
+            }
+            countryId
+            snapQuote {
+                lastChange
+                instrumentId
+                lowPrice
+                highPrice
+                firstPrice
+                lastPrice
+                yesterdayPrice
+                cumulativeTrades
+                cumulativeTurnover
+                cumulativeVolume
+                quotes {
+                    size
+                    delay
+                    type
+                    value
+                    percentChange
+                    change
+                    when
+                }
+            }
+            performance(period:[WEEK1, MONTH1, MONTH3, MONTH6, WEEK52,YEAR3, YEAR5, YEAR10]) {
+                period
+                averagePrice
+                performance
+                deltaAveragePrice
+                sharpe
+                vola
+            }
+            stats(periods: [ALL_TIME, WEEK52]) {
+                period
+                lowPrice
+                lowPriceDate
+                deltaLowPrice
+                highPrice
+                highPriceDate
+                deltaHighPrice
+            }
+            indicators {
+                relativeStrengthLevy {
+                    deltaMedian
+                    indicator
+                }
+                movingAverage {
+                    deltaLine200Day
+                    deltaLine38Day
+                }
+            }
+            rangeCharts {
+                intraday {
+                    min
+                    max
+                    current
+                    threshold
+                }
+                year {
+                    min
+                    max
+                    current
+                    threshold
+                }
+            }
+        }
+        fundTranche {
+            main
+            germanRiesterCapable
+            germanVwlCapable
+            savingPlanCapable
+            distributing
+            srri {
+                value
+            }
+            documents {
+                type {
+                code
+                name
+                }
+                url
+                creationDate
+            }
+            distributionFrequency {
+                name
+                month
+            }
+            currency{
+                name
+            }
+            group {
+                id
+                name
+                isin
+                wkn
+                assetGroup
+                seoTag
+            }
+            charge
+            depositFee
+            assetBasedFee
+            totalExpenseRatio
+            rePurchasePrice
+            investmentVolume {
+                date
+                value
+            }
+            foundationDate
+        }
+        assetType {
+            name
+        }
+        fund {
+            id
+            region {
+                id
+                name
+            }
+            topic{
+                id
+                name
+            }
+            currency {
+                id
+                name
+            }
+            type {
+                id
+                name
+            }
+            strategy {
+                id
+                name
+            }
+            advisor{
+                name
+                contact {
+                    phone
+                    fax
+                    email
+                    website
+                }
+                address {
+                    postCode
+                    city
+                    street
+                    houseNo
+                }
+            }
+            company {
+                id
+                name
+                contact {
+                    phone
+                    fax
+                    email
+                    website
+                }
+                address {
+                    postCode
+                    city
+                    street
+                    houseNo
+                }
+            }
+
+            benchmark {
+                name
+                isin
+                group {
+                    id
+                    isin
+                }
+            }
+            portfolios {
+                name
+                entries {
+                    name
+                    percent
+                }
+            }
+            investmentConcept
+            exchangeTradedFund
+            indexFund
+            managers {
+                firstName
+                lastName
+                preference
+            }
+            investmentVolume {
+                date
+                value
+                currency {
+                    id
+                    name
+                    displayCode
+                    sign
+                }
+            }
+        }
+        alternativeFundTranches {
+            name
+            isin
+            main
+            germanRiesterCapable
+            germanVwlCapable
+            distributing
+            distributionFrequency {
+                name
+                month
+            }
+            charge
+            depositFee
+            assetBasedFee
+            totalExpenseRatio
+            rePurchasePrice
+            group {
+                id
+                name
+                isin
+                wkn
+                assetGroup
+                seoTag
+            }
+        }
+    }
+}

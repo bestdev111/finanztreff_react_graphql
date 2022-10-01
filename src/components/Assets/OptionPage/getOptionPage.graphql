@@ -1,0 +1,108 @@
+query getWarrInfo($groupId: Int!) {
+    group(id: $groupId) {
+        id
+        isin
+        wkn
+        name
+        assetGroup
+        underlying
+        description {
+            natural
+            text
+        }
+        assetType{
+            name
+            id
+        }
+        issuer {
+            id
+            name
+        }
+        derivative{
+            optionType
+        }
+        description {
+            text
+        }
+        underlyings {
+            groupId
+            instrumentId
+            strike
+        }
+        content {
+            id
+            isin
+            wkn
+            main
+            tickerSymbol
+            name
+            group {
+                assetGroup
+                seoTag
+            }
+            exchange {
+                id
+                name
+                code
+            }
+            currency {
+                id
+                name
+                displayCode
+                sign
+            }
+            countryId
+            snapQuote {
+                lastChange
+                instrumentId
+                lowPrice
+                highPrice
+                firstPrice
+                lastPrice
+                yesterdayPrice
+                cumulativeTrades
+                cumulativeTurnover
+                cumulativeVolume
+                quotes {
+                    size
+                    delay
+                    type
+                    value
+                    percentChange
+                    change
+                    when
+                }
+            }
+            performance(period:[WEEK1, MONTH1, MONTH3, MONTH6, WEEK52,YEAR3, YEAR5, YEAR10]) {
+                period
+                averagePrice
+                performance
+                sharpe
+                vola
+            }
+            stats(periods: [ALL_TIME, WEEK52]) {
+                period
+                lowPrice
+                lowPriceDate
+                deltaLowPrice
+                highPrice
+                highPriceDate
+                deltaHighPrice
+            }
+            rangeCharts {
+                intraday {
+                    min
+                    max
+                    current
+                    threshold
+                }
+                year {
+                    min
+                    max
+                    current
+                    threshold
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,66 @@
+query getDerivativeOverviewAnalogeResult (
+    $assetClass: Long,
+    $underlyingInstrumentGroupId: Int,
+    $first: Int, $after: ID,){
+    searchDerivative(criterion: {
+        assetClass: $assetClass, # group
+        underlyingInstrumentGroupId: $underlyingInstrumentGroupId, # Daimler
+    }, first: $first, after : $after) {
+        edges {
+            cursor
+            node {
+                id
+                name
+                wkn
+                keyFigures {
+                    gearing
+                    deltaStopLoss
+                    deltaStopLossAbsolute
+                    moneyness
+                    premiumAnnual
+                    sidewaysAnnualReturn
+                }
+                group {
+                    id
+                    seoTag
+                    assetGroup
+                    assetTypeGroup {id name }
+                    assetType { id name }
+                    issuerId
+                    issuer {
+                        name # emittent
+                        partner
+                    }
+                    derivative {
+                        id
+                        maturityDate
+                        optionType
+                    }
+                    underlyings {
+                        id
+                        strike
+                        currency {
+                            displayCode
+                        }
+                    }
+                }
+                snapQuote {
+                    lastChange
+                    instrumentId
+                    quotes {
+                        type
+                        value
+                        when
+                    } # ask bit
+                }
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        count
+    }
+}

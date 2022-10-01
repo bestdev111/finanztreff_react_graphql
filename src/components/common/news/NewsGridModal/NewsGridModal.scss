@@ -1,0 +1,11 @@
+@import "src/styles/theme";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.modal-body-xs-news-profile{
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+    }
+}

@@ -1,0 +1,42 @@
+query getTopFlopContent($groupId:Int!) {
+    group(id: $groupId) {
+        id
+        name
+        seoTag
+        assetGroup
+        main {
+            id
+        }
+        topFlop {
+            instrument {
+                id
+                name
+                group {
+                    name
+                    seoTag
+                    assetGroup
+                    sector {
+                        name
+                    }
+                }
+                currency {
+                    displayCode
+                }
+                exchange {
+                    id
+                    name
+                    code
+                }
+            }
+            snapQuote {
+                lastChange
+                instrumentId
+                quote(type:TRADE) {
+                    percentChange
+                    value
+                    when
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+.table-dividend {
+  font-size: 14px;
+  td, th {
+    padding: 8px 6px;
+  }
+
+  td:last-child {
+    text-align: right;
+  }
+}

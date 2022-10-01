@@ -1,0 +1,11 @@
+mutation closePortfolioEntry($portfolioId: Long!, $portfolioEntryId: Long!, $price:Float!, $quantity:Float!, $charges: Float!, $closeTime: OffsetDateTime!, $memo: String, $currencyCode: String) {
+    closePortfolioEntry(entry:{
+        portfolioId: $portfolioId, portfolioEntryId:$portfolioEntryId, price:$price, quantity:$quantity, charges: $charges, closeTime: $closeTime, memo:$memo, currencyCode: $currencyCode
+    }) {
+        id
+        name
+        price
+        quantity
+        memo
+    }
+}

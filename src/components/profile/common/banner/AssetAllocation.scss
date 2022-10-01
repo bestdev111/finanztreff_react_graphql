@@ -1,0 +1,70 @@
+@import './src/styles/theme';
+
+.legend-big-asset-allocation{
+    max-height: 70px;
+    &.watchlist-overview{
+        max-height: 150px !important;
+    }
+    overflow-y: auto;
+    margin-left: auto;
+    margin-right: auto;
+    @media screen and (max-width: map-get($grid-breakpoints, xl)) {
+        max-height: 200px;
+    }
+}
+
+.legend-big-asset-allocation::-webkit-scrollbar {
+    display: none;
+}
+
+.chart-inner-title {
+    font-size: 20px;
+    color: #fff;
+    position: absolute;
+    z-index: 1;
+    top: 110px;
+    width: 50%;
+    left: 50%;
+    margin-left: -25%;
+    text-align: center;
+}
+
+
+.mobile-dropdown{
+    .dropdown-menu-mobile{
+        top: 9px !important;
+        left: -8px !important;
+        width: 100px;
+        max-width: 100px !important;
+        min-width: 100px !important;
+        background: #383838 !important;
+        .dropdown-item{
+            width: 90px !important;
+            color: white !important;
+            font-size: 18px;
+            background-color: #383838 !important;
+            padding: 4px 8px;
+        }
+
+    }
+    .mobile-button, .mobile-button:active, .mobile-button:focus, .mobile-button:hover{
+        padding: 0 !important;
+        position: absolute;
+        z-index: 3;
+        top: 100px;
+        left: 155px;
+        border-color: #383838;
+        background: #383838;
+        font-size: 18px;
+        .dropdown-item-mobile{
+            color: white;
+            padding: 3px 10px;
+        }
+    }
+}
+
+.asset-allocation-desktop-version{
+    .highcharts-background{
+        height: 0 !important;
+    }
+}

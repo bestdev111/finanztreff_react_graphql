@@ -1,0 +1,131 @@
+@media only screen and (max-width: 375px) {
+  .instrument-modal-header {
+    .asset-type {
+      font-size: 12px;
+      text-align: center;
+      padding: 1px 6px;
+      text-transform: uppercase;
+      color: white;
+      margin-top: auto;
+      margin-right: 5px;
+      min-width: 45px;
+      &.aktie {
+        min-width: 45px;
+      }
+
+      &.index {
+        padding-right: 6px;
+      }
+
+      &.fund {
+      }
+
+      //FUND
+      &.etf {
+      }
+
+      //ETF
+      &.zertifikat {
+        min-width: 73px;
+      }
+
+      //CERT
+      &.knock-out {
+        // knock-out KO
+        min-width: 78px;
+      }
+
+      &.optionsschein {
+        min-width: 103px;
+      }
+
+      //WARR
+      &.etc {
+      }
+
+      //ETC
+      &.rohstoff {
+      }
+
+      //COMM
+      &.währung {
+        min-width: 55px;
+        padding-right: 17px;
+      }
+
+      //CROSS
+      &.etn {
+      }
+
+      //ETN
+      &.sonstige {
+      }
+
+      //OTHER
+    }
+
+    .asset-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-left: -3px;
+    }
+
+    .trade-info {
+      margin-left: 45px;
+      &.aktie {
+        margin-left: -20px;
+      }
+
+      &.index {
+        margin-left: -16px;
+      }
+
+      &.fonds {
+      }
+
+      //FUND
+      &.etf {
+      }
+
+      //ETF
+      &.zertifikat {
+        margin-left: 40px;
+      }
+
+      //CERT
+      &.knock-out {
+        // knock-out KO
+      }
+
+      &.optionsschein {
+        margin-left: 70px;
+      }
+
+      //WARR
+      &.etc {
+      }
+
+      //ETC
+      &.rohstoff {
+        margin-left: 39px;
+      }
+
+      //COMM
+      &.währung {
+        margin-left: 35px;
+      }
+
+      //CROSS
+      &.etn {
+      }
+
+      //ETN
+      &.sonstige {
+      }
+
+      //OTHER
+    }
+
+  }
+}

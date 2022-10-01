@@ -1,0 +1,55 @@
+@import "src/styles/theme";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.dropdoown-percents{
+    .btn-inline-blue-dropdown{
+        height: 29px !important;
+        width: 114px !important;
+        background-color: #f1f1f1 !important;
+        display: flex;
+        justify-content: end;
+        &.dropdown-toggle{
+            height: 29px !important;
+            .toggle-icon{
+                width: 35px !important;
+                height: 35px !important;
+                margin-left: -8px;
+                margin-top: -4px;
+            }
+        }
+        .title.single-line{
+            color: #383838 !important;
+            text-align: right !important;
+            font-size: 15px !important;
+            padding-top: 4px !important;
+        }
+    }
+    .arrow{
+        border-radius: 0.1em;
+        height: 29px;
+    }
+}
+
+.card-percent-menu{
+    .card-body{
+        width: 187px;
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            width: 360px;
+            margin-bottom: 8px;
+        }
+    }
+    .button-in-menu{
+        height: 31px !important;
+        width: 36px !important;
+        font-size: 14px !important;
+    }
+}
+
+.modal-header{
+    .d-in-card{
+        display: block !important;
+    }
+    .percent{
+        display: none;
+    }
+}

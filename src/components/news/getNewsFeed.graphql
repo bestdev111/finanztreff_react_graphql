@@ -1,0 +1,77 @@
+query getNewsFeed($source: [ID!], $topics: [ID!], $intervalStart: OffsetDateTime, $intervalEnd: OffsetDateTime, $searchString: String, $first: Int, $after: ID) {
+    newsSearch(criteria: {source: $source, topic: $topics, intervalStart: $intervalStart, intervalEnd: $intervalEnd, searchString: $searchString}, first: $first, after: $after) {
+        edges {
+            cursor
+            node {
+                id
+                when
+                source{
+                    id
+                    name
+                }
+                body
+                headline
+                teaser
+                medias {
+                    source
+                    width
+                    height
+                }
+                streams {
+                    mimeType
+                    duration
+                    width
+                    height
+                    source
+                }
+                links {
+                    name
+                    href
+                }
+                feed
+                keywords
+                instruments {
+                    group {
+                        id
+                        isin
+                        name
+                        assetGroup
+                        seoTag
+                        main {
+                            id
+                            snapQuote {
+                                lastChange
+                                instrumentId
+                                lowPrice
+                                highPrice
+                                firstPrice
+                                lastPrice
+                                yesterdayPrice
+                                cumulativeTrades
+                                cumulativeTurnover
+                                cumulativeVolume
+                                quotes {
+                                    delay
+                                    type
+                                    value
+                                    percentChange
+                                    change
+                                    when
+                                }
+                            }
+                            currency {
+                                displayCode
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+    }
+}

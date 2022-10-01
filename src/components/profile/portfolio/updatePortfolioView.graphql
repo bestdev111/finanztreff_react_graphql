@@ -1,0 +1,6 @@
+mutation EditPortfolioView($viewType: String!, $portfolioId: Long) {
+    editPortfolioView(viewType: $viewType, portfolioId: $portfolioId) {
+        responseCode
+        responseMessage
+    }
+}

@@ -1,0 +1,24 @@
+query getInstrumentsSearch($assetGroup: [AssetGroup!], $searchString: String!, $first: Int!, $after: ID) {
+        search(criteria: { assetGroup: $assetGroup, searchString: $searchString }, first: $first, after: $after) {
+            edges {
+                cursor
+                node {
+                    name
+                    wkn
+                    group {
+                        name
+                        assetGroup
+                        seoTag
+                    }
+                }
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+            }
+            assetGroups {
+                assetGroup
+                count
+            }
+        }
+    }

@@ -1,0 +1,53 @@
+@import '../../../styles/theme';
+@import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+
+.header-filter {
+  margin-bottom: 14px;
+
+  .dropdown-toggle {
+    height: 55px;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .title {
+    display: block;
+    transform: unset;
+    text-align: left;
+    font: normal normal bold 20px/24px Roboto;
+    letter-spacing: 0;
+    color: #383838;
+    font-size: 20px;
+    line-height: 21px;
+    transition: line-height .2s ease-in-out;
+    &.single-line {
+      line-height: 42px;
+    }
+  }
+  .description {
+    text-align: left;
+    font: normal normal normal 15px/18px Roboto;
+    letter-spacing: 0;
+    font-size: 15px;
+    color: #383838;
+    transition: display .2s ease-in-out;
+  }
+  .toggle-icon {
+    height: 48px;
+    width: 48px;
+    transition: transform .4s ease-in-out;
+  }
+  &.show {
+    .toggle-icon {
+      transform: rotate(180deg);
+    }
+    .description {
+      display: none !important;
+    }
+    .title {
+      line-height: 42px;
+    }
+  }
+}

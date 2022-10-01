@@ -1,0 +1,63 @@
+query getCardPairsCrossRates($homeCurrencyCode:String, $first: Int!,$after: ID){
+  searchCrossRate(criteria:{homeCurrencyCode:$homeCurrencyCode},first: $first,after: $after) {
+    edges {
+      cursor
+      node {
+        id
+        currency{
+          displayCode
+        }
+        exchange{
+          code
+        }
+        group {
+          id
+          name
+          wkn
+          seoTag
+          assetGroup
+          main{
+            id
+            country{
+              name
+              isoAlpha3
+            }
+            chart(scope: INTRADAY) {
+              series {
+                label
+                type
+                data {
+                  value
+                  when
+                }
+              }
+              threshold {
+                type
+                value
+              }
+            }
+          }
+          compositions{
+            id
+            name
+          }
+        }
+        snapQuote{
+          instrumentId
+          quote(type:TRADE) {
+            value
+            change
+            percentChange
+          }
+        }
+      }
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+      hasPreviousPage
+      startCursor
+    }
+    count
+  }
+}

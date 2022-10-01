@@ -1,0 +1,8 @@
+query getFundSearchCount(
+        $criterion: SearchFundCriterion,
+        $sort:[SearchFundSort!] = []) {
+  searchFund(
+    criterion: $criterion, sort: $sort, first: 0) {
+    count
+  }
+}

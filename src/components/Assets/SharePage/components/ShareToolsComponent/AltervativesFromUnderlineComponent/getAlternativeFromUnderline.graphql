@@ -1,0 +1,17 @@
+query getAlternativeFromUnderline($underlyingInstrumentGroupId: Int!) {
+  group(id:$underlyingInstrumentGroupId) {
+    id
+    alternativeDerivativeProducts {
+      optionType
+      assetClass {
+        id
+        name
+        investmentRiskLevel {
+          level
+          name
+        }
+      }
+      count
+    }
+  }
+}

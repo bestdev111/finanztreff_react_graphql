@@ -1,0 +1,62 @@
+@import "src/styles/theme";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.time-card{
+    .dropdown-menu{
+        top: 10px !important;
+    }
+    height: 24px;
+    border-radius: 0.3em;
+    .single-line{
+        font-size: 15px !important;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+    .toggle-icon{
+        width: 20px !important;
+    }
+    .btn.btn-inline-blue-dropdown .title.single-line{
+        color: #383838 !important;
+    }
+}
+
+.montly-button{
+    width: 320px !important;
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        width: 373px !important;
+    }
+}
+
+.weekly-buttons{
+    justify-content: center;
+    .btn{
+        width: 46px !important;
+        height: 31px !important;
+    }
+}
+
+.buttons-period{
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        .weekly-buttons{
+            justify-content: center;
+            .btn{
+                width: 46px !important;
+                height: 31px !important;
+            }
+        }
+        text-align: center !important;
+    }
+}
+
+.toggle-text-period{
+    margin-right: 12px;
+    .single-line{
+        font-weight: 500 !important;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        margin: unset !important;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 16px !important;
+    }
+}

@@ -1,0 +1,92 @@
+query getDerivativeOverviewResult($assetClass: Long, $underlyingInstrumentGroupId: Int!, $gearingFrom: Float, $gearingTo: Float, $first: Int, $after: ID) {
+    callOption: searchDerivative(criterion: {assetClass: $assetClass, underlyingInstrumentGroupId: $underlyingInstrumentGroupId, optionType: CALL, keyFigures: [{keyFigure: GEARING, from: $gearingFrom, to: $gearingTo}]}, first: $first, after: $after) {
+        edges {
+            node {
+                id
+                name
+                wkn
+                derivativeKeyFigures {
+                    gearing
+                    premiumAnnual
+                }
+                group {
+                    id
+                    seoTag
+                    assetGroup
+                    assetType {
+                        id
+                        name
+                    }
+                    issuerId
+                    issuer {
+                        name
+                        partner
+                    }
+                    derivative {
+                        id
+                        maturityDate
+                        optionType
+                    }
+                }
+                snapQuote {
+                    lastChange
+                    instrumentId
+                    quotes {
+                        type
+                        value
+                        when
+                    }
+                }
+            }
+        }
+    }
+    putOption: searchDerivative(criterion: {assetClass: $assetClass, underlyingInstrumentGroupId: $underlyingInstrumentGroupId, optionType: PUT, keyFigures: [{keyFigure: GEARING, from: $gearingFrom, to: $gearingTo}]}, first: $first, after: $after) {
+        edges {
+            node {
+                id
+                name
+                wkn
+                derivativeKeyFigures {
+                    gearing
+                    premiumAnnual
+                }
+                group {
+                    id
+                    seoTag
+                    assetGroup
+                    assetType {
+                        id
+                        name
+                    }
+                    issuerId
+                    issuer {
+                        name
+                        partner
+                    }
+                    derivative {
+                        id
+                        maturityDate
+                        optionType
+                    }
+                }
+                snapQuote {
+                    lastChange
+                    instrumentId
+                    quotes {
+                        type
+                        value
+                        when
+                    }
+                }
+            }
+        }
+    }
+    buckets: group(id: $underlyingInstrumentGroupId) {
+        derivativeKeyFigureRangeBucket(criteria: {assetClass: $assetClass}, ranges: {gearing: [{to: 10}, {from: 10, to: 20}, {from: 20}]}) {
+            optionType
+            from
+            to
+            count
+        }
+    }
+}

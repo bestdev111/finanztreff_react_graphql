@@ -1,0 +1,32 @@
+query getInstrumentGroupSearchCurrencyPage($assetGroup: [AssetGroup!], $searchString: String!, $first: Int!, $after: ID) {
+    search(criteria: { assetGroup: $assetGroup, searchString: $searchString }, first: $first, after: $after) {
+        edges {
+            cursor
+            node {
+                id
+                group {
+                    id
+                    name
+                    wkn
+                    seoTag
+                    assetGroup
+                    main {
+                        id
+                        country {
+                            name
+                            isoAlpha3
+                        }
+                    }
+                    compositions {
+                        id
+                        name 
+                    }
+                }
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+        }
+    }
+}

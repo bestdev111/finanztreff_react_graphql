@@ -1,0 +1,6 @@
+mutation EditPortfolioOrder($viewOrder: String!,$viewOrderAsc: Boolean, $portfolioId: Long) {
+    editPortfolioOrder(viewOrder: $viewOrder, viewOrderAsc: $viewOrderAsc, portfolioId: $portfolioId){
+        responseCode
+        responseMessage
+    }
+}

@@ -1,0 +1,298 @@
+@import 'src/styles/theme';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.movement-buttons{
+    text-align: center;
+    span{
+        font-size: 18px;
+        cursor: pointer;
+        padding: 0 3px;
+        font-weight: bold;
+        color: #FFFFFF66;
+        &.active{
+            color: #FFFFFF;
+        }
+
+    }
+}
+
+.border-r-3px{
+    border-radius: 3px;
+}
+
+.link-primary-btn{
+    a{
+        white-space: nowrap !important;
+        color: white !important;
+    }
+}
+
+.in-modal-info{
+    @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+        margin-left: -8px;
+        .xs-name-no-show{
+            display: none;
+        }
+    }
+
+}
+
+.background-black{
+    background-color: #383838;
+}
+
+.limit-options{
+    .limit-types{
+        .btn{
+            width: 32%;
+            background-color: #F1F1F1;
+            color: #326EAC;
+            border-color: #F1F1F1;
+        }
+    }
+    .upper-down-limit{
+        .btn{
+            width: 48%;
+            background-color: #F1F1F1 !important;
+            color: #326EAC !important;
+            border-color: #F1F1F1 !important;
+            &.down{
+                &.active{
+                    background-color: #FF4D7D !important;
+                    color: white !important;
+                }
+            }
+            &.upper{
+                &.active{
+                    background-color: #18C48F !important;
+                    color: white !important;
+                }
+            }
+        }
+    }
+    .quote-types{
+        .dropdown-toggle{
+            text-align: left;
+            width: inherit;
+            background-color: #F1F1F1;
+            color: #326EAC;
+            border-color: #F1F1F1;
+        }
+        .dropdown-toggle::after{
+            float: right;
+            margin-top: 6px
+        }
+    }
+}
+
+.lollipop-container{
+    position: relative;
+    height: 450px;
+}
+
+.lollipop-container-inner{
+    left: -250px;
+    position: absolute;
+    overflow: auto;
+    transition-timing-function: ease-in;
+    transition: 0.2s;
+}
+
+.chart-y-axis{
+    position: absolute;
+    top: 106px;
+    width:12px;
+    @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+        top: 41px
+    }
+    .positive,.negative{
+        div{
+            color: rgba(255, 255, 255, 0.671);
+            font-size: 9px;
+            padding: 7px 0;
+        }
+    }
+    .negative{
+        margin-top: 130px;
+    }
+}
+
+.limit-title{
+    font-size: 24px;
+    @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+        font-size: 18px;
+    }
+}
+
+.limits-inactive{
+    opacity: 0.5;
+    cursor: default;
+    pointer-events: none;
+}
+
+.filters-in-limits{
+    button{
+        padding: 14px 15px !important;
+        margin-bottom: 14px;
+    }
+}
+
+.small-button-icon{
+    width: 50px !important;
+    background-color: white !important;
+    .toggle-icon{
+        display: none;
+    }
+    .button-body{
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .btn.btn-panel-button{
+        background-color: white !important;
+    }
+    .hide-in-button{
+        display: none;
+    }
+}
+.modal-content{
+    .hide-in-modal{
+        .svg-icon{
+            display: none;
+        }
+    }
+}
+
+.limits-modal{
+    padding-right: 0 !important;
+    .limit-modal-grid{
+        padding: 0 !important;
+        .asset-type-tag{
+            margin-right:0 !important;
+        }
+        .limit-condition{
+            padding-left: 8px;
+            padding-bottom: 12px;
+        }
+    }
+
+    .buttons-in-results{
+        .title {
+            margin-bottom: 0px !important;
+        }
+    }
+    @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+        .analysis-progress-chart{
+            width: 85% !important;
+            padding-left: 8px;
+        }
+        .data-wrapper{
+            padding-left: 8px;
+            width: 85% !important;
+            white-space: nowrap;
+        }
+        .limit-card-item{
+            padding-right: 4px !important;
+            padding-left: 2px !important;
+            min-width: 358px !important;
+        }    
+        .buttons-in-results{
+            &.limits{
+                margin-left: 0 !important;
+                .filters-in-limits{
+                    padding-left: 2px !important;
+                }
+            }
+        }
+        .filters-panel{
+            display: inline !important;
+        }
+    }
+
+    @media screen and (min-width: map-get($grid-breakpoints, xl) + 1) {
+        .buttons-in-results{
+            padding: 8px;
+            width: 100% !important;
+        }
+    }
+    
+    @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+        .limit-card-item{
+            padding: 0 !important;
+            margin-left: -23px !important;
+        }    
+        .close-icon{
+            margin-right: 4px;
+            margin-top: 2px;
+        }
+        .buttons-in-results{
+            &.limits{
+                margin-left: 0 !important;
+                .filters-in-limits{
+                    padding-left: 2px !important;
+                }
+            }
+        }
+        .filters-panel{
+            display: inline !important;
+        }
+        .modal-header{
+            .row-cols-1{
+                margin-top: 0px !important;
+                margin-bottom: -0.5rem !important;            }
+        }
+    }
+
+}
+
+.limit-add-modal,.modal-limit-edit-delete{
+    @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+        .close{
+            margin-right: -6px;
+            .close-icon{
+                margin-right: 4px;
+                margin-top: 2px;
+            }
+        }
+        .modal-lg{
+            margin-left: unset !important;
+        }
+        .modal-body{
+            padding-left: 0 !important;
+            .modal-form{
+                padding-right: 0 !important;
+            }
+            .select-instrument-trigger{
+                .btn-link{
+                    display: inline-flex;
+                    img{
+                        margin-left: auto;
+                    }
+                }
+                .exchange-name{
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+            .button-row{
+                margin-top: -8px !important;
+            }
+        }
+    }
+}
+
+.lollipop-banner{
+    .gutter-16{
+        margin-right: -58px !important; 
+   }
+}
+
+.lollipop-banner{
+    .carousel-item{
+        min-height: unset !important;
+    }
+    .carousel-inner {
+        border:none !important;
+    }
+}

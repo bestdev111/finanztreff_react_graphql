@@ -1,0 +1,11 @@
+mutation createPortfolioEntry($portfolioId: Long!, $instrumentId: Long!, $price:Float!, $quantity:Float!, $charges: Float!, $entryTime: OffsetDateTime!, $memo:String, $currencyCode: String) {
+    createPortfolioEntry(entry:{
+        portfolioId: $portfolioId, instrumentId:$instrumentId, price:$price, quantity:$quantity, charges: $charges, entryTime: $entryTime, memo: $memo, currencyCode: $currencyCode
+    }) {
+        id
+        name
+        price
+        quantity
+        memo
+    }
+}

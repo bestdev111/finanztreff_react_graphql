@@ -1,0 +1,13 @@
+query getAssetClass($underlyingInstrumentGroupId: Int!){
+  group(id: $underlyingInstrumentGroupId) {
+    id
+    derivativeAssetClassBucket {
+      assetClass {
+        id
+        name
+
+      }
+      count
+    }
+  }
+}

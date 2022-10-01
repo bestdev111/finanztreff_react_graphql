@@ -1,0 +1,6 @@
+query getSectors{
+    sectors {
+        id
+        name
+    }
+}

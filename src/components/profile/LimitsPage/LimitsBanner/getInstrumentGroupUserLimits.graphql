@@ -1,0 +1,61 @@
+query getInstrumentGroupUserLimits($groupId: Int!) {
+    group(id: $groupId) {
+        id
+        assetGroup
+        name
+        isin
+        wkn
+        content {
+            id
+            main
+            isin
+            name
+            exchange {
+                id
+                name
+                code
+            }
+            currency {
+                id
+                name
+                displayCode
+                sign
+            }
+            group {
+                id
+                seoTag
+                assetGroup
+                sector{
+                    name
+                }
+            }
+            countryId
+            snapQuote {
+                lastChange
+                instrumentId
+                lowPrice
+                highPrice
+                firstPrice
+                lastPrice
+                yesterdayPrice
+                cumulativeTrades
+                cumulativeTurnover
+                cumulativeVolume
+                quotes {
+                    delay
+                    type
+                    size
+                    value
+                    percentChange
+                    change
+                    when
+                }
+            }
+            stats(periods: [WEEK52]) {
+                period
+                lowPrice
+                highPrice
+            }
+        }
+    }
+}

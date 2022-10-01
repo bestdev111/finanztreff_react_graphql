@@ -1,0 +1,183 @@
+@import 'src/styles/theme';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+
+.wie-hidden {
+  position: absolute;
+  left: 0;
+  top: 30px;
+  right: 0;
+  bottom:0;
+  text-align: center;
+  opacity: 0;
+  background-color: white;
+  padding: 0 7em;
+  font-size: 15px;
+  vertical-align: middle;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+  z-index: 0;
+
+  &.show {
+    opacity: 0.95;
+    z-index: 999;
+    //padding: 0 7em;
+  }
+}
+
+.small-card {
+  background: transparent linear-gradient(180deg, #ffffff 0%, #ffffff 1%, #fefefe 38%, #f1f1f1 100%) 0% 0% no-repeat;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  margin-bottom: 0.5em;
+
+  &.not-raised-card {
+    background: none;
+    background-color: transparent;
+    box-shadow: none;
+
+    .data-row {
+      &:nth-child(3) {
+        border-top: 1px solid var(--border-gray);
+      }
+    }
+
+    .bottom-row {
+      border-top: 1px solid var(--border-gray);
+    }
+  }
+
+  &.put-card {
+    .top {
+      background-color: var(--pink);
+    }
+  }
+
+  &.neutral-card {
+    .top {
+      background-color: var(--gray-dark);
+    }
+  }
+
+  &.call-card {
+    .top {
+      background-color: var(--green);
+    }
+  }
+
+  .top {
+    height: 1.75em;
+    line-height: 1em;
+    padding: 5px 0;
+    font-weight: bold;
+    text-align: center;
+    font-size: 14px;
+    color: white;
+  }
+
+  .sub-title {
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  .data-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0em;
+    margin-bottom: 0.25em;
+    padding: 0em 1em;
+    font-size: 13px;
+    line-height: 1.25em;
+
+    .wkn {
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 1.75em;
+    }
+
+
+  }
+
+  .bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px 2px;
+    border-top: 1px solid white;
+  }
+
+  @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+    .data-row {
+      padding: 0 8px;
+
+      &:nth-child(2) {
+        padding: 0 8px;
+      }
+
+      &:nth-child(3) {
+        // justify-content: space-around;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+
+    .bottom-row {
+      padding: 10px 0;
+    }
+  }
+
+  @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+    margin-bottom: 16px;
+
+    .data-row {
+      &:nth-child(3) {
+        flex-direction: column;
+        padding-left: 8px;
+        padding-right: 8px;
+
+        > div {
+          &.d-flex {
+            flex-direction: row !important;
+            align-items: center;
+
+            > span {
+              margin-right: 12px;
+
+              &:first-child {
+                display: inline-flex;
+                flex: 0 0 120px;
+                min-width: 120px;
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.wknsmall {
+  font-size: 17px !important;
+  font-weight: bold;
+}
+
+.data-small {
+  font-size: 12px !important;
+}
+
+@media only screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+  .trade-prediction-section {
+    display: none !important;
+  }
+}

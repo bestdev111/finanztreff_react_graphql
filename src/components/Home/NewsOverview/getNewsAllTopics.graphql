@@ -1,0 +1,7 @@
+query getNewsAllTopics {
+  newsTopics {
+    id
+    name
+    videoCapable
+  }
+}

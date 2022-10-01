@@ -1,0 +1,26 @@
+@import '../../styles/theme';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.commodity-overview-page {
+  .market-overview-section {
+    .market-section-heading {
+      h1 {
+        font-size: 20px !important;
+        padding-bottom: 1rem !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+  .commodity-overview-page {
+    .market-overview-section {
+      .market-section-heading {
+        h1 {
+          font-size: 24px !important;
+        }
+      }
+    }
+  }
+}

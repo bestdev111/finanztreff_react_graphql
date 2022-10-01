@@ -1,0 +1,34 @@
+query getProfilePortfolio {
+    user {
+        username
+        profile {
+            portfolioViewType
+            portfolios {
+                id
+                name
+                real
+                entries{
+                    id
+                    name
+                    instrumentId
+                    instrumentGroupId
+                    instrument{
+                        name
+                        exchange{
+                            name
+                        }
+                        currency{
+                            displayCode
+                        }
+                    }
+                    quantity
+                    price
+                    buyCharges
+                    buyCurrencyPrice
+                    entryTime
+                    memo
+                }
+            }
+        }
+    }
+}

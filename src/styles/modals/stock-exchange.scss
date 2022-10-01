@@ -1,0 +1,36 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.modal{
+    &#borsenplatzeModal {
+        .table {
+            tbody {
+                tr {
+                    td {
+                        &:first-child {
+                            > div {
+                                white-space: nowrap;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+            .table {
+                tbody {
+                    tr {
+                        td {
+                            > div {
+                                &.orange-time {
+                                    color: var(--orange);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

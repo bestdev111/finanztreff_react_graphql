@@ -1,0 +1,14 @@
+query getPerformancePercent($instrumentId: Int!, $from: LocalDate!, $to: LocalDate!) {
+    instrument(id: $instrumentId) {
+        id
+        quoteHistory(from:$from, to:$to) {
+            edges {
+                cursor
+                node {
+                    date
+                    changePercent
+                }
+            }
+        }
+    }
+}

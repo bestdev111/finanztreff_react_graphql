@@ -1,0 +1,6 @@
+query getNewsTopics {
+    newsTopics {
+        id
+        name
+    }
+}

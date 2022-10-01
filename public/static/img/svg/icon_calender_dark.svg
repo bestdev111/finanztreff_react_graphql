@@ -1,0 +1,11 @@
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+  <g id="icon_calender" data-name="icon calender">
+    <rect id="Rechteck_741" data-name="Rechteck 741" x="7" y="17" width="4" height="4" rx="1.05" fill="#383838"/>
+    <rect id="Rechteck_742" data-name="Rechteck 742" x="12" y="17" width="4" height="4" rx="1.05" fill="#383838"/>
+    <rect id="Rechteck_743" data-name="Rechteck 743" x="17" y="17" width="4" height="4" rx="1.05" fill="#383838"/>
+    <rect id="Rechteck_744" data-name="Rechteck 744" x="7" y="12" width="4" height="4" rx="1.05" fill="#383838"/>
+    <rect id="Rechteck_745" data-name="Rechteck 745" x="12" y="12" width="4" height="4" rx="1.05" fill="#383838"/>
+    <rect id="Rechteck_746" data-name="Rechteck 746" x="17" y="12" width="4" height="4" rx="1.05" fill="#383838"/>
+    <path id="Pfad_918" data-name="Pfad 918" d="M22,4H6A2,2,0,0,0,4,6V22a2,2,0,0,0,2,2H22a2,2,0,0,0,2-2V6A2,2,0,0,0,22,4ZM6,5.5H22a.51.51,0,0,1,.5.5V8.25H5.5V6A.51.51,0,0,1,6,5.5Zm16,17H6a.51.51,0,0,1-.5-.5V9.75h17V22A.51.51,0,0,1,22,22.5Z" fill="#383838"/>
+  </g>
+</svg>

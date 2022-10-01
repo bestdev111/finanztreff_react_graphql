@@ -1,0 +1,41 @@
+@import '../../../../styles/theme';
+
+.btn-light {
+    background-color: #f1f1f1;
+}
+
+.profile-settings-modal {
+    .modal-dialog {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-width: 344px !important;
+        max-height: none;
+        @media screen and (min-width: map-get($grid-breakpoints, md) - 1) {
+            max-width: 736px !important;
+        }
+        @media screen and (min-width: map-get($grid-breakpoints, xl) - 1) {
+            max-width: 780px !important;
+        }
+    }   
+
+}
+.delete-confirm-modal .modal-dialog {
+    margin-top: 25% !important;
+    @media screen and (min-width: map-get($grid-breakpoints, md) - 1) {
+        max-width: 344px;
+        margin-top: 6% !important;
+    }
+    @media screen and (min-width: map-get($grid-breakpoints, md) - 1) {
+        max-width: 468px;
+        margin-top: 4.5% !important;
+    }
+}
+
+.text-kurs-grau {
+    color: #989898;
+}
+
+.pending-request {
+    max-height: 18px;
+}

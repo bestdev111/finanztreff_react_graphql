@@ -1,0 +1,47 @@
+query getWarrantStaticData($groupId: Int!) {
+    group(id: $groupId) {
+        id
+        main {
+            firstTradingDay
+            lastTradingDay
+            exchange {
+                openingTime
+                closingTime
+                name
+            }
+            currency {
+                displayCode
+            }
+        }
+        derivative {
+            issueSize
+            issueDate
+            issuePrice
+            paymentDate
+            nameTermSheet
+            maturityDate
+        }
+        underlyings {
+            referencePrice
+            strike
+            exchange{
+                name
+            }
+            instrument {
+                snapQuote {
+                    lastChange
+                    instrumentId
+                    lastPrice
+                }
+            }
+            currency {
+                displayCode
+            }
+        }
+        issuer {
+            name
+            id
+            partner
+        }
+    }
+}

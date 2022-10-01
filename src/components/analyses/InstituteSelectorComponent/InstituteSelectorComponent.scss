@@ -1,0 +1,11 @@
+@import "src/styles/theme";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.institute-selector {
+  .card-body-wrapper {
+    width: 300px;
+    @include media-breakpoint-down(lg) {
+      width: 420px;
+    }
+  }
+}

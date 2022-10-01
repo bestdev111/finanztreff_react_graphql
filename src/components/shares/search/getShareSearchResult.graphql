@@ -1,0 +1,87 @@
+query getShareSearchResult($criterion: SearchShareCriterion, $sort: [SearchShareSort!] = [], $first: Int, $after: ID){
+    searchShare(criterion: $criterion, sort: $sort, first: $first, after: $after){
+        edges {
+            cursor
+            node {
+                id
+                name
+                wkn
+                isin
+                currency{
+                    displayCode
+                }
+                exchange {
+                    name
+                }
+                snapQuote {
+                    lastChange
+                    lastPrice
+                    instrumentId
+                    quote(type:TRADE) {
+                        value
+                        change
+                        percentChange
+                    }
+                }
+                group {
+                    id
+                    seoTag
+                    assetGroup
+                    sector {
+                        id
+                        name
+                    }
+                    refCountry {
+                        id
+                        name
+                    }
+                    refMarketCapitalization {
+                        value
+                        currency{
+                            displayCode
+                        }
+                    }
+                    company {
+                        currency {
+                            displayCode
+                        }
+                        id
+                        name
+                        performance {
+                            keyFigures {
+                                sales
+                                operatingCashFlow
+                                salesPerShare
+                                netIncome
+                                dividendPerShare
+                                dividendYield
+                                salesPerEmployee
+                                dividendPayoutRatio
+                                dividendPerShare
+                            }
+                            items {
+                                year
+                                yearPeriod
+                                cashFlowChange
+                                salesChange
+                                netIncomeChange
+                                salesYearChange
+                                cashFlowChangePercent
+                                salesChangePercent
+                                netIncomeChangePercent
+                                dividendYieldAverage
+                                dividendChangePercent
+                                salesPerEmployeeChangePercent
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+        }
+        count
+    }
+}

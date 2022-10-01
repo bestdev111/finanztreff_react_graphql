@@ -1,0 +1,34 @@
+query getInstrumentUserLimits($instrumentId: Int!) {
+    instrument(id:$instrumentId) {
+        id
+        name
+        isin
+        wkn
+        exchange {
+            id
+            name
+            code
+        }
+        currency {
+            id
+            displayCode
+            alphaCode
+        }
+        snapQuote {
+            lastChange
+            instrumentId
+            quote(type:TRADE) {
+                value
+                change
+                percentChange
+                when
+            }
+        }
+        group {
+            id
+            name
+            assetGroup
+            seoTag
+        }
+    }
+}

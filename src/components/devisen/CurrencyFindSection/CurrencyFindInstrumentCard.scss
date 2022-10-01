@@ -1,0 +1,11 @@
+.currency-instrument-card-disabled-fix{
+    pointer-events: none !important;
+    opacity: 0.5 !important;
+    color: #383838 !important
+    }
+
+.disabled-switch-icon-fix{
+    pointer-events: none !important;
+    opacity: 0.65 !important;
+    filter: invert(14%) sepia(21%) saturate(0%) hue-rotate(252deg) brightness(57%) contrast(82%);
+}

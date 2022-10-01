@@ -1,0 +1,6 @@
+mutation ChangeEmail($email: String!) {
+    changeProfileEmail(email: $email) {
+        responseCode
+        responseMessage
+    }
+}

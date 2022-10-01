@@ -1,0 +1,6 @@
+query getIssuersResult {
+    issuers {
+      id
+      name
+    }
+}

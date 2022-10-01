@@ -1,0 +1,17 @@
+@import "src/styles/theme";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.news-modal-scroll{
+    overflow-y: scroll;
+    height: 700px;
+}
+
+.news-modal-scroll::-webkit-scrollbar {
+    display: none;
+}
+.modal-body-xs-news-profile{
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}

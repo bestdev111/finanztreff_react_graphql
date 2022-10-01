@@ -1,0 +1,45 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.modal{
+    &#unternehmensprofilModal {
+        @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+            .content-wrapper {
+                padding-bottom: 8px;
+            }
+
+            .table-like-row.legend-row {
+                padding: 1px;
+                margin-top: 5px;
+                margin-left: -8px;
+                margin-right: -8px;
+
+                > .row {
+                    display: none;
+                }
+
+                + .table-like-row.with-legend {
+                    border: 0 !important;
+                }
+            }
+
+            .table-like-row.with-legend {
+                padding: 13px 0;
+
+                > .row {
+                    margin-left: -8px;
+                    margin-right: -8px;
+
+                    > div {
+                        padding-left: 8px;
+                        padding-right: 8px;
+                    }
+                }
+            }
+
+            .bottom-multi-links {
+                display: none !important;
+            }
+        }
+    }
+}

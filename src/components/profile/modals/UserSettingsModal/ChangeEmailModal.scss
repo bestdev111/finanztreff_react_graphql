@@ -1,0 +1,28 @@
+@import '../../../../styles/theme';
+
+.btn-light {
+    background-color: #f1f1f1;
+}
+.line-height-24 {
+    line-height: 24px;
+}
+.change-email-modal {
+    .modal-dialog {
+        margin-top: 3.5rem !important;
+        @media screen and (min-width: map-get($grid-breakpoints, md) - 1) {
+            margin-top: 3rem !important;
+        }
+        @media screen and (min-width: map-get($grid-breakpoints, xl) - 1) {
+            margin-top: 4.5rem !important;
+        }
+    }
+    .modal-md {
+        max-width: 468px !important;
+    }
+    .modal-sm {
+        width: 344px !important;
+    }
+    .modal-bottom-center {
+        margin-bottom: 620px !important;
+    }
+}

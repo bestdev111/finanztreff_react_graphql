@@ -1,0 +1,63 @@
+query getDerivativeUnderlyingProducts($groupId: Int!) {
+    group(id: $groupId) {
+        id
+        underlyings {
+            currency{
+                alphaCode
+                sign
+                name
+                displayCode
+            }
+            exchange{
+                code
+                delay
+                id
+              	name
+                openingTime
+                closingTime
+            }
+            group {
+              	assetGroup
+              	id
+              	name
+              	underlying
+                seoTag
+                isin
+                wkn
+            }
+          	id
+          	isin
+          	name
+            instrument {
+                exchange{
+                    name
+                    id
+                }
+                snapQuote{
+                    instrumentId
+                    delay
+                    quote(type: TRADE) {
+                        delay
+                        value
+                        change
+                        percentChange
+                        when
+                    }
+                    quotes{
+                        type
+                        change
+                        percentChange
+                        value
+                        when
+                    }
+                    highPrice
+                    lastPrice
+                    lowPrice
+                    yesterdayPrice
+                }
+                id
+            }
+        }
+    }
+}
+

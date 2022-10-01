@@ -1,0 +1,6 @@
+mutation EditWatchlistOrder($viewOrder: String!,$viewOrderAsc: Boolean, $watchlistId: Long) {
+    editWatchlistOrder(viewOrder: $viewOrder, viewOrderAsc: $viewOrderAsc, watchlistId: $watchlistId){
+        responseCode
+        responseMessage
+    }
+}

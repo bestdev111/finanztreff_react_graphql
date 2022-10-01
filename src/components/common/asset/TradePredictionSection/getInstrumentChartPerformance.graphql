@@ -1,0 +1,35 @@
+query getInstrumentChartPerformance($instrumentId:Int!, $from: LocalDate!, $to: LocalDate!) {
+    instrument(id:$instrumentId) {
+        id
+        name
+        isin
+        monteCarlo(days: 120) {
+            min
+            avg
+            max
+            up
+            down
+        }
+        snapQuote {
+          lastChange
+          instrumentId
+          quote(type:TRADE) {
+            value
+            change
+            percentChange
+          }
+        }
+        currency{
+            id
+            displayCode
+        }
+        quoteHistory(from:$from, to:$to) {
+            edges {
+                node {
+                    date
+                    lastPrice
+                }
+            }
+        }
+    }
+}

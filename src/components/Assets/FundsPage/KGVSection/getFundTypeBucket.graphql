@@ -1,0 +1,9 @@
+query getFundTypeBucket($assetClass: Long, $assetTypeGroup: String, $assetType: String, $companyId: Long) {
+  fundTypeBucket(criteria: {assetClass: $assetClass, assetTypeGroup: $assetTypeGroup, assetType: $assetType, companyId: $companyId}) {
+    fundType {
+      id
+      name
+    }
+    count
+  }
+}

@@ -1,0 +1,28 @@
+query getCompanyInformation($groupId: Int!) {
+    group(id: $groupId) {
+        id
+        company {
+            id
+            name
+            profile {
+                text
+                website
+                address
+                phone
+                fax
+                email
+                website
+            }
+            shareHolders {
+                name
+                percent
+            }
+            employees {
+                name
+                member
+                job
+                role
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+query getSnapShotTable($groupId: Int!, $category: CompanyStatementCategory!, $from: Int, $to: Int) {
+    group(id: $groupId) {
+        id
+        company {
+            id
+            statements(criteria:{category:[$category], fromYear: $from ,toYear: $to}) {
+                name
+                category
+                value
+                important
+                year
+            }
+            outstandingShares
+        }
+    }
+}

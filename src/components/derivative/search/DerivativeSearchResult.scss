@@ -1,0 +1,7 @@
+@import 'src/styles/theme';
+
+.table-derivative {
+  @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+    font-size: 15px;
+  }
+}

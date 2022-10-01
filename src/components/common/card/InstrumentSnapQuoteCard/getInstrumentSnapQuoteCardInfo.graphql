@@ -1,0 +1,30 @@
+query getInstrumentSnapQuoteCardInfo($instrumentId:Int!) {
+    instrument(id:$instrumentId) {
+        id
+        name
+        group {
+            assetGroup
+            seoTag
+        }
+        snapQuote {
+            lastChange
+            instrumentId
+            quotes {
+                type
+                delay
+                value
+                change
+                percentChange
+                when
+            }
+        }
+        exchange {
+            id
+            code
+        }
+        currency {
+            id
+            displayCode
+        }
+    }
+}

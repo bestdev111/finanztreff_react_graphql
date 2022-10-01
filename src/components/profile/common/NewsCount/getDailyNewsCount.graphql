@@ -1,0 +1,7 @@
+query getDailyNewsCount($isins: [String!]!, $startDate: LocalDate!, $endDate: LocalDate ) {
+    newsIsinCount(criteria: {isins: $isins, startDate: $startDate, endDate: $endDate}) {
+        newsCount
+        isin
+        date
+    }
+}

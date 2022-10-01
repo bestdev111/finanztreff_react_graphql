@@ -1,0 +1,15 @@
+.carousel-overflow-hidden{
+    .highcharts-background{
+        height: 0 !important;
+    }
+    .carousel-inner {
+        overflow: hidden !important;
+    }
+    .inactive {
+        color: #cccccc;
+
+        .dot {
+            background-color: #cccccc !important;
+        }
+    }
+}

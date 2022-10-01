@@ -1,0 +1,33 @@
+query getMain($id: Int!){
+  group(id: $id) {
+    main {
+      id
+      name
+      seoTag
+      wkn
+      isin
+      group {
+        id
+        assetGroup
+      }
+      snapQuote {
+        lastChange
+        instrumentId
+        quote(type: TRADE) {
+            type
+            when
+            delay
+            value
+            percentChange
+            change
+        }
+      }
+      currency {
+        displayCode
+      }
+      exchange {
+        code
+      }
+    }
+  }
+}

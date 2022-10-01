@@ -1,0 +1,21 @@
+.date-picker-input {
+  .label {
+    line-height: 32px;
+  }
+  .dropdown-toggle {
+    &::after {
+      display: none;
+    }
+  }
+  .input-group {
+    background: #f1f1f1;
+    .form-control {
+      cursor: pointer;
+    }
+  }
+  .icon {
+      background-color: #F1F1F1;
+      border-color: #F1F1F1;
+      color: black;
+  }
+}

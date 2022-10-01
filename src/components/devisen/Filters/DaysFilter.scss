@@ -1,0 +1,24 @@
+.modal-content {
+    .countries-regions-filter, .industries-filter, .sort-filter{
+        .card-header  {
+            display: none !important;
+        }
+        &.card, .card-body{
+            width: 320px !important;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+  }
+
+.countries-regions-filter, .sort-filter {
+    .button-container {
+        width: 320px !important;
+    }
+}
+
+.industries-filter {
+    .card-body {
+        width: 470px !important;
+    }
+}

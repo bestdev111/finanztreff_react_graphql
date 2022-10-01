@@ -1,0 +1,6 @@
+mutation DeleteProfile {
+    deleteProfile {
+        responseCode
+        responseMessage
+    }
+}

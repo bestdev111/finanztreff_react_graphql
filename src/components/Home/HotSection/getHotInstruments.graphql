@@ -1,0 +1,52 @@
+query getInstrumentsHot($id: String!, $chartScope: ChartScope!) {
+  list(id: $id) {
+    id
+    content {
+      id
+      name
+      wkn
+      isin
+      chart(scope: $chartScope) {
+        id
+        series {
+          label
+          type
+          data {
+            value
+            when
+          }
+        }
+        threshold {
+          type
+          value
+        }
+      }
+      group {
+        id
+        name
+        seoTag
+        assetGroup
+        assetClass {
+          name
+        }
+      }
+      currency {
+        displayCode
+      }
+      exchange {
+        code
+        delay
+      }
+      snapQuote {
+        instrumentId
+        lastChange
+        cumulativeVolume
+        quotes {
+          type
+          percentChange
+          value
+        }
+      }
+    }
+  }
+}

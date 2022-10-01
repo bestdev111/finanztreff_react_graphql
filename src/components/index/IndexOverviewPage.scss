@@ -1,0 +1,80 @@
+@import 'src/styles/theme';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.page-container {
+
+    &.index-overview-page, &.commodity-overview-page, &.share-overview-page, &.derivate-page, &.devisen-overview-page{
+      .carousel-inner {
+        padding-top: unset !important;
+      }
+      .carousel-item {
+        padding-bottom: unset !important;
+      }
+      .market-container{
+        padding-top: 0px !important;
+      }
+      .market-overview-section{
+        h4{
+          padding-bottom: 16px;
+        }
+      }
+      .news-story-media{
+        width: 100% !important;
+      }
+    }
+    .stock-movement{
+      font-weight: bold;
+    }
+    .stock-currency{
+      font-size: 11px !important;
+    } 
+}
+
+.arrow-movement{
+      height: 16px !important;
+      margin-top: 6px;
+    }
+.text-normal{
+  font-weight: 200 !important;
+}
+
+.branch-types{
+      flex-grow: 1;
+      width: 33%;
+      @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+        width: 50%;
+      }
+      padding: 6.5px 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      &.active{
+        color: #326EAC;
+        font-weight: bold;
+      }
+    }
+
+.index-overview-page {
+  .market-overview-section {
+    .market-section-heading {
+      h1 {
+        font-size: 20px !important;
+        padding-bottom: 1rem !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+  .index-overview-page {
+    .market-overview-section {
+      .market-section-heading {
+        h1 {
+          font-size: 24px !important;
+          padding-bottom: 1rem !important;
+        }
+      }
+    }
+  }
+}

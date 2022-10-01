@@ -1,0 +1,41 @@
+.performance-in-peer-group-card{
+    .highcharts-background{
+        height: 0;
+    }
+    .active{
+        .with-border{
+            border: 2.5px solid #326EAC !important;
+        }
+    }
+    .stock-info-wrapper{
+        height: 133px;
+        .name{
+            color: #383838 !important;
+        }
+        .percentage{
+            font-size: 20px !important;
+            margin-bottom: -8px;
+        }
+        .thumbs{
+            position: relative !important;
+        }
+    }
+    &.mobile-version{
+        .stock-info-wrapper{
+            padding-top: 6px;
+            .name{
+                font-size: 18px;
+            }
+            .percentage{
+                font-size: 24px !important;
+                margin: -8px 0 !important;
+            }
+        }
+    }
+}
+
+.highcharts-background-h-0{
+    .highcharts-background{
+        height: 0 !important;
+    }
+}

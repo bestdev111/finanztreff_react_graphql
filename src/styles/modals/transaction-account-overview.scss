@@ -1,0 +1,42 @@
+.table-in-transaction-and-account-modal{
+    overflow-y: scroll;
+    height: 380px;
+}
+.table-in-transaction-and-account-modal::-webkit-scrollbar {
+    display: none;
+}
+
+.plus-minus-buttons{
+    .btn-green {
+        padding: 1px 6px;
+        margin-bottom: 4px;
+        margin-right: -2px !important;
+    }
+    .btn-pink {
+        padding: 1px 8px;
+        font-size: 17px;
+        margin-bottom: 4px;
+    }
+}
+
+.small-info{
+    font-size: 13px;
+    color:#38383880;
+}
+
+.account-transaction-modal{
+    .modal-title{
+        @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+            font-size: 13px;
+            margin-top: -16px !important;
+            margin-left: -8px;
+        }
+    }
+    .modal-body{
+        @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+            margin-left: 8px;
+            margin-right: 8px;
+            
+        } 
+    }
+}

@@ -1,0 +1,61 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.modal{
+    &#fundamentaleKennzahlenModal {
+        .content-wrapper {
+            .charts-row {
+                &.big-charts {
+                    border-bottom: 2px solid var(--border-gray);
+                    padding-bottom: 50px;
+                    margin-bottom: 50px;
+
+                    .chart-wrapper {
+                        padding-top: 20px;
+
+                        figure {
+                            .chart-container {
+                                height: 200px;
+                            }
+                        }
+                    }
+                }
+
+                &.small-charts {
+                    margin-bottom: 40px;
+
+                    .chart-wrapper {
+                        padding-top: 5px;
+
+                        figure {
+                            .chart-container {
+                                height: 150px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+            .content-wrapper {
+                padding-left: 8px;
+                padding-right: 8px;
+
+                .content-wrapper-heading {
+                    padding: 0;
+                }
+
+                .charts-row {
+                    > .row {
+                        margin: 0;
+
+                        > .col {
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+query getSharePeerGroupCompares($groupId: Int!) {
+    group(id: $groupId) {
+        id
+        peerGroupCompare {
+            type
+            value
+            chart {
+                min {
+                    value
+                    group {
+                        name
+                        seoTag
+                        assetGroup
+                    }
+                }
+                max {
+                    value
+                    group {
+                        name
+                        seoTag
+                        assetGroup
+                    }
+                }
+                current {
+                    value
+                    group {
+                        name
+                        seoTag
+                        assetGroup
+                    }
+                }
+                breakPoint
+            }
+        }
+    }
+}

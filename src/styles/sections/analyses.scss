@@ -1,0 +1,38 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.analyse-stock-box {
+    margin-bottom: 16px;
+
+    &.positive-analyse {
+        .type-box {
+            background-color: var(--green);
+        }
+    }
+    &.negative-analyse {
+        .type-box {
+            background-color: var(--pink);
+        }
+    }
+    &.neutral-analyse {
+        .type-box {
+            background-color: var(--gray);
+        }
+    }
+
+    .type-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 15px;
+        min-width: 105px;
+    }
+
+    .bar-holder {
+        width: 100%;
+    }
+
+    .pl-5px {
+        padding-left: 5px !important;
+    }
+}

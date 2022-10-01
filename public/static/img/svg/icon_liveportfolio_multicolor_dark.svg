@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="6 5.56 16 16.44" width="16" height="16.44" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>.cls-1{fill:#ff8d38;}.cls-2{fill:#fff;}</style>
+  </defs>
+  <g id="icon_liveportfolio" data-name="icon liveportfolio">
+    <path class="cls-1" d="M19.42,10.8a1,1,0,0,0-1.41,0L15,14V6.56a1,1,0,1,0-2,0V14l-3-3.15a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.4l4.73,5h0a1,1,0,0,0,1.44,0h0l4.73-5A1,1,0,0,0,19.42,10.8Z"/>
+    <path class="cls-2" d="M21,22H7a1,1,0,0,1-1-1V16a1,1,0,0,1,2,0v4H20V16a1,1,0,0,1,2,0v5A1,1,0,0,1,21,22Z" style="fill: rgb(56, 56, 56);"/>
+  </g>
+</svg>

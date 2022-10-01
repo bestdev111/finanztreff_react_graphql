@@ -1,0 +1,34 @@
+@import "src/styles/theme";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.chart-item-watchlist{
+    .dot{
+        height: 7px !important;
+        width: 7px !important;
+        margin-bottom: 2px;
+    }
+    .pie-chart-watchlist{
+        height: 200px !important;
+        width: 200px !important;
+        .highcharts-background{
+            height: 0 !important;
+        }
+    }
+
+    .chart-inner-text {
+        position: absolute;
+        top: 55px;
+        left: 45px;
+    }
+}
+
+.watchlist-card-width{
+    width: 363px;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        max-width: 319px !important
+    }
+}
+
+.watchlist-card-height{
+    min-height: 278.12px
+}

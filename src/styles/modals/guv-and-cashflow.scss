@@ -1,0 +1,24 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.modal{
+    &#guvCashflowModal {
+        @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+            table {
+                tr {
+                    th {
+                        &:nth-child(3) {
+                            display: none;
+                        }
+                    }
+
+                    td {
+                        &:nth-child(3) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

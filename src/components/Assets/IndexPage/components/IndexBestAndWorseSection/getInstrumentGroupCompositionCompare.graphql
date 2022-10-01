@@ -1,0 +1,38 @@
+query getInstrumentGroupCompositionCompare($groupId: Int!)  {
+    group(id: $groupId) {
+        id
+        compositionPerformance {
+            periods {
+                period
+                current {
+                    group {
+                        name
+                        seoTag
+                        assetGroup
+                    }
+                    value
+                    price
+                }
+                min {
+                    group {
+                        name
+                        seoTag
+                        assetGroup
+                    }
+                    value
+                    price
+                }
+                max {
+                    group {
+                        name
+                        seoTag
+                        assetGroup
+                    }
+                    value
+                    price
+                }
+
+            }
+        }
+    }
+}

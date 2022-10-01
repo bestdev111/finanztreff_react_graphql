@@ -1,0 +1,82 @@
+// Override default BT variables:
+
+// Required
+// @import "~bootstrap/scss/functions";
+// @import "~bootstrap/scss/variables";
+// @import "~bootstrap/scss/mixins";
+
+$font-family-sans-serif: "Roboto", sans-serif;
+$font-family-second: "Roboto Slab", sans-serif;
+
+$body-color: #383838;
+$dark-background: #383838;
+
+$theme-colors: (
+    "primary": #5b9de1,
+    "secondary": #787878,
+    "success": #18C48F,
+    "warning": #ff4d7d,
+    "dark": #505050,
+    "green": #18C48F,
+    "green-dark": #13c287,
+    "light-green": #d2f8ec,
+    "blue": #326eac,
+    "dark-blue": #0d5a94,
+    "pink": #ff4d7d,
+    "red": #f5335b,
+    "dark-red": #b80120,
+    "light-pink": #ffdbe5,
+    "orange": #ff8d38,
+    "dark-orange": #ff6600,
+    "main-text": #383838,
+    "gray-dark": #383838,
+    "gray": #9f9f9f,
+    "gray-neutral": #e5e5e5,
+    "gray-lighten": #E2E2E2,
+    "gray-light": #f1f1f1,
+    "gray-": #f1f1f1,
+    "gray-weight-light": #c6c6c6,
+    "border-gray": #f1f1f1,
+    "border-cyclamen": #ff00ff,
+    "yellow": #ffc300,
+    "kurs-grau": #989898,
+    "gold": #ff9f10,
+    "grass-green": #63bd5c,
+    "pink-dark": #e03c68,
+    "turquoise": #159c8c,
+    "gray-dark-asset": #7c7c7c,
+    "purple": #855c7f,
+);
+
+$grid-gutter-width: 32px !default;
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 360px,
+    md: 768px,
+    lg: 768px,
+    // lg: 992px,
+    xl: 1280px,
+);
+
+$container-max-widths: (
+    xs: 360px,
+    sm: 360px,
+    md: 768px,
+    lg: 768px,
+    // lg: 992px,
+    xl: 1280px,
+);
+
+$stock-move-colors: (
+    grey--0: rgba(152, 152, 152, 1),
+    green--0: rgba(24, 196, 143, 1),
+    green--1: rgba(16, 158, 114, 1),
+    green--2: rgba(9, 126, 90, 1),
+    green--3: rgba(1, 87, 61, 1),
+    red--0: rgba(255, 42, 99, 1),
+    red--1: rgba(234, 63, 109, 1),
+    red--2: rgba(220, 14, 69, 1),
+    red--3: rgba(198, 38, 81, 1),
+    red--4: rgba(147, 3, 41, 1),
+);

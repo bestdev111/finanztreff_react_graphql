@@ -1,0 +1,198 @@
+@import "src/styles/theme";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.portfolio-box-carousel{
+    .carousel-controls{
+        margin-bottom: 0 !important;
+    }
+    .carousel-inner {
+        overflow: hidden !important;
+    }
+    .carousel-indicators{
+        margin: 0 !important;
+        li{
+            background-color: gray !important;
+            height: 1px !important;
+        }
+    }
+    .carousel-item{
+        height: 190px;
+        width: 100%;
+    }
+    .controls ol {
+        margin: 0 !important;
+    }
+}
+.portfolio-card-width{
+    width: 363px;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        max-width: 302px !important
+    }
+}
+.font-family-roboto-slab{
+    font-family: Roboto Slab;
+}
+
+.text-container-max-width{
+    width: 333px !important;
+}
+
+.action-wrapper {
+    width: 42px;
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.sqare-24px{
+    width: 24px;
+    height: 24px;
+    padding-top: 1px
+}
+
+.memo-button{
+    height: 55px !important;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        width: 92px !important;
+        height: 30px !important;
+        font-size: 14px;
+        .svg-icon{
+            margin-left: -12px !important;
+            margin-top: -10px !important;
+        }
+        .memo-text{
+            padding: 0 !important;
+            margin: 0 !important;
+            font-weight: normal !important;
+        }
+    }
+}
+
+.filters-row-portfolio{
+    -moz-column-gap: 12px;
+    column-gap: 12px;
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        -moz-column-gap: 8px;
+        column-gap: 8px;
+    }
+    .sort-dropdown{
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            .btn-panel-button{
+                width: 120px !important;
+            }
+        }
+    }
+    .view-dropdown{
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            .btn-panel-button{
+                width: 95px !important;
+            }
+        }
+    }
+    .btn-panel-button{
+        width: 190px !important;
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            
+            height: 30px !important;
+            .toggle-icon{
+                display: none;
+            }
+            .button-body{
+                padding: 0 6px !important;
+            }
+            .description-dropdown{
+                margin-top: 6px
+            }
+            .title-dropdown{
+                display: none;
+                .modal{
+                    display: block;
+                    color: white !important;
+                }
+            }
+        }
+    }
+    &.mobile{
+        .btn-panel-button{
+            width: 128px !important;
+        }
+    }
+}
+
+.period-card{
+    .dropdown-menu{
+        top: 10px !important;
+    }
+    height: 24px;
+    border-radius: 0.3em;
+    .single-line{
+        font-size: 15px !important;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+    .toggle-icon{
+        width: 20px !important;
+    }
+    .btn.btn-inline-blue-dropdown .title.single-line{
+        color: #383838 !important;
+    }
+}
+
+.range-charts-portfolio{
+    margin-top: 48px !important;
+    .floating-pointer{
+        background-color: black !important;
+    }
+    .between-pointer{
+        color: black !important
+    }
+}
+
+.table-portfolio {
+    margin: 0;
+    border-spacing: 0;
+    th {
+      font-weight: normal;
+    }
+    th, td {
+      padding: 0;
+      border: 0;
+    }
+    td {
+      width: 120px;
+      text-align: right;
+    }
+  
+    tr.total {
+      th, td {
+        font-weight: bold;
+        padding-bottom: 4px;
+      }
+    }
+  
+    tr.today {
+      th, td {
+        font-weight: normal;
+        padding-top: 4px;
+        border-top: 1px solid var(--border-gray);
+      }
+    }
+    .pb-3px{
+        padding-bottom: 3px;
+    }
+    .pt-7px{
+        padding-top: 7px;
+    }
+  }
+
+  .news-item-carousel{
+      margin-top: 40px;
+  }
+
+  .limits-add-card-portfolio-entry{
+      margin-left: -19px !important;
+      @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        margin-left: -19px !important;
+      }
+      @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        margin-left: -7px !important;
+      }
+  }

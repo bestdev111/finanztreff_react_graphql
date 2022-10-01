@@ -1,0 +1,32 @@
+@import "src/styles/theme";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.portfolio-card-height{
+    min-height: 265px;
+    &.real{
+        min-height: 250px !important;
+    }
+}
+
+.empty-portfolio-card-height{
+    height: 270px;
+}
+
+.portfolios-overview{
+    .w-10{
+        flex: 0 0 10% !important;
+        max-width: 10% !important;
+        @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+            flex: 0 0 11.5% !important;
+            max-width: 11.5% !important;
+        }
+    }
+    .w-90{
+        flex: 0 0 90% !important;
+        max-width: 90% !important;
+        @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+            flex: 0 0 88.5% !important;
+            max-width: 88.5% !important;
+        }
+    }
+}

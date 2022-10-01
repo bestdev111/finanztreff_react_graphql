@@ -1,0 +1,100 @@
+.mobile-filter {
+  display: none;
+  position: fixed;
+  width: 364px;
+  height: 100%;
+  left: calc((100vw - 380px)/2);
+  top: 0;
+  background: white;
+  z-index: 10;
+  transition: all;
+  transition-duration: 1s;
+  transition-delay: 0.2s;
+  padding: 1em;
+
+  &.active {
+    display: block;
+    top: 0;
+  }
+
+  .filter-button-wrapper {
+    width: 100%;
+    margin-bottom: 1rem;
+
+    .filter-button-group {
+
+      .filter-button-dropdown {
+        border-radius: 3px;
+        padding: 5px 16px;
+        line-height: 17px;
+        transition: all 0.3s ease-in-out !important;
+        font-size: 1.25rem;
+        font-weight: bolder;
+        width: 100%;
+        height: 4rem;
+        position: relative;
+
+        .drop-title {
+          position: absolute;
+          top: 0.5rem;
+          left: 0.5rem;
+        }
+
+        .drop-arrow {
+          border: none;
+          position: absolute;
+          top: 0;
+          right: 0.5rem;
+          font-weight: bolder;
+
+
+          .direction-top {
+            transform: rotate(-180deg); transition: all 1s;
+          }
+
+          direction-bottom {
+            transform: rotate(0deg); transition: all 1s;
+          }
+
+        }
+
+        .drop-selection {
+          position: absolute;
+          bottom: 0.5rem;
+          left: 0.5rem;
+          font-weight: normal;
+        }
+      }
+
+      .filter-button-menu {
+        padding: 1rem;
+        border: solid 1px gray;
+        padding-top: 0.5rem;
+        border-top: none;
+        border-radius: 3px;
+
+        a {
+          cursor: default;
+          text-decoration: none;
+        }
+
+        a:hover {
+          color: white;
+        }
+
+        .filter-button-menu-item {
+          width: 100%;
+          display: block;
+          text-align: left;
+          padding: 0.25rem 1rem;
+        }
+
+        .filter-button-menu-item:hover {
+          background-color: #64a6eb;
+          transition: all;
+        }
+      }
+    }
+  }
+}
+

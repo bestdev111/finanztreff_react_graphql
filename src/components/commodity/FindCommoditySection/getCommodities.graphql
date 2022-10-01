@@ -1,0 +1,55 @@
+query getCommodities($assetGroup: [AssetGroup!], $searchString: String!, $first: Int!, $after: ID) {
+    search(criteria: { assetGroup: $assetGroup, searchString: $searchString }, first: $first, after: $after) {
+        edges {
+            cursor
+            node {
+                id
+                group {
+                    id
+                    name
+                    wkn
+                    seoTag
+                    assetGroup
+                    main {
+                        id
+                        country {
+                            name
+                            isoAlpha3
+                        }
+                        stats(periods: [ALL_TIME]) {
+                            period
+                            lowPrice
+                            lowPriceDate
+                            deltaLowPrice
+                            highPrice
+                            highPriceDate
+                            deltaHighPrice
+                        }
+                        indicators {
+                            movingAverage {
+                                deltaLine200Day
+                            }
+                        }
+                    }
+                    compositions {
+                        id
+                        name 
+                    }
+                }
+                snapQuote {
+                    lastChange
+                    instrumentId
+                    quote(type:TRADE) {
+                    value
+                    change
+                    percentChange
+                    }
+                }
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+        }
+    }
+}

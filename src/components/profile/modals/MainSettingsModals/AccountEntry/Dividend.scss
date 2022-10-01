@@ -1,0 +1,16 @@
+@import "src/styles/theme";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.etrage-table-content{
+    overflow-y: auto;
+    min-height: 83vh;
+    max-height: 83vh;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        min-height: 82vh;
+        max-height: 82vh;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        min-height: 78vh;
+        max-height: 78vh;
+    }
+}

@@ -1,0 +1,19 @@
+.select-portfolio {
+  width: 100%;
+  .btn {
+    background-color: #F1F1F1;
+    border-color: #F1F1F1;
+    color: black;
+    padding: 6.75px 8px;
+    width: 100%;
+    :hover {
+      text-decoration: none;
+    }
+  }
+  .dropdown-menu{
+    height: 250px;
+    width: inherit;
+    overflow-y: scroll;
+  }
+
+}

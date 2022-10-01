@@ -1,0 +1,28 @@
+query getTimeAndSales($instrumentId: Int!, $from: OffsetDateTime!, $to: OffsetDateTime!, $before: ID) {
+    instrument(id: $instrumentId) {
+        currency {
+            displayCode
+        }
+
+        timeAndSales(criteria: {from: $from, to:$to}, before: $before) {
+            pageInfo {
+                hasNextPage
+                hasPreviousPage
+                endCursor
+            }
+            edges {
+                cursor
+                node {
+                    when
+                    firstPrice
+                    lowPrice
+                    highPrice
+                    lastPrice
+                    askVolume
+                    bidVolume
+                    volume
+                }
+            }
+        }
+    }
+}

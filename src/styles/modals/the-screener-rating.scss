@@ -1,0 +1,60 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.modal{
+    &#theScreenerRatingModal {
+        .main-section {
+            .content-row {
+                > .content-wrapper {
+                    .modal-cards {
+                        .card {
+                            .card-title {
+                                > span {
+                                    + span {
+                                        > img {
+                                            height: 32px;
+                                        }
+                                    }
+                                }
+
+                                .star-wrapper {
+                                    margin-left: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+            .main-section {
+                .content-row {
+                    > .content-wrapper {
+                        padding-left: 8px;
+                        padding-right: 8px;
+                        padding-bottom: 10px;
+
+                        + div.padding-top-16 {
+                            padding-left: 8px;
+                            max-width: 250px;
+                        }
+
+                        > h3 {
+                            padding-left: 0;
+                            padding-top: 8px;
+                        }
+
+                        .modal-cards {
+                            margin-bottom: 20px;
+                        }
+                    }
+
+                    .content-wrapper {
+                        padding-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

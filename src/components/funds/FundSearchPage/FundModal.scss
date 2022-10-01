@@ -1,0 +1,188 @@
+@import '../../../styles/theme';
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+
+.fund-cards-in-modal{
+    .funds-card{
+        height: 61px !important;
+        margin-top: 8px !important;
+        width: 100%;
+        font-size: 20px !important;
+        .single-line{
+            font-size: 20px !important;
+            margin-top: 4px;
+            padding-bottom: 3.2px !important;
+        }
+        .toggle-icon{
+            padding-top: 4px;
+            height: 16px !important;
+        }
+        .card-header{
+            display: none !important;
+        }
+        .dropdown-menu{
+            top: 8px !important;
+        }
+    }
+    .card-body{
+        padding: 0 !important;
+        margin: 10px 16px !important;
+        font-size: 20px !important;
+        .dropdown-toggle{
+            span{
+                font-size: 20px !important;
+            }
+        }
+    }
+    .card-footer{
+        display: none;
+    }
+}
+
+
+.chart-in-fund-modal{
+    .chart-holder{
+        height: 110px !important;
+        width: 344px !important;
+        .highcharts-container {
+            height: 110px !important;
+            width: 344px !important;
+        }
+    }
+}
+
+.filters-funds{
+    .distribution-filter{
+        margin-right: 4px;
+    }
+    .plans-filter, .diverse-filter{
+        margin: 0 4px;
+    }
+    .dropdown-toggle{
+        height: 48px !important;
+    }
+    .options-filter{
+        min-width: 327px;
+    }
+}
+
+.alphabet-filter{
+    .card-body{
+        margin-left: -6px !important;
+    }
+    .alphabet{
+        .letter{
+            font-weight: bold;
+            font-size: 10px;
+            padding: 0px !important;
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+        }
+    }
+}
+
+.options-capital-holder{
+    height: 580px !important;
+    overflow-y: auto;
+    width: 413px !important;
+}
+
+.ergebnise-filter{
+    background-color: #f1f1f1;
+    font-size: 15px;
+    border: none;
+    max-width: 410px;
+}
+
+.alphabet-filter{
+    .dropdown-toggle{
+        width: 200px !important;
+    }
+}
+
+.sort-funds{
+    .btn-panel-button{
+        height: 46px !important;
+        background-color: white !important;
+        .toggle-icon{
+            display: none;
+        }
+        .button-body{
+            padding: 0 8px !important;
+            margin-top: -8px;
+            line-height: 1 !important;
+        }
+    }
+    .header-filter{
+        &.show {
+            .description {
+            display: block !important;
+            }
+        }
+    }
+}
+
+.sorting-funds-filter{
+    .card-body{
+        width: 265px !important;
+        margin: auto
+    }
+}
+
+.options-filter-button{
+    .dropdown-toggle{
+        width: 350px !important;
+        @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+            width: 300px !important;
+        }
+    }
+}
+
+.filters-funds-smalll-button{
+    .title{
+        @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+            display: none !important;
+        }
+    }
+    .button-body{
+        .title{
+            display: none !important;
+        }
+    }
+}
+
+.filter-button-mobile{
+    @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+        .dropdown-toggle{
+            height: 46px !important;
+            width: 140px !important;
+        }
+        .custom-class-button{
+            padding: 0 !important;
+            padding-top: 5px !important;
+        }
+    } 
+}
+
+.alphabet-filter-mobile{
+    margin-left: -46px !important;
+    width: 344px !important;
+    .list-options-mobile{
+        margin-left: 10px;
+        width: 325px !important;
+        height: 490px !important;
+        overflow-y: auto;
+    }
+    .alphabet-mobile{
+        .letter-wrapper{
+            .letter{
+                margin: 0 !important;
+                padding: 0;
+                font-size: 9px;
+                font-weight: bold;
+            }
+            line-height: 0.2;
+        }
+    }
+}

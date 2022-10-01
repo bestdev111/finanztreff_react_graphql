@@ -1,0 +1,506 @@
+@import 'src/styles/theme';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.coming-soon-component {
+    background-color: #33333390;
+    position: absolute;
+    width: 97.5%;
+    height: 100%;
+    .coming-soon-text{
+        margin-top: 50% !important;
+        z-index: 10000;
+    }
+    &.index-chart-signal{
+        height: 82%;
+        width: 97%;
+        .coming-soon-text{
+            margin-top: 20% !important;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            height: 100%;
+            width: 96%;
+            .coming-soon-text{
+                margin-top: 25% !important;
+            }
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            .coming-soon-text{
+                margin-top: 80% !important;
+            }
+        }
+    }
+    &.derivative-trading-ideas-section{
+        margin-top: -48px;
+        height: 117%;
+        width: 100%;
+        .coming-soon-text{
+            margin-top: 20% !important;
+        }
+    }
+    &.events-section{
+        .coming-soon-text{
+            margin-top: 12% !important;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            .coming-soon-text{
+                margin-top: 20% !important;
+            }
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            .coming-soon-text{
+                margin-top: 80% !important;
+            }
+        }
+    }
+    &.alternatives-from-ubs-section{
+        margin-top: 14px;
+        height: 731px;
+        width: 326px;
+        .coming-soon-text{
+            margin-top: 360px !important;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            width: 365px;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            .coming-soon-text{
+                margin-top: 80% !important;
+            }
+        }
+    }
+    &.alternatives-to-section{
+        margin-top: 14px;
+        height: 486px;
+        width: 326px;
+        .coming-soon-text{
+            margin-top: 230px !important;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            width: 365px;
+        }
+    }
+    &.investment-idea-section{
+        margin-top: 14px;
+        height: 280px;
+        width: 900px;
+        .coming-soon-text{
+            margin-top: 130px !important;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            width: 736px;
+            height: 326px;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            width: 360px;
+            height: 564px;
+            .coming-soon-text{
+                margin-top: 270px !important;
+            }
+        }
+    }
+    &.matching-products-section{
+        margin-top: 14px;
+        height: 328px;
+        width: 97%;
+        .coming-soon-text{
+            margin-top: 130px !important;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            width: 736px;
+            height: 325px;
+        }
+        
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            width: 360px;
+            height: 560px;
+            .coming-soon-text{
+                margin-top: 270px !important;
+            }
+        }
+    }
+    &.barometer-section{
+        .coming-soon-text{
+            margin-top: 40% !important;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            .coming-soon-text{
+                margin-top: 20% !important;
+            }
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            height: 103%;
+            .coming-soon-text{
+                margin-top: 40% !important;
+            }
+        }
+    }
+    &.analyses-overview-advertisment{
+        height: 378px;
+        width: 100%;
+        .coming-soon-text{
+            margin-top: 12% !important;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            height: 348px;
+            .coming-soon-text{
+                margin-top: 20% !important;
+            }
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            height: 371px;
+            .coming-soon-text{
+                margin-top: 50% !important;
+            }
+        }
+    }
+    &.trade-prediction-section{
+        width: 92%;
+        .coming-soon-text{
+            margin-top: 52% !important;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            width: 96%;
+            height: 100%;
+            .coming-soon-text{
+                margin-top: 10% !important;
+            }
+        }
+    }
+    &.commodity-find-section{
+        height: 29%;
+        .coming-soon-text{
+            margin-top: 8% !important;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            .coming-soon-text{
+                margin-top: 20% !important;
+            }
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            width: 100%;
+            height: 49%;
+            .coming-soon-text{
+                margin-top: 80% !important;
+            }
+        }
+    }
+    &.technical-key-figures-section{
+        .coming-soon-text{
+            margin-top: 100% !important;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            .coming-soon-text{
+                margin-top: 35% !important;
+            }
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            .coming-soon-text{
+                margin-top: 80% !important;
+            }
+        }
+    }
+    z-index: 10;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        width: 96%;
+    }
+    &.share-tools-section{
+        height: 90% !important;
+        .coming-soon-text{
+            margin-top: 13% !important;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            height: 94% !important;
+            .coming-soon-text{
+                margin-top: 35% !important;
+            }
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            width: 100%;
+            height: 96% !important;
+            .coming-soon-text{
+                margin-top: 80% !important;
+            }
+        }
+    }
+    &.share-portfolio-overview{
+        .coming-soon-text{
+            margin-top: 15% !important;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            .coming-soon-text{
+                margin-top: 30% !important;
+            }
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            width: 100%;
+            height: 100% !important;
+            .coming-soon-text{
+                margin-top: 90% !important;
+            }
+        }
+    }
+    &.share-analyses-report-section{
+        height: 96%;
+        width: 94%;
+        .coming-soon-text{
+            margin-top: 50% !important;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            height: 93%;
+            width: 96%;
+            .coming-soon-text{
+                margin-top: 10% !important;
+            }
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            width: 95%;
+            height: 96% !important;
+            .coming-soon-text{
+                margin-top: 35% !important;
+            }
+        }
+    }
+    &.derivative-underlying-tag-section{
+        height: 165px;
+        width: 1131px;
+        .coming-soon-text{
+            margin-top: 80px !important;
+        }
+        &.basiswert{
+            height: 120px;
+            width: 1250px;
+            .coming-soon-text{
+                margin-top: 60px !important;
+            }
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            height: 307px;
+            width: 735px;
+            .coming-soon-text{
+                margin-top: 150px !important;
+            }
+            &.basiswert{
+                height: 170px;
+                width: 735px;
+                .coming-soon-text{
+                    margin-top: 60px !important;
+                }
+            }
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){ 
+            width: 326px;
+            height: 585px;
+            .coming-soon-text{
+                margin-top: 80% !important;
+            }
+            
+            &.basiswert{
+                width: 326px;
+                height: 330px;
+                .coming-soon-text{
+                    margin-top: 160px !important;
+                }
+            }
+        }
+    }
+    &.derivativ-search-tags{
+        width: 1200px;
+        height: 164px !important;
+        .coming-soon-text{
+            margin-top: 80px !important;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            width: 736px;
+            height: 320px !important;
+            .coming-soon-text{
+                margin-top: 20% !important;
+            }
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            width: 330px;
+            height: 620px !important;
+            .coming-soon-text{
+                margin-top: 80% !important;
+            }
+        }
+    }
+    &.share-performance-card{
+        width: 100%;
+        height: 101%;
+        .coming-soon-text{
+            margin-top: 80px !important;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            .coming-soon-text{
+                height: 101px;
+                margin-top: 20% !important;
+            }
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            width: 100%;
+            height: 150px;
+            .coming-soon-text{
+                margin-top: 70px !important;
+            }
+        }
+    }
+    &.asset-row{
+        height: 890px;
+        margin-top: 38px;
+        .coming-soon-text{
+            margin-top: 460px !important;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            height: 1176px;            
+            margin-top: 0;
+            .coming-soon-text{
+                margin-top: 560px !important;
+            }
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            width: 100%;
+            height: 358px;
+            .coming-soon-text{
+                margin-top: 180px !important;
+            }
+        }
+    }
+    &.custom-asset-main-car-lg{
+        height: 300px !important;
+        .coming-soon-text{
+            margin-top: 145px !important;
+        }
+
+    }
+    &.custom-asset-main-car-sm{
+        height: 286px !important;
+        .coming-soon-text{
+            margin-top: 145px !important;
+        }
+    }
+    &.index-screener-rating-section{
+        left: -3px;
+        width: 96%;
+        .coming-soon-text{
+            margin-top: 200px !important;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            left: 16px;
+            width: 92%;
+            height: 97%;
+            .coming-soon-text{
+                margin-top: 200px !important;
+            }
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            .coming-soon-text{
+                margin-top: 200px !important;
+            }
+        }
+    }
+
+    &.performance-fund-section{
+        width: 97%;
+        height: 364px !important;
+        .coming-soon-text{
+            margin-top: 150px !important;
+        }
+    }
+
+    &.performance-fund-section-mobile{
+        height: 368px;
+        .coming-soon-text{
+            margin-top: 150px !important;
+        }
+    }
+    &.risk-section{
+        height: 296px !important;
+        left: 16px;
+        width: 304px;
+        .coming-soon-text{
+            margin-top: 130px !important;
+        }
+    }
+    &.risk-fund-section{
+        height: 337px;
+        width: 352px;
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            left: -8px;
+            width: 360px;
+            height: 328px;
+            .coming-soon-text{
+                margin-top: 160px !important;
+            }
+        }
+    }
+    &.risk-fund-big-donut-section{
+        height: 200px;
+        width: 352px;
+        .coming-soon-text{
+            margin-top: 100px !important;
+        }
+    }
+    &.risk-fund-small-donut-section{
+        margin-top: 50px;
+        height: 100px;
+        width: 176px;
+        .coming-soon-text{
+            margin-top: 50px !important;
+        }
+    }
+    &.donut-kg-section{
+        left: 16px;
+        height: 192px;
+        width: 90%;
+        .coming-soon-text{
+            margin-top: 80px !important;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            width: 352px;
+            .coming-soon-text{
+                margin-top: 90px !important;
+            }
+        }
+    }
+    &.fund-cards{
+        width: 103% !important;
+        height: 181px !important;
+        left: -4px;
+        top: -4px;
+        .coming-soon-text{
+            margin-top: 80px !important;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            width: 102% !important;
+            
+        }
+    }
+
+}
+
+.home-page-wrapper {
+    .market-overview-section {
+        .market-section-heading {
+            h1 {
+                font-size: 24px !important;
+            }
+        }
+    }
+}
+
+
+.custom-height{
+    box-shadow: 0px 3px 6px #00000029;
+    height: 42px;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        height: 62px !important;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        height: 98px !important;
+        line-height: 1.3;
+    }
+    .custom-width{
+        width: 8px
+    }
+}

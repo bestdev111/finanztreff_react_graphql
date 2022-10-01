@@ -1,0 +1,6 @@
+mutation EditWatchlistView($viewType: String!, $watchlistId: Long) {
+    editWatchlistView(viewType: $viewType, watchlistId: $watchlistId) {
+        responseCode
+        responseMessage
+    }
+}

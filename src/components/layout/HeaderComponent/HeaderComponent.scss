@@ -1,0 +1,179 @@
+@import './src/styles/theme';
+
+.navbar-container {
+    @media screen and (max-width: map-get($grid-breakpoints, xl)) {
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    @media screen and (max-width: 1279px) {
+        border-top-width: 2px;
+        border-top-style: solid;
+        border-color: #f1f1f1;
+    }
+}
+
+.active-home-icon {
+    padding-bottom: 0 !important;
+    border-bottom: 2px solid white !important;
+}
+.main-nav {
+    .navbar-container>.dropdown {
+        .svg-icon.down-caret {
+            display: inline;
+        }
+        .svg-icon.up-caret {
+            display: none;
+        }
+    }
+    .navbar-container>.dropdown.show {
+        .svg-icon.down-caret {
+            display: none;
+        }
+        .svg-icon.up-caret {
+            display: inline;
+        }
+    }
+    .nav-link.nav-item.basic-nav-dropdown::after  {
+        content: none !important;
+    }
+    .dropdown-menu .btn {
+        font-size: 1rem;
+    }
+    @media only screen and (min-width: 1280px) {
+        .nav-link{
+            padding: 0 !important;
+        }
+        .dropdown-menu{
+            font-size: 15px !important;
+            box-shadow: 0px 3px 6px #00000029;
+            .btn {
+                font-size: 15px;
+            }
+        }
+    }
+    .navbar-brand{
+        margin-top: -2px !important;
+        margin-bottom: 2px !important;
+        &.active-home-icon{
+            margin-top: -4px !important;
+            margin-bottom: 4px !important;
+        }
+    }
+}
+.home-icon-padding-right{
+    padding-right: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+}
+@media only screen and (max-width: 1280px) {
+    .mein-ftreff-button-fix {
+        padding-bottom: 10rem !important;
+    }
+    .navbar .nav-link .dropdown-menu .dropdown-item.active{
+        color: black !important;
+        text-decoration: underline !important;
+        font-weight: bold !important;
+        background-color:white !important;
+    }
+    .navbar .nav-link .dropdown-menu{
+        border: 0 !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        margin-left: -1rem !important;
+        margin-right: -1rem !important;
+    }
+    .navbar .nav-link .dropdown-menu .dropdown-item-main-navigation{
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        padding-left: 1rem !important;
+        line-height: 48px !important;
+        border-bottom: 1px solid #F1F1F1;
+    }
+    .navbar div.basic-nav-dropdown > a{
+        color:white !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        &.disabled{
+            color: rgba(255,255,255,0.5) !important;
+        }
+        &.disabled:hover{
+            border: none !important;
+        }
+    }
+
+    .basic-nav-dropdown{
+        &.active {
+            border-bottom: 1px solid #F1F1F1;
+        }
+    }
+    .navbar .nav-item .dropdown-toggle::after {
+        content: none !important;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .navbar .nav-link .dropdown-menu .dropdown-item.active{
+        color: black !important;
+        text-decoration: underline !important;
+        font-weight: bold !important;
+        background-color:white !important;
+    }
+    .navbar .nav-link .dropdown-menu{
+        border: 0 !important;
+        border-radius: 0 !important;
+        margin-top: 0.55rem !important;
+        padding: 0 !important;
+    }
+    .navbar .nav-link .dropdown-menu .dropdown-item-main-navigation{
+        padding-top: 0.7rem !important;
+        padding-bottom: 0.7rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        border-bottom: 1px solid #F1F1F1
+    }
+    .navbar div.basic-nav-dropdown > a{
+        color:white !important;
+        &.disabled{
+            color: rgba(255,255,255,0.5) !important;
+        }
+    }
+    .navbar .nav-item .dropdown-toggle::after {
+        content: none !important;
+    }
+}
+.ads-responsive-class{
+    background-color: #383838;
+    padding-top: 8px;
+    @media screen and (max-width: 767px){
+        display:none !important;
+    }
+}
+.ads-responsive-class-to{
+    @media screen and (max-width: 767px){
+        display:none !important;
+    }
+}
+#Ads_BA_BS {
+    min-height: unset !important
+}
+
+
+.asset-value-movement-blinker {
+    animation: blinker 500ms ease-out 1;
+}
+
+@keyframes blinker {
+    25% {
+        opacity: 0.4;
+    }
+}
+
+.asset-value-movement-blinker-font {
+    animation: font-blinker 500ms ease-out 1;
+}
+
+@keyframes font-blinker {
+    25% {
+        color: rgba(255, 255, 255, 0.4);
+    }
+}
+

@@ -1,0 +1,40 @@
+@import "src/styles/theme";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.commodity-card-filter{
+    font-size: 16px;
+    width: 300px;
+    height: 150px;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        width: 360px;
+        height: 130px;
+    }
+    .header-filter{
+        max-width: max-content;
+        margin: unset;
+        line-height: 16x !important;
+    }
+    .button-body{
+        .title{
+            font-size: 16px !important;
+        }
+    }
+    .toggle-icon{
+        width: 20px !important;
+    }
+    box-shadow: 0px 3px 6px #00000029;
+    border-width: 3px !important;
+    border-color: white !important;
+    cursor: pointer;
+    &.active{
+        border-width: 3px !important;
+        border-color: #326EAC !important;
+        border-radius: 0 !important;
+    }
+    .asset-type-tag{
+        padding: unset !important;
+        padding-top: 2px !important;
+        padding-left: 6px !important;
+        padding-right: 6px !important;
+    }
+}

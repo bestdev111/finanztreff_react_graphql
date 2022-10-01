@@ -1,0 +1,147 @@
+@import "src/styles/theme";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.analysis-progress-chart {
+  position: relative;
+  overflow: hidden;
+
+  &.analysis-progress-chart-sm {
+    .label {
+      display: none !important;
+    }
+    .pointer {
+      font-size: 32px;
+      line-height: 0.8;
+    }
+    .chart {
+      .line {
+        height: 8px;
+        margin-top: 8px;
+        z-index: 4;
+        &.inner {
+          height: 4px;
+          margin-top: 10px;
+        }
+      }
+      .stripped {
+        border-width: 1px 0;
+        -webkit-background-clip: padding-box;
+      }
+      .arrow {
+        top: 4px;
+      }
+      .black-divider {
+        margin-top: 4px;
+        height: 16px;
+        -webkit-background-clip: padding-box;
+      }
+    }
+  }
+
+  .stripped {
+    background: linear-gradient(to right, transparent 75%, white 30%), linear-gradient(to right, transparent, transparent);
+    background-size: 16px 2px, 100% 3px;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    z-index: 1;
+    -webkit-background-clip: padding-box;
+  }
+
+  .footer {
+    font-size: 15px;
+    @include media-breakpoint-down(lg) {
+      font-size: 13px;
+    }
+  }
+
+  .chart {
+    height: 24px;
+    .line {
+      height: 12px;
+      margin-top: 6px;
+      z-index: 4;
+      &.inner {
+        height: 6px;
+        margin-top: 9px;
+      }
+    }
+    .arrow {
+      top: 4px;
+      z-index: 5;
+    }
+  }
+
+
+  .black-divider {
+    width: 6px;
+    background-color: black;
+    height: 26px;
+    margin-top: 4px;
+    z-index: 8;
+    border: 2px solid white;
+    -webkit-background-clip: padding-box;
+  }
+
+  .pointer {
+    font-size: 60px;
+    line-height: 0.8;
+  }
+
+  .green-line {
+    background-color: #18C48F;
+  }
+
+  .red-line {
+    background-color: #FF4D7D;
+  }
+
+  .arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #18C48F;
+    z-index: 10;
+    right: 0;
+  }
+
+  .arrow-left {
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid #FF4D7D;
+    z-index: 10;
+    left: 0;
+  }
+
+  .linear-gradient {
+    &.positive-analyse {
+      background-image: linear-gradient(to right, #FFCC00, #FFCC00, #18C48F, #18C48F);
+    }
+
+    &.negative-analyse {
+      background-image: linear-gradient(to right, #FF4D7D, #FF4D7D, #FFCC00, #FFCC00);
+    }
+  }
+
+  .progress-pointer {
+    position: absolute;
+    width: 8px;
+    height: 42px;
+    top: -20px;
+    z-index: 12;
+    border: 2px solid white;
+    background-color: rgba(0, 0, 0, 0.8);
+    -webkit-background-clip: padding-box;
+  }
+
+  .progress-value {
+    position: absolute;
+    top: -16px;
+    left: 47%;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 12;
+  }
+}

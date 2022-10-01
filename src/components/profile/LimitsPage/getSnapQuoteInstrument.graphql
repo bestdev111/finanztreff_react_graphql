@@ -1,0 +1,16 @@
+query getInstrumentSnapQuote($instrumentId:Int!) {
+    instrument(id: $instrumentId) {
+        currency {
+            displayCode
+        }
+        snapQuote {
+            lastChange
+            instrumentId
+            quote(type:TRADE) {
+                value
+                change
+                percentChange
+            }
+        }
+    }
+}

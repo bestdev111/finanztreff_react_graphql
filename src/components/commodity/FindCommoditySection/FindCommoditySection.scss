@@ -1,0 +1,47 @@
+@import 'src/styles/theme';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.commodity-find-instrument-card{
+    height: 80px;
+    
+    .stock-movement{
+        font-weight: bold;
+    }
+    .stock-currency{
+        font-size: 11px !important;
+    }
+}
+
+.commodity-find-card{
+    height: 91px;
+    .commodity-info-rows{
+        .negative-movement, .positive-movement{
+            justify-content: unset !important;
+            margin-left: -8px
+        }
+        .commodity-filter-row{
+            font-size: 18px;
+            font-weight: bold;
+        }
+    }
+}
+
+.dropdown-small-card{
+    width: 186px !important;
+    min-height: 83px !important;
+    max-height: 115px !important;
+    .card-header  {
+        border: none !important;
+    }
+    
+}
+
+
+.modal-content{
+    .dropdown-small-card{
+        .card-header  {
+            display: none !important;
+        } 
+    }
+}

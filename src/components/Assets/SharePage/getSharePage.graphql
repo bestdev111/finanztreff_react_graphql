@@ -1,0 +1,139 @@
+query getShareInfo($groupId: Int!) {
+    group(id: $groupId) {
+        id
+        isin
+        wkn
+        name
+        assetGroup
+        underlying
+        description {
+            natural
+            text
+        }
+        company{
+            id
+        }
+        main {
+            id
+            currency {
+                displayCode
+            }
+        }
+        indexParticipation {
+            main {
+                id
+                name
+                group{
+                    name
+                    seoTag
+                    assetGroup
+                }
+            }
+        }
+        content {
+            id
+            isin
+            wkn
+            main
+            tickerSymbol
+            name
+            marketCapitalization
+            group {
+                assetGroup
+                seoTag
+                id
+                isin
+                name
+                underlying
+                wkn
+                sector {
+                    name
+                }
+            }
+            exchange {
+                id
+                name
+                code
+            }
+            currency {
+                id
+                name
+                displayCode
+                sign
+            }
+            countryId
+            snapQuote {
+                delay
+                lastChange
+                instrumentId
+                lowPrice
+                highPrice
+                firstPrice
+                lastPrice
+                yesterdayPrice
+                cumulativeTrades
+                cumulativeTurnover
+                cumulativeVolume
+                quotes {
+                    size
+                    delay
+                    type
+                    value
+                    percentChange
+                    change
+                    when
+                }
+            }
+            performance(period:[WEEK1, MONTH1, MONTH3, MONTH6, WEEK52,YEAR3, YEAR5, YEAR10]) {
+                period
+                averagePrice
+                performance
+                sharpe
+                vola
+            }
+            stats(periods: [ALL_TIME, WEEK52]) {
+                period
+                lowPrice
+                lowPriceDate
+                deltaLowPrice
+                highPrice
+                highPriceDate
+                deltaHighPrice
+            }
+            indicators {
+                relativeStrengthIndex {
+                    last7Days
+                    last9Days
+                    last14Days
+                    last25Days
+                }
+                movingAverage {
+                    deltaLine10Day
+                    line10Day
+                    deltaLine20Day
+                    line20Day
+                    deltaLine38Day
+                    line38Day
+                    deltaLine90Day
+                    line90Day
+                    deltaLine200Day
+                    line200Day
+                }
+            }
+            rangeCharts {
+                intraday {
+                    min
+                    max
+                    current
+                    threshold
+                }
+                year {
+                    min
+                    max
+                    current
+                    threshold
+                }
+            }
+        }
+    }
+}

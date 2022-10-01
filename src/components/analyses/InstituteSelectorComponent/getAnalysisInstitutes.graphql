@@ -1,0 +1,6 @@
+query getAnalysisInstitutes {
+    analysisInstitute {
+        id
+        name
+    }
+}

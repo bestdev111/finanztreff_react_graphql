@@ -1,0 +1,6 @@
+mutation UpdateWatchlistMaster($changes: [FieldChangeBooleanRequest!]!) {
+    updateWatchlistMaster(changes: $changes) {
+        id
+        value
+    }
+}

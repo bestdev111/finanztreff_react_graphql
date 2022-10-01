@@ -1,0 +1,11 @@
+query getUserWatchlistsAdd {
+    user {
+        username
+        profile {
+            watchlists {
+                id
+                name
+            }
+        }
+    }
+}

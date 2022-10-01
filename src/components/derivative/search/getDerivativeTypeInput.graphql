@@ -1,0 +1,16 @@
+query getDerivativeTypeInput {
+    classification(category: [WARR, KNOCK, CERT]) {
+        id
+        name
+        leveraged
+        assetGroup
+        typeGroups {
+            id
+            name
+        }
+        types {
+            id
+            name
+        }
+    }
+}

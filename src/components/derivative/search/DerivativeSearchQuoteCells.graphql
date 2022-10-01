@@ -1,0 +1,14 @@
+query getDerivativeSearchQuoteCells($id: Int!) {
+    instrument(id: $id) {
+        snapQuote {
+            lastChange
+            instrumentId
+            quotes {
+                delay
+                type
+                value
+                when
+            }
+        }
+    }
+}

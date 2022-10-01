@@ -1,0 +1,21 @@
+query getInstrumentChartComparison($instrumentId:Int!, $chartScope: ChartScope!) {
+    instrument(id:$instrumentId) {
+        id
+        name
+        chart(scope:$chartScope) {
+            id
+            series {
+                label
+                type
+                data {
+                    value
+                    when
+                }
+            }
+            threshold {
+                type
+                value
+            }
+        }
+    }
+}

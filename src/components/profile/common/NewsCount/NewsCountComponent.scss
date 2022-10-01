@@ -1,0 +1,24 @@
+@import './src/styles/theme';
+
+.news-count-component{
+    margin-top: 40px;
+    font-size: 16px;
+    .news-count{
+        font-size: 36px;
+    }
+    .news-all{
+        font-size: 24px;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints, md)-1) {
+        margin-top: 14px;
+        font-size: 14px;
+        .news-count{
+            font-size: 24px;
+        }
+        .news-all{
+            font-size: 17px;
+        }
+    
+    }
+
+}

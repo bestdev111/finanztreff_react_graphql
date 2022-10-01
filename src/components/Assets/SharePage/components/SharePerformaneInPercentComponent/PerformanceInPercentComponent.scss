@@ -1,0 +1,65 @@
+@import "src/styles/theme";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.column-chart-container{
+    display: relative;
+    .column-chart-container-inner{
+        display: absolute;
+        div{
+            overflow: auto !important;
+        }
+        :first-child{
+            overflow: hidden !important;
+        }
+    }
+    .column-label-y-top{
+        position: absolute !important;
+        right: 16px;
+        top: 62px;
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            right: 16px;
+            top: 78px;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            right: 4px;
+            top: 100px;
+        }
+    }
+    .column-label-y-bottom{
+        position: absolute !important;
+        right: 16px;
+        bottom: 100px;
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            right: 16px;
+            bottom: 70px;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            right: 4px;
+            bottom: 32px;
+        }
+    }
+    .point-tooltip{
+        text-align: center;
+    }
+    .point-tooltip-style{
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 8px;
+    }
+    .y-scale{
+        overflow: hidden !important;
+        display: grid;
+        font-size: 9px;
+        color: #383838;
+        padding-right: 24px;
+        height: 220px;
+        z-index: 100;
+        margin-top: 40px;
+        span{
+            margin-left: auto
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            width: 200px;
+        }
+    }
+}

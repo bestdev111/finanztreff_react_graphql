@@ -1,0 +1,20 @@
+query getInstrumentGroupIncluded($instrumentGroupId: Long!, $days: Long!) {
+    instrumentGroupIncluded(instrumentGroupId: $instrumentGroupId) {
+        portfolios
+        totalPortfolios
+        watchlists
+        totalWatchlists
+        limitsUpper
+        limitsLower
+        limits
+        totalLimits
+    }
+    instrumentGroupTrades(instrumentGroupId: $instrumentGroupId, days: $days){
+        instrument{
+            id
+        }
+        price
+        quantity
+        buy
+    }
+}

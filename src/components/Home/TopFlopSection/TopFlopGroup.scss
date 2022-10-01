@@ -1,0 +1,35 @@
+@import 'src/styles/theme';
+
+.table-top-flop {
+  border-bottom: 1px solid #dee2e6;
+
+  .column-name {
+    @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+      max-width: 130px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap
+    }
+  }
+
+  .column-progress {
+    width: 188px;
+  }
+
+  .column-last-trade {
+    min-width: 120px;
+  }
+  .column-sector {
+    max-width: 128px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+  }
+
+  .delimiter {
+    td {
+      border-top-width: 3px;
+    }
+  }
+
+}

@@ -1,0 +1,38 @@
+query getCompanyKeyFigures($groupId: Int!, $fromYear: Int!, $toYear: Int!) {
+    group(id: $groupId) {
+        id
+        company{
+            keyFigures(criteria:{fromYear: $fromYear, toYear: $toYear}) {
+                year
+                dividendYield
+                dividendPerShare
+                priceToCashFlowRatio
+                priceToEarningsRatio
+                priceToSalesRatio
+                salesPerShare
+                cashFlowPerShare
+                workingCapital
+                equityReturn
+                salesRatio
+                returnOnAssets
+                returnOnInvestment
+                intensityOfInvestments
+                intensityOfLabor
+                equityRatio
+                debtEquityRatio
+                cashGrade1
+                cashGrade2
+                cashGrade3
+                cashRatioGrade1
+                cashRatioGrade2
+                cashRatioGrade3
+                debtRatio
+                earningPerShare
+                dilutedEarningPerShare
+                employees
+                personnelExpenses
+                salesPerEmployee
+            }
+        }
+    }
+}

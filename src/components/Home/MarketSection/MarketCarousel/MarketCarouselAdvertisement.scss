@@ -1,0 +1,28 @@
+.market-carousel-advertisement {
+  color: white;
+  font-size: 12px;
+  h5 {
+    font-size: 13px;
+    font-weight: bolder;
+  }
+
+  .special-label {
+    padding-top: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.45;
+  }
+}
+
+.btn {
+  &.btn-long-button {
+    color: var(--white);
+    background-color: var(--green);
+    padding: 2px 4px;
+  }
+
+  &.btn-short-button {
+    color: var(--white);
+    background-color: var(--red);
+    padding: 2px 4px;
+  }
+}

@@ -1,0 +1,12 @@
+query getAlternativeIssuerProducts($underlyingInstrumentGroupId: Int!, $assetType: String!, $optionType: DerivativeOptionType) {
+ group(id:$underlyingInstrumentGroupId) {
+  id
+  derivativeIssuer(criteria: {assetType: $assetType, optionType: $optionType}) {
+   issuer {
+     id
+     name
+   }
+   count
+  }
+ }
+}

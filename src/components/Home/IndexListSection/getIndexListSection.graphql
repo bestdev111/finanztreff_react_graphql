@@ -1,0 +1,33 @@
+query getIndexListSection {
+  list(id: "market_products") {
+    id
+    content {
+      id
+      name
+      snapQuote {
+        lastChange
+        instrumentId
+        quote(type: TRADE) {
+          type
+          when
+          delay
+          value
+          percentChange
+          change
+        }
+      }
+      currency {
+        displayCode
+      }
+      exchange {
+        code
+      }
+      group {
+        id
+        name
+        seoTag
+        assetGroup
+      }
+    }
+  }
+}

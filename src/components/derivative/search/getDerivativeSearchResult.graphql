@@ -1,0 +1,84 @@
+query getDerivativeSearchResult (
+    $optionType: DerivativeOptionType,
+    $assetGroup: AssetGroup,
+    $assetType: String,
+    $underlyingInstrumentGroupId: Int,
+    $strikeFrom:Float, $strikeTo:Float,
+    $gearingFrom:Float, $gearingTo:Float,
+    $moneynessFrom:Float, $moneynessTo:Float,
+    $capFrom:Float, $capTo:Float,
+    $knockInFrom:Float, $knockInTo:Float,
+    $knockOutFrom:Float, $knockOutTo:Float,
+    $knockInLowerFrom:Float, $knockInLowerTo:Float,
+    $knockInUpperFrom:Float, $knockInUpperTo:Float,
+    $maturityDateFrom:LocalDate, $maturityDateTo:LocalDate,
+    $issuerId: [Long!],
+    $first: Int, $after: ID,){
+    searchDerivative(criterion: {
+        assetGroup: $assetGroup,
+        assetType: $assetType,
+        underlyingInstrumentGroupId: $underlyingInstrumentGroupId,
+        optionType: $optionType,
+        issuerId: $issuerId,
+        maturityDate: {from: $maturityDateFrom, to: $maturityDateTo},
+    }, first: $first, after : $after) {
+        edges {
+            cursor
+            node {
+                id
+                name
+                wkn
+                group {
+                    id
+                    seoTag
+                    assetGroup
+                    assetType { id name }
+                    issuerId
+                    issuer {
+                        name
+                        partner
+                    }
+                    main {
+                        id
+                        keyFigures {
+                            gearing
+                            deltaStopLoss
+                            deltaStopLossAbsolute
+                            moneyness
+                        }
+                        snapQuote {
+                            lastChange
+                            instrumentId
+                            quotes {
+                            delay
+                            type
+                            value
+                            when
+                            }
+                        }
+                    }
+                    derivative {
+                        id
+                        maturityDate
+                        optionType
+                    }
+                    underlyings {
+                        id
+                        strike
+                        knockOut
+                        currency {
+                            displayCode
+                        }
+                    }
+                }
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        count
+    }
+}

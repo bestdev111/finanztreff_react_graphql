@@ -1,0 +1,149 @@
+@import "src/styles/theme.scss";
+
+
+.performance-section {
+  .content {
+    .vert-line {
+      min-height: 2px;
+      position: absolute;
+      top: 28px;
+      width: 100%;
+      background: rgb(255, 255, 255);
+      background: linear-gradient(
+                      90deg,
+                      rgba(255, 255, 255, 1) 2%,
+                      rgba(0, 0, 0, 0.196516106442577) 50%,
+                      rgba(255, 255, 255, 1) 98%
+      );
+      z-index: 0;
+    }
+
+    @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+      .vert-line {
+        top: 0;
+        left: 129px;
+        min-width: 2px;
+        width: 2px;
+        min-height: 0;
+        height: 100%;
+        background: linear-gradient(180deg, white 2%, rgba(0, 0, 0, 0.196516) 50%, white 98%);
+      }
+    }
+
+  }
+  .performance-event {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.3;
+    position: relative;
+    z-index: 1;
+
+    &.negative-movement {
+      .percentage {
+        color: var(--pink);
+      }
+
+      .scale-circle {
+        > span {
+          background-color: var(--light-pink);
+          border-color: var(--pink);
+        }
+      }
+    }
+
+    &.positive-movement {
+      .percentage {
+        color: var(--green);
+      }
+
+      .scale-circle {
+        > span {
+          background-color: var(--light-green);
+          border-color: var(--green);
+        }
+      }
+    }
+
+    .scale-circle {
+      min-height: 60px;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+
+      &.size-1 {
+        > span {
+          width: 17px;
+          height: 17px;
+        }
+      }
+
+      &.size-2 {
+        > span {
+          width: 27px;
+          height: 27px;
+        }
+      }
+
+      &.size-3 {
+        > span {
+          width: 37px;
+          height: 37px;
+        }
+      }
+
+      &.size-4 {
+        > span {
+          width: 45px;
+          height: 45px;
+        }
+      }
+
+      &.size-5 {
+        > span {
+          width: 61px;
+          height: 61px;
+        }
+      }
+
+      > span {
+        border-radius: 50%;
+        border: 2px solid;
+      }
+    }
+
+    .value {
+      font-size: 13px;
+    }
+
+    @media screen and (max-width: map-get($grid-breakpoints, md) - 1) {
+      display: flex;
+      align-items: center;
+
+      .scale-circle {
+        min-height: 40px;
+        margin-bottom: 0;
+        min-width: 90px;
+      }
+
+      .period {
+        min-width: 60px;
+        text-align: right;
+      }
+
+      .percentage {
+        min-width: 65px;
+        text-align: right;
+        margin-right: 5px;
+      }
+
+      .value {
+        min-width: 75px;
+        text-align: right;
+      }
+    }
+  }
+
+}

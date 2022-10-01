@@ -1,0 +1,20 @@
+.chart-item-portfolio{
+    .dot{
+        height: 7px !important;
+        width: 7px !important;
+        margin-bottom: 2px;
+    }
+    .pie-chart-portfolio{
+        height: 200px !important;
+        width: 200px !important;
+        .highcharts-background{
+            height: 0 !important;
+        }
+    }
+
+    .chart-inner-text {
+        position: absolute;
+        top: 42px;
+        left: 45px;
+    }
+}

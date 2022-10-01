@@ -1,0 +1,20 @@
+query getModalAnalysesReport($groupId:Int!) {
+    group(id: $groupId) {
+        id
+        analysisReport {
+            neutralCount
+            negativeCount
+            positiveCount
+            recommendation
+            price
+            currency {
+                displayCode
+            }
+            targets {
+                recommendation
+                price
+                count
+            }
+        }
+    }
+}

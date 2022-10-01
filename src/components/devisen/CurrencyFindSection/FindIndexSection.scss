@@ -1,0 +1,27 @@
+@import 'src/styles/theme';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.filters-panel{
+    .btn-panel-button{
+        width: 190px !important;
+        height: 46px !important;
+        margin: 0 4px !important;
+        .single-line{
+            line-height: 1.5 !important;
+        }
+    @media screen and (max-width: map-get($grid-breakpoints, xl) - 1) {
+        width: 168px !important;
+    }
+}
+}
+
+.find-index-search-panel{
+    max-width: 252px;
+    height: 46px;
+    border: none;
+    color: #989898;
+    border-radius: 0.3em;
+    padding: 0 8px;
+    width: 250px;
+}

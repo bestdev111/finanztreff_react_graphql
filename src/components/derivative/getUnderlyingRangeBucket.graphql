@@ -1,0 +1,22 @@
+query underlyingRangeBucket (
+    $assetClassId: Long,
+    $underlyingInstrumentGroupId: Int!,
+)
+{
+    group(id: $underlyingInstrumentGroupId) {
+        derivativeKeyFigureRangeBucket(criteria:{assetClass: $assetClassId}, ranges:{
+            gearing:[
+                {to: 10},
+                {from: 10, to: 20},
+                {from: 20}
+
+            ]
+        })
+        {
+            optionType
+            from
+            to
+            count
+        }
+    }
+}

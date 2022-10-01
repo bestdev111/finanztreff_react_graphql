@@ -1,0 +1,90 @@
+query getApplicationMetadata {
+    classification {
+        id
+        name
+        assetGroup
+        typeGroups {
+            id
+            name
+        }
+    }
+    etfAllocation {
+        id
+        name
+    }
+    etfPosition {
+        id
+        name
+    }
+    etfRegions {
+        id
+        name
+    }
+    etfSectors {
+        id
+        name
+    }
+    etfStrategies {
+        id
+        name
+    }
+    etfReplications {
+        id
+        name
+    }
+    etfIssuers {
+        id
+        name
+    }
+    bondNominalCurrencyBuckets {
+        currency {
+            id
+            displayCode
+            alphaCode
+            name
+        }
+        count
+    }
+    bondTradingCurrencyBuckets {
+        currency {
+            id
+            displayCode
+            alphaCode
+            name
+        }
+        count
+    }
+    bondTypes {
+        name
+        id
+    }
+    bondIssuers {
+        id
+        legalName
+    }
+    fundCurrencies {
+        id
+        name
+    }
+    fundRegions {
+        id
+        name
+        countryIsoAlpha3
+    }
+    fundTopics {
+        id
+        name
+    }
+    fundStrategies {
+        id
+        name
+    }
+    fundTypes{
+        id
+        name
+    }
+    regions {
+        id
+        name
+    }
+}

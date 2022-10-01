@@ -1,0 +1,5 @@
+mutation sendFeedback($email: String,  $body: String!) {
+    feedback(feedback:{ email: $email, body: $body}) {
+        orderId
+    }
+}

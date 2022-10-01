@@ -1,0 +1,6 @@
+mutation EditLimitOrder($viewOrder: String!, $viewOrderAsc: Boolean) {
+    editLimitOrder(viewOrder: $viewOrder, viewOrderAsc: $viewOrderAsc) {
+        responseCode
+        responseMessage
+    }
+}

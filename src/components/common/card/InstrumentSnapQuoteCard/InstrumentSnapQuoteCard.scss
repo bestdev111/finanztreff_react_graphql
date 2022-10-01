@@ -1,0 +1,39 @@
+.instrument-snap-quote-chart {
+  border: 1px solid var(--border-gray);
+  .asset-name {
+    font-size: 17px;
+    font-weight: bold;
+    max-width: none;
+    text-shadow: none;
+    color: var(--main-text);
+    cursor: pointer;
+  }
+  .quote-value {
+    .change {
+      height: 16px;
+    }
+    .time {
+      .value {
+        height: 11px;
+        line-height: 11px;
+      }
+    }
+  }
+  .chart {
+    height: 114px;
+  }
+}
+
+
+.rate {
+  font-size: 33px;
+  .fraction {
+    font-size: 23px;
+    height: 23px;
+  }
+  .currency {
+    margin-top: 2px;
+    font-size: 13px;
+    height: 13px;
+  }
+}

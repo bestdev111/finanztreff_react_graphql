@@ -1,0 +1,22 @@
+.svg-icon {
+    display: inline-block;
+    position: relative;
+
+    &.top-move {
+        top: -2px;
+    }
+}
+
+.png-icon {
+    display: inline-block;
+    position: relative;
+
+    &.top-move {
+        top: -3px;
+    }
+}
+
+.icon1:hover,
+.icon1:focus {
+    background: red;
+}

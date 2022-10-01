@@ -1,0 +1,77 @@
+@import 'src/styles/theme';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.limit-label{
+    padding: 2px 8px;
+    color: white;
+    border-radius: 0.3em;
+    z-index: 15;
+}
+
+.down-limit{
+    height: 28px !important;
+    border-bottom: 0 !important;
+    background-color: #FF4D7D !important;
+}
+
+.upper-limit{
+    height: 28px !important;
+    border-bottom: 0 !important;
+    background-color: #18C48F !important;
+}
+
+.yellow-line{
+    background-color: #FFCC00;
+}
+
+@keyframes pulse_ani {
+    0% { background:#18C48F;box-shadow: 0px 0px 8px rgba(0,0,0,0.6) inset;}
+    10% { background:#00ff15;box-shadow: 0px 0px 2px rgba(0,0,0,0.6) inset; }
+    20% { background:#00ff15;box-shadow: 0px 0px 2px rgba(0,0,0,0.6) inset; }
+    80% { background:#18C48F;box-shadow: 0px 0px 8px rgba(0,0,0,0.6) inset; }
+    100% { background:#18C48F;box-shadow: 0px 0px 8px rgba(0,0,0,0.6) inset; }
+}
+
+.pulse {
+    width:16px;
+    height:16px;
+    background:#18C48F;
+    border-radius: 50%;
+    position:absolute;
+    right:12px;
+    bottom:12px;
+    animation: pulse_ani 3s infinite;
+}
+
+.green-dot{
+    width:12px;
+    height:12px;
+    background:#18C48F;
+    border-radius: 50%;
+    position: fixed;
+    margin-top: 5px;
+}
+
+.add-limit-card{
+    margin-top:16px;
+    .lollipop-card{
+        min-height: 232px !important;    
+    }
+
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        .lollipop-card{
+            margin-right: 0 !important;
+            margin-left: 16px !important;
+            min-height: 217px !important;    
+        }
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        margin-top: 16px;
+        .lollipop-card{           
+            min-width: 357px;
+            min-height: 217px !important;    
+            margin-left: -22px !important;
+        }
+    }
+}

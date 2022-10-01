@@ -1,0 +1,28 @@
+query getNewsInstrumentSnapQuote($instrumentId:Int!) {
+    instrument(id: $instrumentId) {
+        id
+        currency {
+            displayCode
+        }
+        snapQuote {
+            lastChange
+            instrumentId
+            lowPrice
+            highPrice
+            firstPrice
+            lastPrice
+            yesterdayPrice
+            cumulativeTrades
+            cumulativeTurnover
+            cumulativeVolume
+            quotes {
+                delay
+                type
+                value
+                percentChange
+                change
+                when
+            }
+        }
+    }
+}

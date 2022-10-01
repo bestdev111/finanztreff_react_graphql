@@ -1,0 +1,50 @@
+.underlying-wrapper {
+  .underlying-tag {
+    width: 345px;
+    background: #FFFFFF 0 0 no-repeat padding-box;
+    box-shadow: 1px 1px 3px #00000029;
+    border-radius: 3px;
+    opacity: 1;
+    height: 26px;
+
+    .tag-asset-name {
+      width: 33px;
+      height: 14px;
+      text-align: left;
+      font: normal normal bold 12px/19px Roboto;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      opacity: 1;
+    }
+
+    .tag-name {
+      width: 190px;
+      height: 18px;
+      text-align: left;
+      font: normal normal bold 15px/18px Roboto;
+      letter-spacing: 0;
+      opacity: 1;
+    }
+
+    .tag-change {
+      width: 49px;
+      height: 18px;
+      text-align: left;
+      font: normal normal bold 15px/18px Roboto;
+      letter-spacing: 0;
+      opacity: 1;
+    }
+  }
+}
+
+
+// Most Wanted Section
+.most-wanted-wrapper {
+  .most-wanted-tag {
+    width: 166px;
+    background: #FFFFFF 0 0 no-repeat padding-box;
+    box-shadow: 1px 1px 3px #00000029;
+    border-radius: 3px;
+    opacity: 1;
+  }
+}

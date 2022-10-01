@@ -1,0 +1,67 @@
+query getAnalysesShareOverview($instrumentGroupId: Int!,$from: LocalDate, $first: Int, $after: ID) {
+  group(id: $instrumentGroupId) {
+    id
+    analysis(criteria: {from: $from}, first: $first, after: $after) {
+      edges {
+        cursor
+        node {
+          id
+          date
+          timeFrame
+          recommendation
+          targetPrice
+          referencePrice
+          updated
+          latest
+          currency {
+            displayCode
+            __typename
+          }
+          institute {
+            id
+            name
+            __typename
+          }
+          analyst {
+            firstName
+            lastName
+            __typename
+          }
+          group {
+              id
+              name
+              seoTag
+              assetGroup
+              main {
+                  id
+                  currency {
+                      displayCode
+                  }
+                  snapQuote {
+                      lastChange
+                      instrumentId
+                      quote(type:TRADE) {
+                          value
+                          change
+                          percentChange
+                      }
+                  }
+              }
+          }
+          headline
+          body
+          __typename
+        }
+        __typename
+      }
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
+        __typename
+      }
+      __typename
+    }
+  }
+}

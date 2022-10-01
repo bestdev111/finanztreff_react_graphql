@@ -1,0 +1,38 @@
+query getEtfSearchMetadata {
+    classification(category: ETF) {
+        id
+        name
+        typeGroups {
+            id
+            name
+        }
+    }
+    etfAllocation {
+        id
+        name
+    }
+    etfPosition {
+        id
+        name
+    }
+    etfRegions {
+        id
+        name
+    }
+    etfSectors {
+        id
+        name
+    }
+    etfStrategies {
+        id
+        name
+    }
+    etfReplications {
+        id
+        name
+    }
+    etfIssuers {
+        id
+        name
+    }
+}

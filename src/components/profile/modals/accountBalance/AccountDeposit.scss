@@ -1,0 +1,21 @@
+.select-type-konto{
+    .dropdown-menu{
+        width: auto;
+        height: 165px;
+        overflow-y: scroll;
+    }
+    .dropdown-toggle{
+        width: 100%;
+        text-align: left;
+        background-color: var(--border-gray) !important;
+        border-color: var(--border-gray) !important;
+        float: right !important;
+        color:  var(--dark) !important;
+        font-size: 15px !important;
+    }
+    .dropdown-toggle::after{
+        position: absolute;
+        right: 10px;
+        top: 10px;  
+    }
+}

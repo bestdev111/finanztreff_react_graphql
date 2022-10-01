@@ -1,0 +1,50 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.inner-content-wrapper-collapse {
+    margin-top: 5px;
+
+    .collapse-controls {
+        font-size: 13px;
+        text-align: center;
+        padding-bottom: 16px;
+
+        .drop-arrow {
+            position: relative;
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            top: -3px;
+            margin-left: 15px;
+            border-width: 0 1px 1px 0;
+            cursor: pointer;
+        }
+
+        > a {
+            font-size: 0;
+
+            > span {
+                font-size: 13px;
+            }
+        }
+
+        [aria-expanded="false"] {
+            > .opened-text {
+                display: none;
+            }
+        }
+
+        [aria-expanded="true"] {
+            > .closed-text {
+                display: none;
+            }
+
+            + i {
+                &.drop-arrow {
+                    transform: rotate(-135deg);
+                    -webkit-transform: rotate(-135deg);
+                    top: 2px;
+                }
+            }
+        }
+    }
+}

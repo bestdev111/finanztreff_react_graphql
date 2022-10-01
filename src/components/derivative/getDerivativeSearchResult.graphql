@@ -1,0 +1,170 @@
+query getDerivativeSearchResultNewVersion($optionType: DerivativeOptionType, $assetGroup: AssetGroup, $assetTypeGroup: String, $assetType: String, $underlyingInstrumentGroupId: Int, $keyFigures: [DerivativeKeyFigureCriteria!] = [], $maturityDateFrom: LocalDate, $maturityDateTo: LocalDate, $issuerId: [Long!], $sort: [SearchDerivativeSort!] = [], $first: Int, $after: ID) {
+  searchDerivative(criterion: {optionType: $optionType, assetGroup: $assetGroup, assetTypeGroup: $assetTypeGroup, assetType: $assetType, underlyingInstrumentGroupId: $underlyingInstrumentGroupId, issuerId: $issuerId, maturityDate: {from: $maturityDateFrom, to: $maturityDateTo}, keyFigures: $keyFigures}, sort: $sort, first: $first, after: $after) {
+    edges {
+      cursor
+      node {
+        id
+        name
+        wkn
+        group {
+          id
+          seoTag
+          assetGroup
+          assetTypeGroup {
+            id
+            name
+            __typename
+          }
+          assetType {
+            id
+            name
+            __typename
+          }
+          issuerId
+          issuer {
+            name
+            partner
+            __typename
+          }
+          main {
+            lastTradingDay
+          }
+          derivative {
+            id
+            maturityDate
+            optionType
+            managementFee
+            __typename
+          }
+          underlyings {
+            id
+            strike
+            knockOut
+            knockOutLower
+            knockOutUpper
+            cap
+            bonusBarrier
+            security
+            securityBarrierObservationStartAt
+            securityBarrierTriggeredAt
+            securityBarrierObservationStartAt
+            securityBarrierObservationEndAt
+            currency {
+              displayCode
+              __typename
+            }
+            instrument {
+              snapQuote {
+                lastChange
+                instrumentId
+                quotes {
+                  value
+                  type
+                }
+              }
+            }
+            __typename
+          }
+          interestRateInformation {
+            interestRate
+            nextPaymentDate
+            lastPaymentDate
+            finalPaymentDate
+          }
+          __typename
+        }
+        __typename
+        derivativeKeyFigures {
+          gearing
+          premium
+          premiumAbsolute
+          premiumAnnual
+          implicitVolatility
+          breakEven
+          moneyness
+          intrinsicValue
+          timeValuePremium
+          spread
+          spreadHomogenous
+          spreadRelative
+          deltaStopLoss
+          deltaStopLossAbsolute
+          agio
+          agioAnnual
+          omega
+          delta
+          gamma
+          theta
+          rho
+          vega
+          discountAbsolute
+          discountPercent
+          sidewaysReturn
+          sidewaysReturnAbsolute
+          sidewaysAnnualReturn
+          outperformanceLevel
+          maxAnnualReturn
+          maxReturn
+          maxReturnAbsolute
+          maxRedemptionPrice
+          deltaCap
+          deltaCapAbsolute
+          fairValue
+          bonusAnnualReturn
+          bonusBuffer
+          bonusBufferAbsolute
+          bonusReturn
+          bonusReturnAbsolute
+          deltaBonusLevel
+          deltaBonusLevelAbsolute
+          deltaStrike
+          deltaStrikeAbsolute
+          deltaSecurityLevel
+
+          dirtyPrice
+          parity
+
+          # Bond Keyfigure temporary
+          ismaYield
+          accruedInterest
+          duration
+          modifiedDuration
+          update {
+            when
+            type
+            value
+            underlyingValue
+          }
+          __typename
+        }
+        snapQuote {
+          lastChange
+          instrumentId
+          quotes {
+            delay
+            type
+            value
+            when
+            __typename
+          }
+          __typename
+        }
+        performance(period: [MONTH1, WEEK52]) {
+          period
+          performance
+          __typename
+        }
+      }
+      __typename
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      __typename
+    }
+    count
+    __typename
+  }
+}

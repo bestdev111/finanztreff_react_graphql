@@ -1,0 +1,210 @@
+@import 'src/styles/theme';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.text-opacity-white{
+    color: rgba(255, 255, 255, 0.43) !important;
+}
+
+.carousel-portfolio-overview{
+    .slide{
+        width: 100%;
+        height: 430px !important;
+        @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+            height: 528px !important;
+        }
+        @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+            height: 480px !important;
+        }
+    }
+}
+
+.portoflio-new-banner{
+    padding: 8px 32px 0px 32px  !important;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        padding: 8px 34px 16px 34px !important;
+        &.footer{
+            padding: 8px 34px 8px 34px !important;
+        }
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        padding: 14px 23px !important;
+    }
+
+}
+
+.fs-22-24-32{
+    font-size: 32px !important;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        font-size: 24px !important;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        font-size: 22px !important;
+    }
+
+}
+
+.fs-20-24-32{
+    font-size: 32px !important;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        font-size: 24px !important;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        font-size: 20px !important;
+    }
+
+}
+
+
+.fs-20-22-24{
+    font-size: 24px !important;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        font-size: 22px !important;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        font-size: 20px !important;
+    }
+
+}
+
+.fs-11-13-15{
+    font-size: 15px !important;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        font-size: 13px !important;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        font-size: 11px !important;
+    }
+}
+
+.fs-11-13-13{
+    font-size: 13px !important;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        font-size: 13px !important;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        font-size: 11px !important;
+    }
+}
+
+.fs-15-20-28{
+    font-size: 28px !important;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        font-size: 20px !important;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        font-size: 15px !important;
+    }
+}
+
+
+.fs-15-21-23{
+    font-size: 23px !important;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        font-size: 21px !important;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        font-size: 15px !important;
+    }
+}
+
+.width-15-20-30{
+    width: 30px !important;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        width: 20px !important;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        width: 15px !important;
+    }
+}
+
+.fs-13-15-15{
+    font-size: 15px !important;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        font-size: 15px !important;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        font-size: 13px !important;
+    }
+}
+
+.fs-13-15-17{
+    font-size: 17px !important;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        font-size: 15px !important;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        font-size: 13px !important;
+    }
+}
+
+.fs-15-18-18{
+    font-size: 18px !important;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        font-size: 15px !important;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        font-size: 15px !important;
+    }
+}
+
+.fs-15-17-17{
+    font-size: 17px !important;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        font-size: 17px !important;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        font-size: 15px !important;
+    }
+}
+
+.fs-13-17-17{
+    font-size: 17px !important;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        font-size: 17px !important;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        font-size: 13px !important;
+    }
+}
+
+.width-20-30-40{
+    width: 40px !important;
+    @media screen and (max-width: map-get($grid-breakpoints,xl) - 1){
+        width: 30px !important;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        width: 20px !important;
+    }
+}
+
+
+.fs-sm-12px{
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        font-size: 12px !important;
+    }
+}
+
+.portfolio-name-in-banner{
+    font-size: 32px!important;
+}
+
+.dropdown-menu-banner{
+    .dropdown-menu{
+        margin-top:-10px !important;
+        margin-left: 6px !important;
+    }
+}
+.dropdown-menu-banner-xl{
+    @media screen and (max-width: map-get($grid-breakpoints,md) - 1){
+        .dropdown-menu{
+            margin-top: -24px !important;
+        }
+    }
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, sm) - 1) and (max-width: map-get($grid-breakpoints, md) - 1){
+    .portfolio .dropdown-menu{
+        transform: translate3d(37px, -69px, 0px) !important;
+    }
+}

@@ -1,0 +1,6 @@
+query getNewsSource {
+    newsSource {
+        id
+        name
+    }
+}
